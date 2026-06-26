@@ -139,7 +139,9 @@ em { font-style: italic; }
 .divider { display: flex; justify-content: center; padding: 0 5vw; }
 
 /* ===== RESEARCH ===== */
-.research-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 0 3rem; }
+.research-grid { display: grid; grid-template-columns: 1fr; gap: 0 3rem; }
+@media (min-width: 700px) { .research-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1300px) { .research-grid { grid-template-columns: repeat(3, 1fr); } }
 .research-card {
   padding: 2.6rem 0; border-top: 2px solid var(--beni);
   transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
