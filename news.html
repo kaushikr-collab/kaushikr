@@ -82,15 +82,18 @@ em { font-style: italic; }
 
 .news-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .news-tag {
-  font-family: 'Source Code Pro', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: #6b6358; padding: 0.28rem 0.6rem; border: 1px solid rgba(26,23,20,0.14); border-radius: 3px;
+  font-family: 'Source Code Pro', monospace; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+  padding: 0.32rem 0.7rem; border-radius: 999px;
 }
-.news-tag--member { color: var(--beni); border-color: rgba(173,53,53,0.3); }
-.news-tag--defense { color: #1a1714; border-color: rgba(26,23,20,0.28); background: rgba(26,23,20,0.04); }
-.news-tag--award { color: #8a6d1f; border-color: rgba(138,109,31,0.3); }
-.news-tag--publication { color: #2d5a6b; border-color: rgba(45,90,107,0.3); }
-.news-tag--funding { color: #4f7a3e; border-color: rgba(79,122,62,0.3); }
-.news-tag--move, .news-tag--promotion { color: var(--beni); border-color: rgba(173,53,53,0.3); }
+.news-tag--member     { color: #8a3030; background: rgba(173,53,53,0.13); }
+.news-tag--defense    { color: #1a1714; background: rgba(26,23,20,0.09); }
+.news-tag--promotion  { color: #9c5a18; background: rgba(196,122,38,0.16); }
+.news-tag--award      { color: #8a6d1f; background: rgba(196,166,38,0.18); }
+.news-tag--publication{ color: #235066; background: rgba(45,90,107,0.14); }
+.news-tag--funding    { color: #3f6233; background: rgba(79,122,62,0.15); }
+.news-tag--move       { color: #6b4c7a; background: rgba(123,86,138,0.14); }
+.news-tag--rotation   { color: #8a5a3a; background: rgba(166,123,91,0.18); }
+.news-tag--candidacy  { color: #46586b; background: rgba(70,88,107,0.13); }
 
 /* Future-ready: add class="news-item--photo" + <img class="news-photo"> as a third grid child to pair a photo with a milestone entry once available. */
 .news-item--photo { grid-template-columns: 130px 1fr auto; }
@@ -184,7 +187,7 @@ em { font-style: italic; }
         <div class="news-date">May</div>
         <div>
           <p class="news-body">Katelyn and Emily advanced to PhD candidacy after passing qualifying exams.</p>
-          <div class="news-tags"><span class="news-tag news-tag--member">Milestone</span></div>
+          <div class="news-tags"><span class="news-tag news-tag--candidacy">Candidacy</span></div>
         </div>
       </article>
 
@@ -237,7 +240,7 @@ em { font-style: italic; }
         <div class="news-date">May</div>
         <div>
           <p class="news-body">Neha advanced to PhD candidacy. Emily and Katelyn joined as PhD students.</p>
-          <div class="news-tags"><span class="news-tag news-tag--member">Milestone</span><span class="news-tag news-tag--member">New Member</span></div>
+          <div class="news-tags"><span class="news-tag news-tag--candidacy">Candidacy</span><span class="news-tag news-tag--member">New Member</span></div>
         </div>
       </article>
 
@@ -295,7 +298,7 @@ em { font-style: italic; }
         <div class="news-date">February</div>
         <div>
           <p class="news-body">A manuscript on Epe1 and PKA activity was accepted. Andres Herrera Tequia completed a two-month rotation.</p>
-          <div class="news-tags"><span class="news-tag news-tag--publication">Publication</span><span class="news-tag news-tag--member">Rotation</span></div>
+          <div class="news-tags"><span class="news-tag news-tag--publication">Publication</span><span class="news-tag news-tag--rotation">Rotation</span></div>
         </div>
       </article>
     </section>
@@ -308,7 +311,7 @@ em { font-style: italic; }
         <div class="news-date">September</div>
         <div>
           <p class="news-body">A methods chapter on tethering strategies was accepted. Kira Holton began a rotation.</p>
-          <div class="news-tags"><span class="news-tag news-tag--publication">Publication</span><span class="news-tag news-tag--member">Rotation</span></div>
+          <div class="news-tags"><span class="news-tag news-tag--publication">Publication</span><span class="news-tag news-tag--rotation">Rotation</span></div>
         </div>
       </article>
 
@@ -361,7 +364,7 @@ em { font-style: italic; }
         <div class="news-date">January</div>
         <div>
           <p class="news-body">Three students joined for rotations: Melissa Seman, Emily Ellinger, and Rosa Romero.</p>
-          <div class="news-tags"><span class="news-tag news-tag--member">Rotation</span></div>
+          <div class="news-tags"><span class="news-tag news-tag--rotation">Rotation</span></div>
         </div>
       </article>
     </section>
