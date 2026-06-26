@@ -1,0 +1,57 @@
+(() => {
+  const nav = document.getElementById('rglNav');
+  const onScroll = () => {
+    if (!nav) return;
+    nav.classList.toggle('is-scrolled', window.scrollY > 60);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const revealNow = (el) => {
+      el.classList.remove('pre-reveal');
+      el.classList.add('is-revealed');
+    };
+
+    // Only hide elements that are below the fold; everything else stays visible.
+    const toObserve = [];
+    revealEls.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 40) return;
+      el.classList.add('pre-reveal');
+      toObserve.push(el);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const parent = el.parentElement;
+        const siblings = parent
+          ? Array.from(parent.querySelectorAll(':scope > [data-reveal].pre-reveal'))
+          : [];
+        const idx = siblings.indexOf(el);
+        const delay = Math.min(Math.max(idx, 0) * 80, 400);
+        setTimeout(() => revealNow(el), delay);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    toObserve.forEach((el) => observer.observe(el));
+  }
+
+  const archiveToggle = document.querySelector('.archive-toggle');
+  const archiveContent = document.getElementById('archive-content');
+  if (archiveToggle && archiveContent) {
+    const label = archiveToggle.querySelector('.archive-toggle-label');
+    archiveToggle.addEventListener('click', () => {
+      const open = archiveToggle.getAttribute('aria-expanded') === 'true';
+      archiveToggle.setAttribute('aria-expanded', String(!open));
+      archiveContent.hidden = open;
+      if (label) label.textContent = open ? '+ Expand' : '− Close';
+    });
+  }
+})();
