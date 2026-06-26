@@ -26,16 +26,22 @@ em { font-style: italic; }
 
 .nav {
   position: sticky; top: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 5vw; background: rgba(246,241,231,0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(26,23,20,0.06);
+  gap: 2rem; flex-wrap: wrap; padding: 1.2rem 5vw; background: rgba(246,241,231,0.95);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(26,23,20,0.06);
 }
-.nav-back {
+.brand {
   display: flex; align-items: center; gap: 0.65rem; font-family: 'Crimson Pro', Georgia, serif; font-size: 1.3rem;
-  font-weight: 600; letter-spacing: 0.04em; color: #1a1714; text-decoration: none;
+  font-weight: 600; letter-spacing: 0.04em; color: #1a1714; text-decoration: none; white-space: nowrap;
 }
-.nav-back-arrow { font-size: 1.2rem; line-height: 0; }
-.nav-back-mark { overflow: visible; flex-shrink: 0; }
-.nav-tag { font-family: 'Source Code Pro', monospace; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--beni); }
+.brand-mark { overflow: visible; flex-shrink: 0; }
+.nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+.nav-link {
+  font-family: 'Source Code Pro', monospace; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.13em;
+  text-transform: uppercase; color: #3a352e; text-decoration: none; transition: color 0.3s;
+}
+.nav-link:hover { color: var(--beni); }
+.nav-link--join { font-weight: 600; color: var(--beni); }
+.nav-link--current { color: var(--beni); font-weight: 600; }
 
 .header { padding: 5rem 5vw 3rem; max-width: 900px; margin: 0 auto; }
 .header-eyebrow {
@@ -130,8 +136,20 @@ em { font-style: italic; }
   </defs></svg>
 
   <nav class="nav">
-    <a href="index.html" class="nav-back"><span class="nav-back-arrow">←</span> <svg width="22" height="22" viewBox="0 0 40 40" class="nav-back-mark"><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="var(--beni)" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/></svg> Ragunathan Lab</a>
-    <span class="nav-tag">News</span>
+    <a href="index.html" class="brand">
+      <svg width="28" height="28" viewBox="0 0 40 40" class="brand-mark"><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="var(--beni)" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/></svg>
+      Ragunathan Lab
+    </a>
+    <div class="nav-links">
+      <a href="index.html#research" class="nav-link">Research</a>
+      <a href="index.html#methods" class="nav-link">Methods</a>
+      <a href="index.html#team" class="nav-link">People</a>
+      <a href="index.html#publications" class="nav-link">Publications</a>
+      <a href="news.html" class="nav-link nav-link--current">News</a>
+      <a href="index.html#openings" class="nav-link nav-link--join">Join</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+      <a href="chromatin-101.html" class="nav-link">Learn</a>
+    </div>
   </nav>
 
   <header class="header">
