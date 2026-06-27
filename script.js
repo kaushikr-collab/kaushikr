@@ -70,4 +70,16 @@
       if (label) label.textContent = open ? '+ Expand' : '− Close';
     });
   }
+
+  const alumniToggle = document.querySelector('.alumni-toggle');
+  const alumniContent = document.getElementById('alumni-content');
+  if (alumniToggle && alumniContent) {
+    const label = alumniToggle.querySelector('.archive-toggle-label');
+    alumniToggle.addEventListener('click', () => {
+      const open = alumniToggle.getAttribute('aria-expanded') === 'true';
+      alumniToggle.setAttribute('aria-expanded', String(!open));
+      alumniContent.hidden = open;
+      if (label) label.textContent = open ? '+ Expand' : '− Close';
+    });
+  }
 })();

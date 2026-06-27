@@ -250,8 +250,12 @@ em { font-style: italic; }
 .member-edu { font-family: 'Source Code Pro', monospace; font-size: 0.8rem; color: #6b6358; margin-top: 0.45rem; }
 
 .alumni { margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(26,23,20,0.07); }
-.alumni-heading { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.55rem; font-weight: 400; color: #2a2018; margin: 0 0 2rem; }
+.alumni-toggle { font-size: 1.55rem; color: #2a2018; letter-spacing: 0; margin-bottom: 2rem; max-width: 680px; }
+.alumni-toggle:hover { opacity: 0.75; }
+.alumni-heading { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.55rem; font-weight: 400; color: #2a2018; }
+.alumni-toggle .archive-toggle-label { color: var(--beni); flex-shrink: 0; }
 .alumni-list { display: flex; flex-direction: column; max-width: 680px; }
+.alumni-list[hidden] { display: none; }
 .alumni-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.9rem 0; border-bottom: 1px solid rgba(26,23,20,0.08); gap: 1rem 1.5rem; flex-wrap: wrap; }
 .alumni-row strong { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.1rem; font-weight: 500; color: #2a2018; flex-shrink: 0; }
 .alumni-row span { font-family: 'Source Code Pro', monospace; font-size: 0.82rem; color: #6b6358; text-align: right; }
@@ -297,13 +301,13 @@ em { font-style: italic; }
 .pub-footnote { font-family: 'Source Code Pro', monospace; font-size: 0.72rem; color: #b5aea4; margin-top: 1.5rem; }
 .pub-footnote a { color: var(--beni); text-decoration: none; }
 
-.archive-toggle {
+.archive-toggle, .alumni-toggle {
   all: unset; cursor: pointer; box-sizing: border-box; width: 100%;
   font-family: 'Crimson Pro', Georgia, serif; font-size: 1.25rem; font-weight: 400; color: var(--beni);
   letter-spacing: 0.08em; margin: 0; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(26,23,20,0.06);
   display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; transition: opacity 0.3s;
 }
-.archive-toggle:hover { opacity: 0.75; }
+.archive-toggle:hover, .alumni-toggle:hover { opacity: 0.75; }
 .archive-toggle-label { font-family: 'Source Code Pro', monospace; font-size: 0.74rem; color: var(--beni); }
 .archive-content p {
   font-family: 'Crimson Pro', Georgia, serif; font-size: 1.08rem; font-weight: 300; font-style: italic;
@@ -778,8 +782,11 @@ em { font-style: italic; }
     </div>
 
     <div class="alumni" data-reveal>
-      <h3 class="alumni-heading">Alumni &amp; where they are now</h3>
-      <div class="alumni-list">
+      <button type="button" class="alumni-toggle" aria-expanded="false" aria-controls="alumni-content">
+        <span class="alumni-heading">Alumni &amp; where they are now</span>
+        <span class="archive-toggle-label">+ Expand</span>
+      </button>
+      <div id="alumni-content" class="alumni-list" hidden>
         <div class="alumni-row"><strong>Melissa Seman</strong><span>Postdoc, Harvard University</span></div>
         <div class="alumni-row"><strong>Basila Moochickal Assainar</strong><span>Postdoc, University of Chicago</span></div>
         <div class="alumni-row"><strong>Alexandria Latuda</strong><span>Graduate Student, Stowers Institute</span></div>
@@ -1037,6 +1044,6 @@ em { font-style: italic; }
   </footer>
 </div>
 
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>
