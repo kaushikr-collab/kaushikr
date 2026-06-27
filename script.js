@@ -1,4 +1,15 @@
 (() => {
+  const progBar = document.getElementById('rglProg');
+  if (progBar) {
+    const onProgScroll = () => {
+      const h = document.documentElement;
+      const max = (h.scrollHeight - h.clientHeight) || 1;
+      progBar.style.width = Math.min(100, (h.scrollTop / max) * 100) + '%';
+    };
+    window.addEventListener('scroll', onProgScroll, { passive: true });
+    onProgScroll();
+  }
+
   const nav = document.getElementById('rglNav');
   const onScroll = () => {
     if (!nav) return;

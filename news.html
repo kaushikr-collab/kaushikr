@@ -9,9 +9,6 @@
 <meta property="og:title" content="News · Ragunathan Lab">
 <meta property="og:description" content="Lab news from the Ragunathan Lab at Brandeis University — defenses, publications, awards, and new members.">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="News · Ragunathan Lab">
-<meta name="twitter:description" content="Lab news from the Ragunathan Lab at Brandeis University — defenses, publications, awards, and new members.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -167,7 +164,7 @@ em { font-style: italic; }
     <filter id="ink2" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
   </defs></svg>
 
-  <nav class="nav">
+  <nav id="rglNav" class="nav">
     <a href="index.html" class="brand">
       <svg width="28" height="28" viewBox="0 0 40 40" class="brand-mark"><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="var(--beni)" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/></svg>
       Ragunathan Lab
@@ -431,25 +428,6 @@ em { font-style: italic; }
   </footer>
 </div>
 
-  <script>
-    (() => {
-      const nav = document.querySelector('.nav');
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      if (navToggle && navLinks) {
-        const closeMenu = () => {
-          navLinks.classList.remove('is-open');
-          navToggle.setAttribute('aria-expanded', 'false');
-          if (nav) nav.classList.remove('is-open');
-        };
-        navToggle.addEventListener('click', () => {
-          const open = navLinks.classList.toggle('is-open');
-          navToggle.setAttribute('aria-expanded', String(open));
-          if (nav) nav.classList.toggle('is-open', open);
-        });
-        navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
-      }
-    })();
-  </script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>
