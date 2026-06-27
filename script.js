@@ -59,9 +59,9 @@
     navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
   }
 
-  const archiveToggle = document.querySelector('.archive-toggle');
-  const archiveContent = document.getElementById('archive-content');
-  if (archiveToggle && archiveContent) {
+  document.querySelectorAll('.archive-toggle').forEach((archiveToggle) => {
+    const archiveContent = document.getElementById(archiveToggle.getAttribute('aria-controls'));
+    if (!archiveContent) return;
     const label = archiveToggle.querySelector('.archive-toggle-label');
     archiveToggle.addEventListener('click', () => {
       const open = archiveToggle.getAttribute('aria-expanded') === 'true';
@@ -69,7 +69,7 @@
       archiveContent.hidden = open;
       if (label) label.textContent = open ? '+ Expand' : '− Close';
     });
-  }
+  });
 
   const alumniToggle = document.querySelector('.alumni-toggle');
   const alumniContent = document.getElementById('alumni-content');
