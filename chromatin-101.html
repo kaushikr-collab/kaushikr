@@ -46,6 +46,32 @@ em { font-style: italic; }
 .nav-link--join { font-weight: 600; color: var(--beni); }
 .nav-link--current { color: #1a1714; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(26,23,20,0.3); text-underline-offset: 0.3em; }
 
+.nav-toggle { display: none; background: none; border: none; padding: 0.4rem; margin: -0.4rem; cursor: pointer; }
+.nav-toggle-bars { display: block; width: 22px; height: 14px; position: relative; }
+.nav-toggle-bars span {
+  position: absolute; left: 0; right: 0; height: 2px; background: #1a1714; border-radius: 1px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-toggle-bars span:nth-child(1) { top: 0; }
+.nav-toggle-bars span:nth-child(2) { top: 6px; }
+.nav-toggle-bars span:nth-child(3) { top: 12px; }
+.nav.is-open .nav-toggle-bars span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+.nav.is-open .nav-toggle-bars span:nth-child(2) { opacity: 0; }
+.nav.is-open .nav-toggle-bars span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+@media (max-width: 640px) {
+  .nav-toggle { display: flex; align-items: center; justify-content: center; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column;
+    align-items: flex-start; gap: 0; background: #f6f1e7;
+    border-bottom: 1px solid rgba(26,23,20,0.08); padding: 0.5rem 5vw 1.2rem;
+    box-shadow: 0 12px 24px rgba(26,23,20,0.08);
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-link { width: 100%; padding: 0.85rem 0; border-bottom: 1px solid rgba(26,23,20,0.06); }
+}
+
 .hero {
   position: relative; padding: 5rem 5vw 4rem; max-width: 1180px; margin: 0 auto;
 }
@@ -136,7 +162,11 @@ main.lessons { max-width: 1100px; margin: 0 auto; padding: 0 5vw 2rem; }
       <svg width="28" height="28" viewBox="0 0 40 40" class="brand-mark"><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="var(--beni)" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/></svg>
       Ragunathan Lab
     </a>
-    <div class="nav-links">
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="index.html#research" class="nav-link">Research</a>
       <a href="index.html#methods" class="nav-link">Methods</a>
       <a href="index.html#team" class="nav-link">People</a>
@@ -309,6 +339,23 @@ main.lessons { max-width: 1100px; margin: 0 auto; padding: 0 5vw 2rem; }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  const nav = document.querySelector('.nav');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    const closeMenu = () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      if (nav) nav.classList.remove('is-open');
+    };
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      if (nav) nav.classList.toggle('is-open', open);
+    });
+    navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+  }
 })();
 </script>
 </body>

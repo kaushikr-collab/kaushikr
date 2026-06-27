@@ -43,6 +43,22 @@
     toObserve.forEach((el) => observer.observe(el));
   }
 
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    const closeMenu = () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      if (nav) nav.classList.remove('is-open');
+    };
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      if (nav) nav.classList.toggle('is-open', open);
+    });
+    navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+  }
+
   const archiveToggle = document.querySelector('.archive-toggle');
   const archiveContent = document.getElementById('archive-content');
   if (archiveToggle && archiveContent) {

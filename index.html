@@ -48,6 +48,7 @@ body { margin: 0; background: #f6f1e7; -webkit-font-smoothing: antialiased; }
 }
 
 em { font-style: italic; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 
 /* ===== NAV ===== */
 .nav {
@@ -76,6 +77,31 @@ em { font-style: italic; }
 .nav-link:hover { color: var(--beni); }
 .nav-link--join { font-weight: 600; color: var(--beni); }
 .nav-link--join:hover { color: var(--beni); }
+
+.nav-toggle { display: none; background: none; border: none; padding: 0.4rem; margin: -0.4rem; cursor: pointer; }
+.nav-toggle-bars { display: block; width: 22px; height: 14px; position: relative; }
+.nav-toggle-bars span {
+  position: absolute; left: 0; right: 0; height: 2px; background: #1a1714; border-radius: 1px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-toggle-bars span:nth-child(1) { top: 0; }
+.nav-toggle-bars span:nth-child(2) { top: 6px; }
+.nav-toggle-bars span:nth-child(3) { top: 12px; }
+.nav.is-open .nav-toggle-bars span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+.nav.is-open .nav-toggle-bars span:nth-child(2) { opacity: 0; }
+.nav.is-open .nav-toggle-bars span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+@media (max-width: 640px) {
+  .nav-toggle { display: flex; align-items: center; justify-content: center; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column;
+    align-items: flex-start; gap: 0; background: #f6f1e7;
+    border-bottom: 1px solid rgba(26,23,20,0.08); padding: 0.5rem 5vw 1.2rem;
+    box-shadow: 0 12px 24px rgba(26,23,20,0.08);
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-link { width: 100%; padding: 0.85rem 0; border-bottom: 1px solid rgba(26,23,20,0.06); }
+}
 
 /* ===== HERO ===== */
 .hero {
@@ -351,10 +377,6 @@ em { font-style: italic; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
-@media (max-width: 640px) {
-  .nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .nav-links { gap: 1rem 1.2rem; }
-}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -376,7 +398,11 @@ em { font-style: italic; }
       <svg width="28" height="28" viewBox="0 0 40 40" class="brand-mark"><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="var(--beni)" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/></svg>
       Ragunathan Lab
     </a>
-    <div class="nav-links">
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="#research" class="nav-link">Research</a>
       <a href="#methods" class="nav-link">Methods</a>
       <a href="#team" class="nav-link">People</a>
@@ -1006,6 +1032,6 @@ em { font-style: italic; }
   </footer>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
