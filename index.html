@@ -252,9 +252,14 @@ em { font-style: italic; }
 .alumni { margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(26,23,20,0.07); }
 .alumni-heading { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.55rem; font-weight: 300; font-style: italic; color: #5c5549; margin: 0 0 2rem; }
 .alumni-list { display: flex; flex-direction: column; max-width: 680px; }
-.alumni-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.9rem 0; border-bottom: 1px solid rgba(26,23,20,0.08); gap: 1rem; }
-.alumni-row strong { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.1rem; font-weight: 500; color: #2a2018; }
-.alumni-row span { font-family: 'Source Code Pro', monospace; font-size: 0.82rem; color: #6b6358; white-space: nowrap; }
+.alumni-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.9rem 0; border-bottom: 1px solid rgba(26,23,20,0.08); gap: 1rem 1.5rem; flex-wrap: wrap; }
+.alumni-row strong { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.1rem; font-weight: 500; color: #2a2018; flex-shrink: 0; }
+.alumni-row span { font-family: 'Source Code Pro', monospace; font-size: 0.82rem; color: #6b6358; text-align: right; }
+
+@media (max-width: 640px) {
+  .alumni-row { flex-direction: column; align-items: flex-start; gap: 0.3rem; padding: 1rem 0; }
+  .alumni-row span { text-align: left; }
+}
 
 /* ===== PUBLICATIONS ===== */
 .section--pubs { padding: 6rem 5vw 9rem; }
@@ -779,7 +784,7 @@ em { font-style: italic; }
         <div class="alumni-row"><strong>Basila Moochickal Assainar</strong><span>Postdoc, University of Chicago</span></div>
         <div class="alumni-row"><strong>Alexandria Latuda</strong><span>Graduate Student, Stowers Institute</span></div>
         <div class="alumni-row"><strong>Dionysus Morris-Evans</strong><span>—</span></div>
-        <div class="alumni-row"><strong>Serena Chiu</strong><span>Reseach technician, Dana Farber Cancer Institute</span></div>
+        <div class="alumni-row"><strong>Serena Chiu</strong><span>Research technician, Dana Farber Cancer Institute</span></div>
         <div class="alumni-row"><strong>Fengting Huang</strong><span>Graduate Student, Northwestern University</span></div>
         <div class="alumni-row"><strong>Stacy Jeong</strong><span>Graduate Student, University of Michigan</span></div>
         <div class="alumni-row"><strong>Ajay Larkin</strong><span>Postdoc, University of Michigan</span></div>
