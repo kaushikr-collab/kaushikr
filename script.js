@@ -82,4 +82,37 @@
       if (label) label.textContent = open ? '+ Expand' : '− Close';
     });
   }
+
+  document.querySelectorAll('.pub-abstract > summary').forEach((summary) => {
+    const details = summary.parentElement;
+    const body = details.querySelector('.pub-abstract-body');
+    if (!body) return;
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!details.open) {
+        details.setAttribute('open', '');
+        const targetHeight = body.scrollHeight;
+        body.style.maxHeight = '0px';
+        requestAnimationFrame(() => {
+          body.style.maxHeight = targetHeight + 'px';
+        });
+        body.addEventListener('transitionend', function onOpen(ev) {
+          if (ev.propertyName !== 'max-height') return;
+          body.style.maxHeight = 'none';
+          body.removeEventListener('transitionend', onOpen);
+        });
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          body.style.maxHeight = '0px';
+        });
+        body.addEventListener('transitionend', function onClose(ev) {
+          if (ev.propertyName !== 'max-height') return;
+          details.removeAttribute('open');
+          body.style.maxHeight = '';
+          body.removeEventListener('transitionend', onClose);
+        });
+      }
+    });
+  });
 })();
