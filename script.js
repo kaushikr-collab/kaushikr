@@ -34,11 +34,11 @@
           ? Array.from(parent.querySelectorAll(':scope > [data-reveal].pre-reveal'))
           : [];
         const idx = siblings.indexOf(el);
-        const delay = Math.min(Math.max(idx, 0) * 80, 400);
+        const delay = Math.min(Math.max(idx, 0) * 40, 160);
         setTimeout(() => revealNow(el), delay);
         observer.unobserve(el);
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
 
     toObserve.forEach((el) => observer.observe(el));
   }
