@@ -16,14 +16,21 @@
     requestAnimationFrame(step);
   };
 
-  const heroImg = document.querySelector('.hero-art-img');
-  if (heroImg && !reduceMotionScroll) {
-    const onHeroParallax = () => {
-      const offset = Math.min(window.scrollY * 0.12, 90);
-      heroImg.style.transform = `translateY(${offset}px)`;
+  const heroArt = document.querySelector('.hero-art');
+  const heroSection = document.querySelector('.hero');
+  if (heroArt && heroSection && !reduceMotionScroll) {
+    const isMobileHero = () => window.matchMedia('(max-width: 900px)').matches;
+    const onHeroZoom = () => {
+      if (!isMobileHero()) {
+        heroArt.style.transform = '';
+        return;
+      }
+      const progress = Math.min(window.scrollY / heroSection.offsetHeight, 1);
+      heroArt.style.transform = `scale(${1 + progress * 0.08})`;
     };
-    window.addEventListener('scroll', onHeroParallax, { passive: true });
-    onHeroParallax();
+    window.addEventListener('scroll', onHeroZoom, { passive: true });
+    window.addEventListener('resize', onHeroZoom);
+    onHeroZoom();
   }
 
   const navEl = document.getElementById('rglNav');
