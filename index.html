@@ -19,9 +19,6 @@ body { margin: 0; background: #f6f1e7; -webkit-font-smoothing: antialiased; }
 
 @keyframes rglArtFade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes rglGentleUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes rglMistA { 0% { transform: translate(0,0); } 50% { transform: translate(46px,-12px); } 100% { transform: translate(0,0); } }
-@keyframes rglMistB { 0% { transform: translate(0,0); } 50% { transform: translate(-38px,10px); } 100% { transform: translate(0,0); } }
-@keyframes rglMistC { 0% { transform: translate(0,0); } 50% { transform: translate(26px,8px); } 100% { transform: translate(0,0); } }
 
 .rgl {
   position: relative;
@@ -34,7 +31,6 @@ body { margin: 0; background: #f6f1e7; -webkit-font-smoothing: antialiased; }
   line-height: 1.75;
   overflow-x: hidden;
   --beni: #ad3535;
-  --hero-scrim: 0.38;
 }
 
 /* paper grain */
@@ -63,7 +59,7 @@ em { font-style: italic; }
   padding: 1.7rem 5vw;
   background: rgba(246,241,231,0.95);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(26,23,20,0.06);
+  border-bottom: 1px solid rgba(173,53,53,0.15);
   transition: padding 0.6s, box-shadow 0.6s;
 }
 .nav.is-scrolled { padding: 1rem 5vw; box-shadow: 0 1px 0 rgba(26,23,20,0.08); }
@@ -81,8 +77,11 @@ em { font-style: italic; }
   color: #3a352e; text-decoration: none; transition: color 0.3s;
 }
 .nav-link:hover { color: var(--beni); }
-.nav-link--join { font-weight: 600; color: var(--beni); }
-.nav-link--join:hover { color: var(--beni); }
+.nav-link--join {
+  font-weight: 500; color: var(--beni); border: 1px solid var(--beni); padding: 0.5rem 0.95rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.nav-link--join:hover { background: var(--beni); color: #f6f1e7; }
 
 .nav-toggle { display: none; background: none; border: none; padding: 0.4rem; margin: -0.4rem; cursor: pointer; }
 .nav-toggle-bars { display: block; width: 22px; height: 14px; position: relative; }
@@ -114,17 +113,25 @@ em { font-style: italic; }
   position: relative; min-height: 100vh; display: flex; align-items: center; padding: 0 5vw; overflow: hidden;
 }
 .hero-art { position: absolute; inset: 0; z-index: 0; }
-.hero-art-svg { width: 100%; height: 100%; }
-.rglMist { transform-box: fill-box; transform-origin: center; }
-.mist-a { animation: rglMistA 32s ease-in-out infinite; }
-.mist-b { animation: rglMistB 38s ease-in-out infinite; }
-.mist-c { animation: rglMistC 30s ease-in-out infinite; }
+.hero-art-img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
 .hero-scrim {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  opacity: var(--hero-scrim, 0.55);
-  background: linear-gradient(102deg, #f6f1e7 0%, rgba(246,241,231,0.92) 22%, rgba(246,241,231,0.4) 40%, rgba(246,241,231,0) 58%);
+  background: linear-gradient(100deg, #f6f1e7 22%, rgba(246,241,231,0.88) 38%, rgba(246,241,231,0.45) 58%, rgba(246,241,231,0.12) 75%, transparent 92%);
 }
+.hero-rule {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 2; height: 3px;
+  background: linear-gradient(90deg, var(--beni) 0%, rgba(173,53,53,0.3) 40%, transparent 70%);
+}
+.hero-cta { display: flex; gap: 0.85rem; margin-top: 2.6rem; flex-wrap: wrap; }
+.hero-cta-link {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; text-decoration: none; padding: 0.85rem 1.7rem; transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+}
+.hero-cta-link--primary { background: var(--beni); color: #f6f1e7; }
+.hero-cta-link--primary:hover { opacity: 0.85; }
+.hero-cta-link--secondary { color: var(--beni); border: 1px solid rgba(173,53,53,0.45); background: rgba(246,241,231,0.6); }
+.hero-cta-link--secondary:hover { background: rgba(173,53,53,0.08); }
 
 .hero-content { position: relative; z-index: 2; max-width: 660px; padding: 11rem 0 7rem; }
 .eyebrow {
@@ -146,9 +153,9 @@ em { font-style: italic; }
 }
 
 .hero-caption {
-  position: absolute; bottom: 2.5rem; left: 5vw; z-index: 3;
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.66rem; color: #b5aea4; letter-spacing: 0.04em;
-  line-height: 1.6; max-width: 560px;
+  position: absolute; bottom: 1.2rem; right: 5vw; z-index: 3; text-align: right;
+  font-family: 'Crimson Pro', Georgia, serif; font-style: italic; font-size: 0.78rem; color: rgba(42,26,26,0.4); letter-spacing: 0.01em;
+  line-height: 1.6; max-width: 320px;
 }
 .hero-caption em { color: #8a8278; }
 
@@ -171,25 +178,25 @@ em { font-style: italic; }
 .divider { display: flex; justify-content: center; padding: 0 5vw; }
 
 /* ===== RESEARCH ===== */
-.research-grid { display: grid; grid-template-columns: 1fr; gap: 0 3rem; }
+.research-grid { display: grid; grid-template-columns: 1fr; gap: 3px; background: rgba(173,53,53,0.08); }
 @media (min-width: 700px) { .research-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1300px) { .research-grid { grid-template-columns: repeat(3, 1fr); } }
 .research-card {
-  padding: 2.6rem 0; border-top: 2px solid var(--beni);
+  padding: 1.8rem 1.8rem 2.2rem; background: #f6f1e7;
 }
-.card-number { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; color: var(--beni); margin-bottom: 1.2rem; letter-spacing: 0.15em; }
+.research-card:nth-child(even) { background: #ede8dc; }
+.card-number { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; color: var(--beni); margin-bottom: 0.85rem; letter-spacing: 0.15em; opacity: 0.7; }
 .card-figure {
-  height: 140px; border: 1px solid rgba(26,23,20,0.1); border-radius: 3px; margin-bottom: 1.2rem;
+  height: 104px; margin-bottom: 1.2rem;
   display: flex; align-items: center; justify-content: center;
-  background: repeating-linear-gradient(45deg,#efe8d8,#efe8d8 10px,#e9e0cd 10px,#e9e0cd 20px);
 }
-.card-figure span { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: #8a8076; }
-.card-title { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.65rem; font-weight: 600; margin: 0 0 1rem; line-height: 1.25; }
-.card-text { font-size: 1.05rem; color: #38322b; line-height: 1.7; margin: 0 0 1.5rem; }
-.tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.card-figure svg { width: 140px; height: 104px; }
+.card-title { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.35rem; font-weight: 600; margin: 0 0 0.6rem; line-height: 1.25; }
+.card-text { font-size: 0.92rem; color: #4a3535; line-height: 1.65; margin: 0 0 1rem; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tag {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
-  color: #6b6358; padding: 0.35rem 0.7rem; border: 1px solid rgba(26,23,20,0.14);
+  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--beni); padding: 0.2rem 0.55rem; border: 1px solid rgba(173,53,53,0.28);
 }
 .tag em { text-transform: none; }
 
@@ -423,12 +430,26 @@ em { font-style: italic; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .rglMist { animation: none !important; }
   [data-reveal] { transition: none !important; opacity: 1 !important; transform: none !important; }
 }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="ink" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="4" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="inkSoft" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="3" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="0.8"/>
+    </filter>
+    <filter id="mist"><feGaussianBlur stdDeviation="22"/></filter>
+  </defs>
+</svg>
 
 <div class="rgl">
 
@@ -460,141 +481,22 @@ em { font-style: italic; }
   <!-- ===== HERO ===== -->
   <section id="top" class="hero">
     <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" class="hero-art-svg">
-        <defs>
-          <filter id="ink" x="-8%" y="-8%" width="116%" height="116%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="4" seed="3" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-          <filter id="inkSoft" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="3" seed="11" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
-            <feGaussianBlur stdDeviation="0.8"/>
-          </filter>
-          <filter id="foliage" x="-15%" y="-15%" width="130%" height="130%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.35" numOctaves="4" seed="4" result="grain"/>
-            <feColorMatrix type="luminanceToAlpha" in="grain" result="grainAlpha"/>
-            <feComponentTransfer in="grainAlpha" result="mask">
-              <feFuncA type="discrete" tableValues="0 0.08 0.25 0.45 0.62 0.8 1"/>
-            </feComponentTransfer>
-            <feComposite operator="in" in="SourceGraphic" in2="mask" result="textured"/>
-            <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="warp"/>
-            <feDisplacementMap in="textured" in2="warp" scale="12" xChannelSelector="R" yChannelSelector="G"/>
-            <feGaussianBlur stdDeviation="0.4"/>
-          </filter>
-          <filter id="mist"><feGaussianBlur stdDeviation="22"/></filter>
-          <radialGradient id="cloud" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#1a1714" stop-opacity="0.55"/>
-            <stop offset="40%" stop-color="#1a1714" stop-opacity="0.35"/>
-            <stop offset="75%" stop-color="#1a1714" stop-opacity="0.10"/>
-            <stop offset="100%" stop-color="#1a1714" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <rect width="1600" height="900" fill="#f6f1e7"/>
-        <ellipse class="rglMist mist-a" cx="500" cy="470" rx="620" ry="190" fill="#e6dcc8" opacity="0.35" filter="url(#mist)"/>
-        <ellipse class="rglMist mist-b" cx="1150" cy="520" rx="520" ry="150" fill="#ded4be" opacity="0.28" filter="url(#mist)"/>
-        <g opacity="0.06" filter="url(#mist)">
-          <line x1="210" y1="700" x2="214" y2="340" stroke="#1a1714" stroke-width="5"/>
-          <line x1="300" y1="700" x2="296" y2="380" stroke="#1a1714" stroke-width="4"/>
-          <ellipse cx="255" cy="360" rx="120" ry="70" fill="url(#cloud)"/>
-        </g>
-        <g opacity="0.10">
-          <line x1="470" y1="820" x2="476" y2="300" stroke="#2e2a24" stroke-width="7" stroke-linecap="round" filter="url(#inkSoft)"/>
-          <line x1="560" y1="820" x2="566" y2="340" stroke="#2e2a24" stroke-width="5.5" stroke-linecap="round" filter="url(#inkSoft)"/>
-          <g>
-          <ellipse cx="492" cy="326" rx="110" ry="70" fill="#2e2a24" opacity="0.16" filter="url(#foliage)" transform="rotate(-8 492 326)"/>
-          <ellipse cx="528" cy="318" rx="72" ry="48" fill="#2e2a24" opacity="0.28" filter="url(#foliage)" transform="rotate(12 528 318)"/>
-          <ellipse cx="510" cy="322" rx="40" ry="26" fill="#2e2a24" opacity="0.38" filter="url(#foliage)" transform="rotate(-4 510 322)"/>
-          <ellipse cx="476" cy="336" rx="48" ry="34" fill="#2e2a24" opacity="0.20" filter="url(#foliage)" transform="rotate(18 476 336)"/>
-          <ellipse cx="546" cy="310" rx="36" ry="28" fill="#2e2a24" opacity="0.14" filter="url(#foliage)" transform="rotate(-14 546 310)"/>
-          </g>
-        </g>
-        <g opacity="0.22">
-          <path d="M1055 860 C1044 680 1030 460 1038 280 C1042 210 1044 170 1046 140" stroke="#1a1714" stroke-width="11" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <path d="M1046 300 C1075 270 1110 258 1140 250" stroke="#1a1714" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <path d="M1046 400 C1010 378 975 372 950 366" stroke="#1a1714" stroke-width="5.5" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <path d="M1046 480 C1080 462 1112 458 1138 456" stroke="#1a1714" stroke-width="4.5" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <ellipse cx="1108" cy="262" rx="88" ry="56" fill="#1a1714" opacity="0.22" filter="url(#foliage)" transform="rotate(-18 1108 262)"/>
-          <ellipse cx="1148" cy="246" rx="62" ry="40" fill="#1a1714" opacity="0.35" filter="url(#foliage)" transform="rotate(12 1148 246)"/>
-          <ellipse cx="1130" cy="252" rx="34" ry="22" fill="#1a1714" opacity="0.45" filter="url(#foliage)" transform="rotate(-5 1130 252)"/>
-          <ellipse cx="1092" cy="270" rx="40" ry="30" fill="#1a1714" opacity="0.28" filter="url(#foliage)" transform="rotate(22 1092 270)"/>
-          <ellipse cx="1166" cy="240" rx="36" ry="26" fill="#1a1714" opacity="0.20" filter="url(#foliage)" transform="rotate(-14 1166 240)"/>
-          <ellipse cx="1030" cy="162" rx="72" ry="50" fill="#1a1714" opacity="0.18" filter="url(#foliage)" transform="rotate(-10 1030 162)"/>
-          <ellipse cx="1054" cy="148" rx="50" ry="34" fill="#1a1714" opacity="0.30" filter="url(#foliage)" transform="rotate(14 1054 148)"/>
-          <ellipse cx="1040" cy="155" rx="28" ry="20" fill="#1a1714" opacity="0.40" filter="url(#foliage)" transform="rotate(-6 1040 155)"/>
-          <ellipse cx="1072" cy="138" rx="32" ry="24" fill="#1a1714" opacity="0.16" filter="url(#foliage)" transform="rotate(18 1072 138)"/>
-          <ellipse cx="932" cy="368" rx="86" ry="54" fill="#1a1714" opacity="0.20" filter="url(#foliage)" transform="rotate(16 932 368)"/>
-          <ellipse cx="956" cy="374" rx="58" ry="38" fill="#1a1714" opacity="0.34" filter="url(#foliage)" transform="rotate(-10 956 374)"/>
-          <ellipse cx="946" cy="366" rx="30" ry="20" fill="#1a1714" opacity="0.42" filter="url(#foliage)" transform="rotate(6 946 366)"/>
-          <ellipse cx="918" cy="380" rx="42" ry="30" fill="#1a1714" opacity="0.24" filter="url(#foliage)" transform="rotate(-18 918 380)"/>
-          <ellipse cx="1144" cy="456" rx="74" ry="48" fill="#1a1714" opacity="0.18" filter="url(#foliage)" transform="rotate(14 1144 456)"/>
-          <ellipse cx="1136" cy="464" rx="50" ry="34" fill="#1a1714" opacity="0.32" filter="url(#foliage)" transform="rotate(-8 1136 464)"/>
-          <ellipse cx="1148" cy="458" rx="26" ry="18" fill="#1a1714" opacity="0.38" filter="url(#foliage)" transform="rotate(10 1148 458)"/>
-          <path d="M1195 860 C1200 680 1204 460 1198 310 C1194 260 1192 230 1192 200" stroke="#1a1714" stroke-width="8" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <path d="M1192 360 C1222 338 1255 332 1282 330" stroke="#1a1714" stroke-width="4.5" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <path d="M1192 460 C1162 444 1135 440 1112 440" stroke="#1a1714" stroke-width="4" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <ellipse cx="1286" cy="330" rx="72" ry="48" fill="#1a1714" opacity="0.20" filter="url(#foliage)" transform="rotate(20 1286 330)"/>
-          <ellipse cx="1280" cy="338" rx="50" ry="32" fill="#1a1714" opacity="0.34" filter="url(#foliage)" transform="rotate(-6 1280 338)"/>
-          <ellipse cx="1296" cy="326" rx="28" ry="20" fill="#1a1714" opacity="0.40" filter="url(#foliage)" transform="rotate(12 1296 326)"/>
-          <ellipse cx="1310" cy="322" rx="34" ry="24" fill="#1a1714" opacity="0.16" filter="url(#foliage)" transform="rotate(-16 1310 322)"/>
-          <ellipse cx="1194" cy="268" rx="64" ry="44" fill="#1a1714" opacity="0.18" filter="url(#foliage)" transform="rotate(8 1194 268)"/>
-          <ellipse cx="1210" cy="256" rx="44" ry="28" fill="#1a1714" opacity="0.30" filter="url(#foliage)" transform="rotate(-12 1210 256)"/>
-          <ellipse cx="1200" cy="262" rx="22" ry="16" fill="#1a1714" opacity="0.38" filter="url(#foliage)" transform="rotate(5 1200 262)"/>
-          <ellipse cx="1098" cy="440" rx="68" ry="46" fill="#1a1714" opacity="0.18" filter="url(#foliage)" transform="rotate(-16 1098 440)"/>
-          <ellipse cx="1118" cy="446" rx="46" ry="30" fill="#1a1714" opacity="0.32" filter="url(#foliage)" transform="rotate(10 1118 446)"/>
-          <ellipse cx="1108" cy="442" rx="24" ry="16" fill="#1a1714" opacity="0.40" filter="url(#foliage)" transform="rotate(-4 1108 442)"/>
-        </g>
-        <g opacity="0.14">
-          <path d="M765 860 C754 660 744 460 750 310 C754 260 756 230 758 200" stroke="#1a1714" stroke-width="8" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <path d="M762 340 C730 320 700 316 678 314" stroke="#1a1714" stroke-width="4.5" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <path d="M762 430 C792 412 822 408 846 408" stroke="#1a1714" stroke-width="4" fill="none" stroke-linecap="round" filter="url(#ink)"/>
-          <ellipse cx="668" cy="314" rx="80" ry="52" fill="#1a1714" opacity="0.20" filter="url(#foliage)" transform="rotate(-22 668 314)"/>
-          <ellipse cx="690" cy="320" rx="54" ry="34" fill="#1a1714" opacity="0.34" filter="url(#foliage)" transform="rotate(8 690 320)"/>
-          <ellipse cx="678" cy="316" rx="28" ry="20" fill="#1a1714" opacity="0.42" filter="url(#foliage)" transform="rotate(-6 678 316)"/>
-          <ellipse cx="650" cy="326" rx="38" ry="28" fill="#1a1714" opacity="0.22" filter="url(#foliage)" transform="rotate(16 650 326)"/>
-          <ellipse cx="756" cy="248" rx="66" ry="44" fill="#1a1714" opacity="0.18" filter="url(#foliage)" transform="rotate(-8 756 248)"/>
-          <ellipse cx="774" cy="238" rx="44" ry="28" fill="#1a1714" opacity="0.30" filter="url(#foliage)" transform="rotate(14 774 238)"/>
-          <ellipse cx="764" cy="244" rx="24" ry="16" fill="#1a1714" opacity="0.38" filter="url(#foliage)" transform="rotate(-10 764 244)"/>
-          <ellipse cx="848" cy="406" rx="70" ry="46" fill="#1a1714" opacity="0.18" filter="url(#foliage)" transform="rotate(16 848 406)"/>
-          <ellipse cx="844" cy="414" rx="48" ry="32" fill="#1a1714" opacity="0.32" filter="url(#foliage)" transform="rotate(-10 844 414)"/>
-          <ellipse cx="856" cy="408" rx="26" ry="18" fill="#1a1714" opacity="0.40" filter="url(#foliage)" transform="rotate(6 856 408)"/>
-        </g>
-        <g opacity="0.05" filter="url(#mist)">
-          <line x1="1440" y1="820" x2="1444" y2="360" stroke="#1a1714" stroke-width="6"/>
-          <ellipse cx="1442" cy="360" rx="110" ry="64" fill="url(#cloud)"/>
-        </g>
-        <ellipse class="rglMist mist-c" cx="820" cy="840" rx="1000" ry="130" fill="#ede6d6" opacity="0.55" filter="url(#mist)"/>
-        <g opacity="0.14" filter="url(#ink)">
-          <path d="M175 842 C172 818 170 802 178 784" stroke="#1a1714" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          <path d="M183 842 C188 820 186 806 192 790" stroke="#1a1714" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-          <path d="M648 852 C646 830 644 816 650 800" stroke="#1a1714" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-          <path d="M656 852 C660 832 658 820 664 806" stroke="#1a1714" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          <path d="M258,848 C270,844 284,848 298,845 C312,842 326,846 338,844" stroke="#1a1714" stroke-width="0.9" fill="none" stroke-linecap="round"/>
-          <circle cx="270" cy="846" r="4.5" fill="#1a1714" opacity="0.65"/>
-          <circle cx="298" cy="846" r="4.5" fill="#1a1714" opacity="0.55"/>
-          <circle cx="326" cy="845" r="4" fill="#1a1714" opacity="0.45"/>
-          <path d="M422,854 C434,850 450,854 464,851" stroke="#1a1714" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-          <circle cx="434" cy="852" r="4" fill="#1a1714" opacity="0.55"/>
-          <circle cx="458" cy="852" r="4.5" fill="#1a1714" opacity="0.48"/>
-          <path d="M1342,850 C1356,846 1372,850 1388,847 C1402,844 1418,848 1430,846" stroke="#1a1714" stroke-width="0.9" fill="none" stroke-linecap="round"/>
-          <circle cx="1356" cy="848" r="4.5" fill="#1a1714" opacity="0.6"/>
-          <circle cx="1388" cy="848" r="4" fill="#1a1714" opacity="0.5"/>
-          <circle cx="1418" cy="847" r="4" fill="#1a1714" opacity="0.42"/>
-        </g>
-        <circle cx="298" cy="846" r="2" fill="#b33e3e" opacity="0.10"/>
-        <circle cx="458" cy="852" r="1.8" fill="#b33e3e" opacity="0.08"/>
-        <circle cx="1388" cy="848" r="2" fill="#b33e3e" opacity="0.09"/>
-      </svg>
+      <img src="assets/hero-tree-giraffe.png" alt="" class="hero-art-img">
     </div>
     <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-rule" aria-hidden="true"></div>
 
     <div class="hero-content">
       <p class="eyebrow" data-reveal><span class="eyebrow-rule"></span>Ragunathan Laboratory · Brandeis University</p>
       <h1 class="hero-title" data-reveal>How chromatin encodes <em>heritable</em> memory</h1>
       <p class="hero-text" data-reveal>We study how patterns of histone modification are established, propagated through DNA replication, and inherited across cell divisions — resolving the mechanisms of epigenetic inheritance in <em>S. pombe</em> and beyond.</p>
+      <div class="hero-cta" data-reveal>
+        <a href="#research" class="hero-cta-link hero-cta-link--primary">Research</a>
+        <a href="#publications" class="hero-cta-link hero-cta-link--secondary">Publications</a>
+      </div>
     </div>
 
-    <div class="hero-caption" data-reveal>After Hasegawa Tōhaku, <em>Pine Trees</em> (松林図屏風, c. 1595).</div>
+    <div class="hero-caption" data-reveal>Ink on parchment · Ragunathan Lab, 2026.</div>
   </section>
 
   <!-- ===== RESEARCH ===== -->
@@ -607,42 +509,142 @@ em { font-style: italic; }
     <div class="research-grid">
       <article class="research-card" data-reveal>
         <div class="card-number">01 — 一</div>
-        <div class="card-figure"><span>figure · to be added</span></div>
+        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+          <path d="M 4 52 Q 10 46 14 52" stroke="#ad3535" stroke-width="1.1" fill="none" opacity=".32" stroke-dasharray="2 2"/>
+          <ellipse cx="28" cy="52" rx="13" ry="10" stroke="#ad3535" stroke-width="1.5" fill="#ad3535" fill-opacity=".07" opacity=".65"/>
+          <line x1="15" y1="52" x2="41" y2="52" stroke="#ad3535" stroke-width="1.3" opacity=".52"/>
+          <circle cx="28" cy="37" r="3.5" fill="#ad3535" opacity=".65"/>
+          <line x1="28" y1="41" x2="28" y2="42" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
+          <path d="M 20 27 Q 22 19 28 18 Q 35 19 36 25 Q 35 31 29 31 Q 23 30 20 27 Z" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".09" opacity=".5"/>
+          <line x1="28" y1="31" x2="28" y2="37" stroke="#ad3535" stroke-width="1" opacity=".3" stroke-dasharray="1.5 1.5"/>
+          <path d="M 41 52 Q 50 44 56 52" stroke="#ad3535" stroke-width="1.2" fill="none" opacity=".5"/>
+          <ellipse cx="70" cy="52" rx="13" ry="10" stroke="#ad3535" stroke-width="1.5" fill="#ad3535" fill-opacity=".08" opacity=".68"/>
+          <line x1="57" y1="52" x2="83" y2="52" stroke="#ad3535" stroke-width="1.3" opacity=".52"/>
+          <circle cx="70" cy="37" r="3.5" fill="#ad3535" opacity=".65"/>
+          <line x1="70" y1="41" x2="70" y2="42" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
+          <path d="M 76 34 Q 90 25 103 33" stroke="#ad3535" stroke-width="1" fill="none" opacity=".35" stroke-dasharray="2 2"/>
+          <path d="M 101 30 L 103 33 L 100 36" stroke="#ad3535" stroke-width="1" fill="none" opacity=".35"/>
+          <path d="M 83 52 Q 92 44 97 52" stroke="#ad3535" stroke-width="1.2" fill="none" opacity=".5"/>
+          <ellipse cx="112" cy="52" rx="13" ry="10" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".06" opacity=".52"/>
+          <line x1="99" y1="52" x2="125" y2="52" stroke="#ad3535" stroke-width="1.2" opacity=".42"/>
+          <circle cx="112" cy="37" r="3.5" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".35" opacity=".58"/>
+          <line x1="112" y1="41" x2="112" y2="42" stroke="#ad3535" stroke-width="1" opacity=".38"/>
+          <path d="M 125 52 Q 132 46 136 49" stroke="#ad3535" stroke-width="1.1" fill="none" opacity=".28" stroke-dasharray="2 2"/>
+        </svg></div>
         <h3 class="card-title">Epigenetic Inheritance</h3>
         <p class="card-text">Using inducible systems in fission yeast, we separate the establishment of H3K9 methylation from its maintenance, defining the molecular requirements for heritable heterochromatin and how HP1 proteins switch between these two modes.</p>
         <div class="tag-row"><span class="tag"><em>S. pombe</em></span><span class="tag">H3K9me</span><span class="tag">Inducible silencing</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">02 — 二</div>
-        <div class="card-figure"><span>figure · to be added</span></div>
+        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+          <ellipse cx="70" cy="52" rx="48" ry="30" stroke="#ad3535" stroke-width=".7" opacity=".12" fill="none" stroke-dasharray="3 5"/>
+          <ellipse cx="70" cy="52" rx="28" ry="18" stroke="#ad3535" stroke-width="1" opacity=".2" fill="none" stroke-dasharray="3 3"/>
+          <circle cx="70" cy="52" r="13" fill="#ad3535" opacity=".1"/>
+          <circle cx="70" cy="52" r="13" stroke="#ad3535" stroke-width="1.7" opacity=".52" fill="none"/>
+          <circle cx="70" cy="52" r="5.5" fill="#ad3535" opacity=".55"/>
+          <path d="M 94 39 L 101 34 L 105 31" stroke="#ad3535" stroke-width="1.5" opacity=".38" stroke-linecap="round" fill="none"/>
+          <path d="M 101 34 L 106 30" stroke="#ad3535" stroke-width=".7" opacity=".18" stroke-linecap="round"/>
+          <circle cx="94" cy="39" r="3.5" fill="#ad3535" opacity=".68"/>
+          <path d="M 46 65 L 39 70 L 35 73" stroke="#ad3535" stroke-width="1.3" opacity=".32" stroke-linecap="round" fill="none"/>
+          <circle cx="46" cy="65" r="3" fill="#ad3535" opacity=".58"/>
+          <path d="M 27 27 L 19 22 L 14 19" stroke="#ad3535" stroke-width="1.5" opacity=".28" stroke-linecap="round" fill="none"/>
+          <path d="M 19 22 L 13 19" stroke="#ad3535" stroke-width=".7" opacity=".12" stroke-linecap="round"/>
+          <circle cx="27" cy="27" r="4" fill="#ad3535" opacity=".42"/>
+          <path d="M 118 54 L 125 51 L 129 48" stroke="#ad3535" stroke-width="1.2" opacity=".22" stroke-linecap="round" fill="none"/>
+          <circle cx="118" cy="54" r="3" fill="#ad3535" opacity=".35"/>
+          <path d="M 111 79 L 117 83" stroke="#ad3535" stroke-width=".9" opacity=".14" stroke-linecap="round"/>
+          <circle cx="111" cy="79" r="2" fill="#ad3535" opacity=".22"/>
+        </svg></div>
         <h3 class="card-title">Heterochromatin Dynamics</h3>
         <p class="card-text">We track Swi6/HP1, Clr4, and associated remodelers at single-molecule resolution in living cells, measuring the binding kinetics and transient interactions through which fleeting molecular events sustain stable, long-lived silencing.</p>
         <div class="tag-row"><span class="tag">Single-molecule</span><span class="tag">Swi6 / Clr4</span><span class="tag">Live-cell imaging</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">03 — 三</div>
-        <div class="card-figure"><span>figure · to be added</span></div>
+        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+          <path d="M 8 28 C 26 28 34 74 52 74 C 66 74 70 14 88 74 C 106 74 114 28 132 28" stroke="#ad3535" stroke-width="1.8" fill="none" opacity=".48"/>
+          <path d="M 8 28 C 26 28 34 74 52 74 C 66 74 70 14 88 74 C 106 74 114 28 132 28 L 132 104 L 8 104 Z" fill="#ad3535" opacity=".04"/>
+          <circle cx="52" cy="71" r="6.5" fill="#ad3535" opacity=".55"/>
+          <path d="M 59 63 Q 70 30 81 61" stroke="#ad3535" stroke-width="1.4" fill="none" opacity=".45" stroke-dasharray="3 2"/>
+          <path d="M 78 58 L 81 61 L 78 64" stroke="#ad3535" stroke-width="1.2" fill="none" opacity=".45"/>
+          <circle cx="88" cy="71" r="6.5" stroke="#ad3535" stroke-width="2" fill="#ad3535" fill-opacity=".15" opacity=".72"/>
+          <path d="M 97 77 Q 116 92 124 77 Q 122 63 112 59" stroke="#ad3535" stroke-width="1" fill="none" opacity=".3" stroke-dasharray="2 2"/>
+          <path d="M 114 57 L 112 59 L 115 62" stroke="#ad3535" stroke-width="1" fill="none" opacity=".3"/>
+          <text x="52" y="98" text-anchor="middle" font-family="serif" font-size="8" fill="#ad3535" opacity=".38" font-style="italic">initial</text>
+          <text x="88" y="98" text-anchor="middle" font-family="serif" font-size="8" fill="#ad3535" opacity=".38" font-style="italic">adapted</text>
+        </svg></div>
         <h3 class="card-title">Epigenetic Adaptation</h3>
         <p class="card-text">Cells can acquire heritable phenotypes by redistributing histone modifications without genetic change. We quantify the slow kinetics of this adaptation and trace the paths by which populations converge on stable epigenetic states.</p>
         <div class="tag-row"><span class="tag">Adaptation kinetics</span><span class="tag">Lineage tracing</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">04 — 四</div>
-        <div class="card-figure"><span>figure · to be added</span></div>
+        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+          <rect x="47" y="5" width="46" height="18" rx="3" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".1" opacity=".72"/>
+          <text x="70" y="18" text-anchor="middle" font-family="serif" font-size="8.5" fill="#ad3535" opacity=".7" font-style="italic">H3K9me</text>
+          <rect x="47" y="38" width="46" height="17" rx="3" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".09" opacity=".7"/>
+          <text x="70" y="51" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#ad3535" opacity=".65">READ · HP1</text>
+          <rect x="6" y="77" width="48" height="16" rx="3" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".09" opacity=".68"/>
+          <text x="30" y="89" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#ad3535" opacity=".62">WRITE · Clr4</text>
+          <rect x="86" y="77" width="48" height="16" rx="3" stroke="#ad3535" stroke-width="1.1" fill="#ad3535" fill-opacity=".07" opacity=".6"/>
+          <text x="110" y="89" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#ad3535" opacity=".55">ERASE · Epe1</text>
+          <line x1="70" y1="23" x2="70" y2="38" stroke="#ad3535" stroke-width="1.2" opacity=".5"/>
+          <path d="M 67 36 L 70 38 L 73 36" stroke="#ad3535" stroke-width="1" fill="none" opacity=".5"/>
+          <path d="M 54 55 L 30 77" stroke="#ad3535" stroke-width="1.3" opacity=".58"/>
+          <path d="M 32 74 L 30 77 L 33 79" stroke="#ad3535" stroke-width="1" fill="none" opacity=".58"/>
+          <text x="36" y="65" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#ad3535" opacity=".45" font-weight="bold">+</text>
+          <path d="M 86 55 L 110 77" stroke="#ad3535" stroke-width="1" opacity=".36" stroke-dasharray="2.5 2"/>
+          <path d="M 108 74 L 110 77 L 113 75" stroke="#ad3535" stroke-width="1" fill="none" opacity=".36"/>
+          <path d="M 6 83 Q 1 46 47 14" stroke="#ad3535" stroke-width="1.3" opacity=".6"/>
+          <path d="M 44 16 L 47 14 L 49 17" stroke="#ad3535" stroke-width="1.1" fill="none" opacity=".6"/>
+          <text x="11" y="50" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#ad3535" opacity=".45" font-weight="bold">+</text>
+          <path d="M 134 83 Q 139 46 93 14" stroke="#ad3535" stroke-width="1.2" opacity=".42" stroke-dasharray="3 2"/>
+          <line x1="89" y1="13" x2="97" y2="13" stroke="#ad3535" stroke-width="2" opacity=".42"/>
+          <text x="129" y="50" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ad3535" opacity=".38">−</text>
+        </svg></div>
         <h3 class="card-title">Synthetic Epigenetic Circuits</h3>
         <p class="card-text">By reconstituting minimal chromatin circuits, we test the design principles of epigenetic memory — mapping the conditions under which feedback yields bistability, oscillation, or stable inheritance.</p>
         <div class="tag-row"><span class="tag">Synthetic biology</span><span class="tag">Feedback &amp; bistability</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">05 — 五</div>
-        <div class="card-figure"><span>figure · to be added</span></div>
+        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+          <ellipse cx="63" cy="57" rx="20" ry="18" stroke="#ad3535" stroke-width="1.5" fill="#ad3535" fill-opacity=".08" opacity=".7"/>
+          <circle cx="63" cy="57" r="5" fill="#ad3535" opacity=".18"/>
+          <line x1="75" y1="45" x2="85" y2="34" stroke="#ad3535" stroke-width="2.5" stroke-linecap="round" opacity=".42"/>
+          <ellipse cx="93" cy="27" rx="14" ry="12" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".07" opacity=".62" transform="rotate(18 93 27)"/>
+          <circle cx="93" cy="27" r="3.5" fill="#ad3535" opacity=".14"/>
+          <line x1="83" y1="57" x2="98" y2="57" stroke="#ad3535" stroke-width="2.5" stroke-linecap="round" opacity=".38"/>
+          <ellipse cx="109" cy="57" rx="12" ry="10" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".06" opacity=".55"/>
+          <line x1="58" y1="75" x2="52" y2="87" stroke="#ad3535" stroke-width="2.2" stroke-linecap="round" opacity=".34"/>
+          <ellipse cx="48" cy="95" rx="11" ry="9" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".06" opacity=".5"/>
+          <line x1="50" y1="44" x2="38" y2="33" stroke="#ad3535" stroke-width="1.8" stroke-linecap="round" opacity=".28"/>
+          <ellipse cx="31" cy="27" rx="9" ry="8" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".05" opacity=".44" transform="rotate(-12 31 27)"/>
+          <line x1="102" y1="20" x2="110" y2="12" stroke="#ad3535" stroke-width="1.3" stroke-linecap="round" opacity=".22"/>
+          <ellipse cx="115" cy="8" rx="7" ry="6" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".04" opacity=".35"/>
+        </svg></div>
         <h3 class="card-title">Chromatin in Non-Model Fungi</h3>
         <p class="card-text">We move beyond classic models to polyextremotolerant fungi such as <em>Aureobasidium pullulans</em>, asking how chromatin-based memory lets cells adapt to environmental stress and switch heritably between cellular states.</p>
         <div class="tag-row"><span class="tag"><em>A. pullulans</em></span><span class="tag">Stress adaptation</span><span class="tag">Phenotypic switching</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">06 — 六</div>
-        <div class="card-figure"><span>figure · to be added</span></div>
+        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+          <path d="M 70 6 C 104 6 124 22 126 50 C 128 78 108 98 76 98 C 44 98 18 82 16 56 C 14 30 30 10 54 7 C 60 6 65 6 70 6 Z" stroke="#ad3535" stroke-width="1.4" fill="#ad3535" fill-opacity=".05" opacity=".5"/>
+          <ellipse cx="70" cy="50" rx="30" ry="25" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".07" opacity=".65" stroke-dasharray="3 2.5"/>
+          <circle cx="60" cy="44" r="9" stroke="#ad3535" stroke-width="1.1" fill="#ad3535" fill-opacity=".12" opacity=".58"/>
+          <circle cx="54" cy="35" r="2.2" fill="#ad3535" opacity=".62"/>
+          <circle cx="62" cy="32" r="2.2" fill="#ad3535" opacity=".62"/>
+          <circle cx="70" cy="35" r="2.2" fill="#ad3535" opacity=".62"/>
+          <ellipse cx="82" cy="47" rx="9" ry="7" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".08" opacity=".6"/>
+          <line x1="73" y1="47" x2="91" y2="47" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
+          <circle cx="82" cy="38" r="3" fill="#ad3535" opacity=".65"/>
+          <line x1="82" y1="41" x2="82" y2="40" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
+          <ellipse cx="82" cy="60" rx="8" ry="6" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".06" opacity=".48"/>
+          <line x1="74" y1="60" x2="90" y2="60" stroke="#ad3535" stroke-width="1" opacity=".38"/>
+          <circle cx="82" cy="52" r="2.5" stroke="#ad3535" stroke-width="1" fill="none" opacity=".4"/>
+        </svg></div>
         <h3 class="card-title">Self vs. Non-Self in Mammalian Cells</h3>
         <p class="card-text">In mammalian cells, we ask how the genome distinguishes self from non-self DNA — how chromatin silencing recognizes and suppresses foreign, repetitive, and transposable elements while leaving native genes intact.</p>
         <div class="tag-row"><span class="tag">Mammalian cells</span><span class="tag">Self / non-self</span><span class="tag">Repeat silencing</span></div>
