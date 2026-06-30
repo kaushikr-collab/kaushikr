@@ -1,4 +1,50 @@
 (() => {
+  const reduceMotionScroll = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+  const smoothScrollTo = (targetY, duration) => {
+    const startY = window.scrollY;
+    const diff = targetY - startY;
+    if (Math.abs(diff) < 1) return;
+    const startTime = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, startY + diff * easeInOutCubic(t));
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const heroImg = document.querySelector('.hero-art-img');
+  if (heroImg && !reduceMotionScroll) {
+    const onHeroParallax = () => {
+      const offset = Math.min(window.scrollY * 0.12, 90);
+      heroImg.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', onHeroParallax, { passive: true });
+    onHeroParallax();
+  }
+
+  const navEl = document.getElementById('rglNav');
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const navHeight = navEl ? navEl.offsetHeight : 0;
+      const targetY = target.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+      if (reduceMotionScroll) {
+        window.scrollTo(0, targetY);
+      } else {
+        smoothScrollTo(targetY, 1100);
+      }
+      history.pushState(null, '', '#' + id);
+    });
+  });
+
   const progBar = document.getElementById('rglProg');
   if (progBar) {
     const onProgScroll = () => {
