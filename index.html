@@ -71,7 +71,7 @@ em { font-style: italic; }
 }
 .brand-mark { overflow: visible; flex-shrink: 0; }
 
-.nav-links { display: flex; gap: 2.6rem; align-items: center; flex-wrap: wrap; }
+.nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: nowrap; }
 .nav-link {
   font-size: 0.82rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
   color: #3a352e; text-decoration: none; transition: color 0.3s;
@@ -114,7 +114,7 @@ em { font-style: italic; }
 }
 .hero-art {
   position: absolute; inset: 0; z-index: 0; transform-origin: center center;
-  background-image: url('assets/hero-tree-giraffe.png');
+  background-image: url('assets/hero asset v4.png');
   background-size: cover; background-position: 40% center; background-attachment: fixed;
 }
 @media (max-width: 900px) {
@@ -152,7 +152,7 @@ em { font-style: italic; }
 .eyebrow-rule--dark { width: 24px; height: 1px; background: #b5aea4; }
 
 .hero-title {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: clamp(2.1rem,4.6vw,4rem); font-weight: 400;
+  font-family: 'Crimson Pro', Georgia, serif; font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 400;
   line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 1.6rem;
 }
 .hero-title em { font-weight: 400; color: var(--beni); }
@@ -172,14 +172,17 @@ em { font-style: italic; }
   .hero-art { background-position: 70% center; }
 }
 @media (max-width: 640px) {
-  .hero { min-height: 78vh; }
-  .hero-content { padding: 5.5rem 0 2.6rem; }
-  .eyebrow { font-size: 0.7rem; gap: 0.6rem; margin-bottom: 1.2rem; }
-  .hero-title { margin-bottom: 1.1rem; }
+  .hero { min-height: 0; height: 100svh; background: #f6f1e7; }
+  .hero-art { bottom: 52%; background-position: 50% center; background-attachment: scroll; }
+  .hero-scrim { display: none; }
+  .hero-rule { display: none; }
+  .hero-content { position: absolute; top: 48%; left: 5vw; right: 5vw; padding: 1.4rem 0 2.4rem; background: transparent; max-width: none; }
+  .eyebrow { display: none; }
+  .hero-title { margin-bottom: 1rem; font-size: clamp(1.7rem,7vw,2.2rem); }
   .hero-text { display: none; }
-  .hero-cta { margin-top: 1.6rem; gap: 0.6rem; }
+  .hero-cta { margin-top: 1.4rem; gap: 0.6rem; }
   .hero-cta-link { padding: 0.75rem 1.3rem; font-size: 0.72rem; }
-  .hero-caption { max-width: 220px; font-size: 0.68rem; }
+  .hero-caption { display: none; }
 }
 
 /* ===== shared section bits ===== */
@@ -301,6 +304,53 @@ em { font-style: italic; }
 @media (max-width: 640px) {
   .alumni-row { flex-direction: column; align-items: flex-start; gap: 0.3rem; padding: 1rem 0; }
   .alumni-row span { text-align: left; }
+  .section { padding: 5rem 5vw; }
+}
+
+/* ===== NEWS ===== */
+.section--news { background: #ede8dc; }
+.news-year-group { margin-bottom: 0.5rem; }
+.news-year-head { display: flex; align-items: baseline; gap: 1rem; padding: 2rem 0 0.5rem; }
+.news-year-group:first-child .news-year-head { padding-top: 0; }
+.news-year { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.5rem; font-weight: 500; color: #1a1714; }
+.news-year-rule { flex: 1; height: 1px; background: rgba(26,23,20,0.12); }
+.news-item {
+  display: grid; grid-template-columns: 110px 1fr; gap: 1.5rem; padding: 1.2rem 0;
+  border-top: 1px solid rgba(26,23,20,0.08);
+}
+.news-year-group .news-item:first-of-type { border-top: none; }
+.news-date {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--beni); padding-top: 0.2rem;
+}
+.news-body {
+  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.08rem; font-weight: 400;
+  color: #2e2a24; line-height: 1.65; margin: 0 0 0.6rem;
+}
+.news-body em { color: #5c5549; }
+.news-body a { color: var(--beni); text-decoration: none; border-bottom: 1px solid rgba(179,62,62,0.3); }
+.news-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.news-tag {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.09em; text-transform: uppercase; padding: 0.3rem 0.65rem; border-radius: 999px;
+}
+.news-tag--member     { color: #8a3030; background: rgba(173,53,53,0.13); }
+.news-tag--defense    { color: #1a1714; background: rgba(26,23,20,0.09); }
+.news-tag--promotion  { color: #9c5a18; background: rgba(196,122,38,0.16); }
+.news-tag--award      { color: #8a6d1f; background: rgba(196,166,38,0.18); }
+.news-tag--publication{ color: #235066; background: rgba(45,90,107,0.14); }
+.news-tag--funding    { color: #3f6233; background: rgba(79,122,62,0.15); }
+.news-tag--move       { color: #6b4c7a; background: rgba(123,86,138,0.14); }
+.news-tag--rotation   { color: #8a5a3a; background: rgba(166,123,91,0.18); }
+.news-tag--candidacy  { color: #46586b; background: rgba(70,88,107,0.13); }
+.news-archive-toggle {
+  display: flex; align-items: center; gap: 0.8rem; background: none; border: none; cursor: pointer;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #5c5549; padding: 1.5rem 0 0.5rem;
+}
+.news-archive-toggle:hover { color: var(--beni); }
+@media (max-width: 560px) {
+  .news-item { grid-template-columns: 1fr; gap: 0.4rem; }
 }
 
 /* ===== PUBLICATIONS ===== */
@@ -491,13 +541,11 @@ em { font-style: italic; }
     </button>
     <div class="nav-links" id="nav-links">
       <a href="#research" class="nav-link">Research</a>
-      <a href="#methods" class="nav-link">Methods</a>
       <a href="#team" class="nav-link">People</a>
       <a href="#publications" class="nav-link">Publications</a>
-      <a href="news.html" class="nav-link">News</a>
+      <a href="#news" class="nav-link">News</a>
       <a href="#openings" class="nav-link nav-link--join">Join</a>
       <a href="#contact" class="nav-link">Contact</a>
-      <a href="chromatin-101.html" class="nav-link">Learn</a>
     </div>
   </nav>
 
@@ -509,8 +557,8 @@ em { font-style: italic; }
 
     <div class="hero-content">
       <p class="eyebrow" data-reveal><span class="eyebrow-rule"></span>Ragunathan Laboratory · Brandeis University</p>
-      <h1 class="hero-title" data-reveal>How chromatin encodes <em>heritable</em> memory</h1>
-      <p class="hero-text" data-reveal>We study how patterns of histone modification are established, propagated through DNA replication, and inherited across cell divisions — resolving the mechanisms of epigenetic inheritance in <em>S. pombe</em> and beyond.</p>
+      <h1 class="hero-title" data-reveal>Chromatin · <em>Epigenetics</em> · Inheritance</h1>
+      <p class="hero-text" data-reveal>We study how patterns of histone modification are established, propagated through DNA replication, and inherited across cell divisions.</p>
       <div class="hero-cta" data-reveal>
         <a href="#research" class="hero-cta-link hero-cta-link--primary">Research</a>
         <a href="#publications" class="hero-cta-link hero-cta-link--secondary">Publications</a>
@@ -1155,6 +1203,146 @@ em { font-style: italic; }
       </div>
     </div>
     <p class="pub-footnote" data-reveal>A complete, up-to-date publication list is available via <a href="https://orcid.org/0000-0003-4776-8589" target="_blank" rel="noopener">ORCID</a>.</p>
+  </section>
+
+  <!-- ===== NEWS ===== -->
+  <section id="news" class="section section--news">
+    <div class="section-eyebrow" data-reveal><span class="eyebrow-rule eyebrow-rule--dark"></span>News</div>
+    <h2 class="section-title" data-reveal>What's happening in the lab</h2>
+
+    <section class="news-year-group" data-reveal>
+      <div class="news-year-head"><span class="news-year">2026</span><span class="news-year-rule"></span></div>
+      <article class="news-item">
+        <div class="news-date">March</div>
+        <div>
+          <p class="news-body">Sarah and Juan both became PhD students in the lab.</p>
+          <div class="news-tags"><span class="news-tag news-tag--member">Newbee</span></div>
+        </div>
+      </article>
+    </section>
+
+    <button type="button" class="news-archive-toggle archive-toggle" aria-expanded="false" aria-controls="news-archive" data-reveal>
+      + Earlier years
+    </button>
+    <div id="news-archive" hidden>
+
+      <section class="news-year-group">
+        <div class="news-year-head"><span class="news-year">2025</span><span class="news-year-rule"></span></div>
+        <article class="news-item">
+          <div class="news-date">November</div>
+          <div><p class="news-body">Basila successfully completed her doctoral thesis defense, earning the title Dr. Moochickal Assainar.</p><div class="news-tags"><span class="news-tag news-tag--defense">Milestone</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">September</div>
+          <div><p class="news-body">Kaushik received tenure and was promoted to associate professor. Elizabeth joined as a postdoctoral fellow.</p><div class="news-tags"><span class="news-tag news-tag--promotion">Promotion</span><span class="news-tag news-tag--member">Newbee</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">July</div>
+          <div><p class="news-body">Melissa completed her doctoral thesis defense, becoming Dr. Seman.</p><div class="news-tags"><span class="news-tag news-tag--defense">Milestone</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">May</div>
+          <div><p class="news-body">Katelyn and Emily advanced to PhD candidacy after passing qualifying exams.</p><div class="news-tags"><span class="news-tag news-tag--candidacy">Candidacy</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">April</div>
+          <div><p class="news-body">Emily and Katelyn each received an Honorable Mention for the NSF Graduate Research Fellowship Program. Emily also won the Pulin Sampat Graduate Teaching Award.</p><div class="news-tags"><span class="news-tag news-tag--award">Award</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">January</div>
+          <div><p class="news-body">Melissa received the Rosbash-Abovich award for the most outstanding paper by a Brandeis PhD student, for her 2023 manuscript in <em>Cell Reports</em> — read it <a href="https://pubmed.ncbi.nlm.nih.gov/37952152/" target="_blank" rel="noopener">here</a>.</p><div class="news-tags"><span class="news-tag news-tag--award">Award</span></div></div>
+        </article>
+      </section>
+
+      <section class="news-year-group">
+        <div class="news-year-head"><span class="news-year">2024</span><span class="news-year-rule"></span></div>
+        <article class="news-item">
+          <div class="news-date">August</div>
+          <div><p class="news-body">Ajay's research was published in <em>Developmental Cell</em>.</p><div class="news-tags"><span class="news-tag news-tag--publication">Publication</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">July</div>
+          <div><p class="news-body">Amanda successfully defended her thesis, becoming Dr. Ames. Her manuscript appeared in <em>Nature Communications</em>.</p><div class="news-tags"><span class="news-tag news-tag--defense">Milestone</span><span class="news-tag news-tag--publication">Publication</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">June</div>
+          <div><p class="news-body">Alex joined as a research technician.</p><div class="news-tags"><span class="news-tag news-tag--member">Newbee</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">May</div>
+          <div><p class="news-body">Neha advanced to PhD candidacy. Emily and Katelyn joined as PhD students.</p><div class="news-tags"><span class="news-tag news-tag--candidacy">Candidacy</span><span class="news-tag news-tag--member">Newbee</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">April</div>
+          <div><p class="news-body">Ajay became the lab's first PhD recipient, Dr. Larkin.</p><div class="news-tags"><span class="news-tag news-tag--defense">Milestone</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">March</div>
+          <div><p class="news-body">Amith received an HFSP Fellowship in Synthetic Biology.</p><div class="news-tags"><span class="news-tag news-tag--award">Award</span></div></div>
+        </article>
+      </section>
+
+      <section class="news-year-group">
+        <div class="news-year-head"><span class="news-year">2023</span><span class="news-year-rule"></span></div>
+        <article class="news-item">
+          <div class="news-date">December</div>
+          <div><p class="news-body">New manuscripts were published from multiple researchers. Four new members joined the lab: Neha, Dion, Sumanth, and Amith.</p><div class="news-tags"><span class="news-tag news-tag--publication">Publication</span><span class="news-tag news-tag--member">Newbee</span></div></div>
+        </article>
+      </section>
+
+      <section class="news-year-group">
+        <div class="news-year-head"><span class="news-year">2022</span><span class="news-year-rule"></span></div>
+        <article class="news-item">
+          <div class="news-date">August</div>
+          <div><p class="news-body">The Ragunathan lab relocated to Brandeis University.</p><div class="news-tags"><span class="news-tag news-tag--move">Lab Move</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">July</div>
+          <div><p class="news-body">A collaboration with Julie Biteen and Peter Freddolino was published in <em>Science Advances</em> — read the news write-up <a href="https://news.umich.edu/u-m-researchers-track-protein-binding-build-synthetic-proteins-to-study-gene-expression/" target="_blank" rel="noopener">here</a>.</p><div class="news-tags"><span class="news-tag news-tag--publication">Publication</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">February</div>
+          <div><p class="news-body">A manuscript on Epe1 and PKA activity was accepted. Andres Herrera Tequia completed a two-month rotation.</p><div class="news-tags"><span class="news-tag news-tag--publication">Publication</span><span class="news-tag news-tag--rotation">Rotation</span></div></div>
+        </article>
+      </section>
+
+      <section class="news-year-group">
+        <div class="news-year-head"><span class="news-year">2021</span><span class="news-year-rule"></span></div>
+        <article class="news-item">
+          <div class="news-date">September</div>
+          <div><p class="news-body">A methods chapter on tethering strategies was accepted. Kira Holton began a rotation.</p><div class="news-tags"><span class="news-tag news-tag--publication">Publication</span><span class="news-tag news-tag--rotation">Rotation</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">May</div>
+          <div><p class="news-body">Melissa received an Honorable Mention for the NSF Graduate Research Fellowship Program.</p><div class="news-tags"><span class="news-tag news-tag--award">Award</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">April</div>
+          <div><p class="news-body">Anibal Tornes Blanco joined the lab.</p><div class="news-tags"><span class="news-tag news-tag--member">Newbee</span></div></div>
+        </article>
+      </section>
+
+      <section class="news-year-group">
+        <div class="news-year-head"><span class="news-year">2020</span><span class="news-year-rule"></span></div>
+        <article class="news-item">
+          <div class="news-date">August</div>
+          <div><p class="news-body">The lab received an R35 award from NIGMS.</p><div class="news-tags"><span class="news-tag news-tag--funding">Funding</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">May</div>
+          <div><p class="news-body">Melissa and Basila joined the lab.</p><div class="news-tags"><span class="news-tag news-tag--member">Newbee</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">March</div>
+          <div><p class="news-body">Lab operations moved to remote status. The first manuscript was accepted for publication in <em>eLife</em>.</p><div class="news-tags"><span class="news-tag news-tag--publication">Publication</span></div></div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">January</div>
+          <div><p class="news-body">Three students joined for rotations: Melissa Seman, Emily Ellinger, and Rosa Romero.</p><div class="news-tags"><span class="news-tag news-tag--rotation">Rotation</span></div></div>
+        </article>
+      </section>
+
+    </div>
   </section>
 
   <!-- ===== OPENINGS ===== -->
