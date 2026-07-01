@@ -172,11 +172,18 @@ em { font-style: italic; }
   .hero-art { background-position: 70% center; }
 }
 @media (max-width: 640px) {
-  .hero { min-height: 0; height: 100svh; background: #f6f1e7; }
-  .hero-art { bottom: 52%; background-position: 50% center; background-attachment: scroll; }
+  .hero { display: flex; flex-direction: column; min-height: 0; height: auto; padding: 0; }
+  .hero-art {
+    position: relative; inset: auto; z-index: 0;
+    width: 100%; aspect-ratio: 4/3;
+    margin-top: 72px;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: 60% center;
+  }
   .hero-scrim { display: none; }
   .hero-rule { display: none; }
-  .hero-content { position: absolute; top: 48%; left: 5vw; right: 5vw; padding: 1.4rem 0 2.4rem; background: transparent; max-width: none; }
+  .hero-content { position: relative; top: auto; left: auto; right: auto; max-width: none; padding: 1.8rem 5vw 2rem; }
   .eyebrow { display: none; }
   .hero-title { margin-bottom: 1rem; font-size: clamp(1.7rem,7vw,2.2rem); }
   .hero-text { display: none; }
@@ -304,7 +311,7 @@ em { font-style: italic; }
 @media (max-width: 640px) {
   .alumni-row { flex-direction: column; align-items: flex-start; gap: 0.3rem; padding: 1rem 0; }
   .alumni-row span { text-align: left; }
-  .section { padding: 5rem 5vw; }
+  .section { padding: 3rem 5vw; }
 }
 
 /* ===== NEWS ===== */
