@@ -11,82 +11,73 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-html { scroll-behavior: auto; }
-body { margin: 0; background: #f6f1e7; -webkit-font-smoothing: antialiased; }
-::selection { background: #b33e3e; color: #f6f1e7; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f2f4f4; -webkit-font-smoothing: antialiased; }
+::selection { background: #ad3535; color: #f2f4f4; }
 
-@keyframes rglArtFade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes rglGentleUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-
-.rgl {
-  position: relative;
-  background: #f6f1e7;
-  color: #1a1714;
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
-  font-size: 17px;
-  font-weight: 300;
-  letter-spacing: 0.012em;
-  line-height: 1.75;
-  overflow-x: hidden;
-  --beni: #ad3535;
-}
-
-/* paper grain */
-.grain {
-  position: fixed; inset: 0; z-index: 9000; pointer-events: none; opacity: 0.022;
-  background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23t)'/%3E%3C/svg%3E");
-}
-
-[data-reveal].pre-reveal {
-  opacity: 0;
-  transform: translateY(12px);
-}
+[data-reveal].pre-reveal { opacity: 0; transform: translateY(12px); }
 [data-reveal].is-revealed {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; transform: translateY(0);
   transition: opacity 0.4s cubic-bezier(0.22,1,0.36,1), transform 0.4s cubic-bezier(0.22,1,0.36,1);
 }
 
-em { font-style: italic; }
+em { font-style: normal; color: var(--beni); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+.rgl {
+  position: relative;
+  background: #f2f4f4;
+  color: #17191b;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.65;
+  overflow-x: hidden;
+  --beni: #ad3535;
+  --surface: #ffffff;
+  --ink: #17191b;
+  --ink-soft: #52565a;
+  --muted: #83888c;
+}
 
 /* ===== NAV ===== */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; align-items: center; justify-content: space-between; gap: 2.5rem;
-  padding: 1.7rem 5vw;
-  background: rgba(246,241,231,0.08);
-  backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4);
-  border-bottom: 1px solid rgba(173,53,53,0.12);
-  transition: padding 0.6s, box-shadow 0.6s;
+  padding: 1.3rem 5vw;
+  background: rgba(253,247,246,0.88);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(173,53,53,0.16);
+  transition: padding 0.4s, box-shadow 0.4s;
 }
-.nav.is-scrolled { padding: 1rem 5vw; box-shadow: 0 1px 0 rgba(26,23,20,0.08); }
+.nav.is-scrolled { padding: 0.85rem 5vw; box-shadow: 0 1px 0 rgba(18,17,16,0.06); }
 
 .brand {
-  display: flex; align-items: center; gap: 0.65rem;
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.3rem; font-weight: 600; letter-spacing: 0.04em;
-  color: #1a1714; text-decoration: none; white-space: nowrap;
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em;
+  color: #17191b; text-decoration: none; white-space: nowrap;
 }
 .brand-mark { overflow: visible; flex-shrink: 0; }
 
-.nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: nowrap; }
+.nav-links { display: flex; gap: 1.8rem; align-items: center; flex-wrap: nowrap; }
 .nav-link {
-  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
-  color: #3a352e; text-decoration: none; transition: color 0.3s;
+  font-size: 0.9rem; font-weight: 500; letter-spacing: 0; text-transform: none;
+  color: #43403a; text-decoration: none; transition: color 0.25s;
 }
 .nav-link:hover { color: var(--beni); }
 .nav-link--join {
-  font-weight: 500; color: var(--beni); border: 1px solid var(--beni); padding: 0.5rem 0.95rem;
-  transition: background-color 0.3s, color 0.3s;
+  font-weight: 600; color: #fff; background: var(--beni); padding: 0.55rem 1.15rem; border-radius: 100px;
+  transition: opacity 0.25s;
 }
-.nav-link--join:hover { background: var(--beni); color: #f6f1e7; }
+.nav-link--join:hover { opacity: 0.86; color: #fff; }
 
 .nav-toggle { display: none; background: none; border: none; padding: 0.4rem; margin: -0.4rem; cursor: pointer; }
 .nav-toggle-bars { display: block; width: 22px; height: 14px; position: relative; }
 .nav-toggle-bars span {
-  position: absolute; left: 0; right: 0; height: 2px; background: #1a1714; border-radius: 1px;
+  position: absolute; left: 0; right: 0; height: 2px; background: #17191b; border-radius: 1px;
   transition: transform 0.3s, opacity 0.3s;
 }
 .nav-toggle-bars span:nth-child(1) { top: 0; }
@@ -96,253 +87,252 @@ em { font-style: italic; }
 .nav.is-open .nav-toggle-bars span:nth-child(2) { opacity: 0; }
 .nav.is-open .nav-toggle-bars span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .nav-toggle { display: flex; align-items: center; justify-content: center; }
   .nav-links {
     display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column;
-    align-items: flex-start; gap: 0; background: #f6f1e7;
-    border-bottom: 1px solid rgba(26,23,20,0.08); padding: 0.5rem 5vw 1.2rem;
-    box-shadow: 0 12px 24px rgba(26,23,20,0.08);
+    align-items: flex-start; gap: 0; background: #f2f4f4;
+    border-bottom: 1px solid rgba(18,17,16,0.08); padding: 0.5rem 5vw 1.2rem;
+    box-shadow: 0 12px 24px rgba(18,17,16,0.08);
   }
   .nav-links.is-open { display: flex; }
-  .nav-link { width: 100%; padding: 0.85rem 0; border-bottom: 1px solid rgba(26,23,20,0.06); }
+  .nav-link { width: 100%; padding: 0.85rem 0; border-bottom: 1px solid rgba(18,17,16,0.06); }
+  .nav-link--join { display: inline-block; margin-top: 0.5rem; }
 }
 
 /* ===== HERO ===== */
 .hero {
-  position: relative; min-height: 100vh; display: flex; align-items: center; padding: 0 5vw; overflow: hidden;
+  position: relative; display: flex; flex-direction: column; align-items: center;
+  padding: 7.5rem 5vw 2.5rem; text-align: center;
+}
+.hero-inner { width: 100%; max-width: 68vw; margin: 0 auto; }
+
+.hero-art-frame {
+  position: relative; z-index: 1; width: 100%; box-sizing: border-box;
+  aspect-ratio: 16 / 8; margin: 0 auto; background: var(--surface); border-radius: 24px;
+  padding: 0.8rem; isolation: isolate;
 }
 .hero-art {
-  position: absolute; inset: 0; z-index: 0; transform-origin: center center;
+  width: 100%; height: 100%;
   background-image: url('assets/hero-asset-minimalist.png');
-  background-size: auto 90%; background-position: 100% center; background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  mix-blend-mode: multiply;
+  filter: contrast(1.05) brightness(1.01);
 }
-@media (max-width: 900px) {
-  .hero-art { background-attachment: scroll; }
+.hero-art-note { position: absolute; right: 20px; bottom: 20px; z-index: 3; }
+.hero-art-note summary {
+  list-style: none; cursor: pointer; width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #17191b; border: none;
+  transition: background 0.25s, transform 0.25s; -webkit-tap-highlight-color: transparent;
 }
-@media (prefers-reduced-motion: reduce) {
-  .hero-art { background-attachment: scroll; transform: none !important; }
-}
-
-.hero-scrim {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(100deg, #f6f1e7 13%, rgba(246,241,231,0.8) 27%, rgba(246,241,231,0.34) 46%, rgba(246,241,231,0.08) 64%, transparent 80%);
-}
-.hero-rule {
-  position: absolute; top: 0; left: 0; right: 0; z-index: 2; height: 3px;
-  background: linear-gradient(90deg, var(--beni) 0%, rgba(173,53,53,0.3) 40%, transparent 70%);
-}
-.hero-cta { display: flex; gap: 0.85rem; margin-top: 2.6rem; flex-wrap: wrap; }
-.hero-cta-link {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
-  text-transform: uppercase; text-decoration: none; padding: 0.85rem 1.7rem; transition: background-color 0.3s, color 0.3s, opacity 0.3s;
-}
-.hero-cta-link--primary { background: var(--beni); color: #f6f1e7; }
-.hero-cta-link--primary:hover { opacity: 0.85; }
-.hero-cta-link--secondary { color: var(--beni); border: 1px solid rgba(173,53,53,0.45); background: rgba(246,241,231,0.6); }
-.hero-cta-link--secondary:hover { background: rgba(173,53,53,0.08); }
-
-.hero-content { position: relative; z-index: 2; max-width: 540px; padding: 11rem 0 7rem; }
-.eyebrow {
-  display: flex; align-items: center; gap: 0.8rem;
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.14em;
-  text-transform: uppercase; color: #2e2a24; margin: 0 0 2.5rem;
-}
-.eyebrow-rule { width: 32px; height: 2px; background: var(--beni); display: inline-block; }
-.eyebrow-rule--dark { width: 24px; height: 1px; background: #b5aea4; }
-
-.hero-title {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 400;
-  line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 1.6rem;
-}
-.hero-title em { font-weight: 400; color: var(--beni); }
-.hero-text {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: clamp(1.05rem,2.6vw,1.18rem); font-weight: 400; line-height: 1.65;
-  color: #3a352e; max-width: 460px; margin: 0;
-}
-
-.hero-caption {
-  position: absolute; bottom: 1.2rem; right: 5vw; z-index: 3; text-align: right;
-  font-family: 'Crimson Pro', Georgia, serif; font-style: italic; font-size: 0.78rem; color: rgba(42,26,26,0.4); letter-spacing: 0.01em;
-  line-height: 1.6; max-width: 320px;
-}
-.hero-caption em { color: #8a8278; }
-
-@media (max-width: 900px) {
-  .hero-art { background-position: 70% center; }
+.hero-art-note summary svg { display: block; }
+.hero-art-note summary svg circle, .hero-art-note summary svg rect { fill: #f2f4f4; }
+.hero-art-note summary::-webkit-details-marker { display: none; }
+.hero-art-note summary::marker { content: ""; }
+.hero-art-note summary:hover { transform: scale(1.08); }
+.hero-art-note[open] summary { background: var(--beni); }
+.hero-art-note-body {
+  position: absolute; right: 0; bottom: 42px; width: 280px;
+  background: #fff; border: 1px solid rgba(18,17,16,0.08); border-radius: 12px;
+  box-shadow: 0 14px 34px rgba(18,17,16,0.14); padding: 1rem 1.1rem;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem; line-height: 1.55;
+  color: #43403a; text-align: left;
 }
 @media (max-width: 640px) {
-  .hero { display: flex; flex-direction: column; min-height: 0; height: auto; padding: 0; }
-  .hero-art {
-    position: relative; inset: auto; z-index: 0;
-    width: 100%; aspect-ratio: 4/3;
-    margin-top: 72px;
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: 60% center;
-  }
-  .hero-scrim { display: none; }
-  .hero-rule { display: none; }
-  .hero-content { position: relative; top: auto; left: auto; right: auto; max-width: none; padding: 1.8rem 5vw 2rem; }
-  .eyebrow { display: none; }
-  .hero-title { margin-bottom: 1rem; font-size: clamp(1.7rem,7vw,2.2rem); }
-  .hero-text { display: none; }
+  .hero-art-note-body { width: 220px; font-size: 0.82rem; }
+}
+.hero-content { position: relative; z-index: 2; margin-top: 2rem; }
+.eyebrow {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--beni); margin: 0 0 1.2rem;
+}
+.eyebrow-rule { width: 7px; height: 7px; border-radius: 50%; background: var(--beni); display: inline-block; }
+.eyebrow-rule--dark { width: 7px; height: 7px; border-radius: 50%; background: var(--beni); }
+
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.9rem,3.6vw,3rem); font-weight: 700;
+  line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 1.3rem;
+}
+.hero-title em { font-weight: 700; color: var(--beni); }
+.hero-text {
+  font-family: 'Inter', sans-serif; font-size: clamp(0.92rem,1.2vw,1.05rem); font-weight: 400; line-height: 1.6;
+  color: var(--ink-soft); margin: 0 auto; max-width: 42rem; text-wrap: pretty;
+}
+.hero-cta { display: flex; gap: 0.85rem; margin-top: 2rem; flex-wrap: wrap; justify-content: center; }
+.hero-cta-link {
+  font-family: 'Inter', sans-serif; font-size: 0.86rem; font-weight: 600; letter-spacing: 0;
+  text-decoration: none; padding: 0.85rem 1.7rem; border-radius: 100px; transition: background-color 0.25s, color 0.25s, opacity 0.25s;
+}
+.hero-cta-link--primary { background: var(--beni); color: #fff; }
+.hero-cta-link--primary:hover { opacity: 0.86; }
+.hero-cta-link--secondary { color: var(--ink); border: 1px solid rgba(18,17,16,0.15); background: transparent; }
+.hero-cta-link--secondary:hover { background: rgba(18,17,16,0.04); }
+
+@media (max-width: 900px) {
+  .hero { padding: 7rem 6vw 4rem; }
+  .hero-inner { max-width: 82vw; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 6.5rem 6vw 3rem; }
+  .hero-inner { max-width: 100%; }
+  .hero-art-frame { border-radius: 18px; padding: 1.4rem; }
+  .hero-title { font-size: 7.2vw; white-space: normal; }
+  .hero-text { font-size: 0.94rem; max-width: 26rem; }
   .hero-cta { margin-top: 1.4rem; gap: 0.6rem; }
-  .hero-cta-link { padding: 0.75rem 1.3rem; font-size: 0.72rem; }
-  .hero-caption { display: none; }
+  .hero-cta-link { padding: 0.75rem 1.3rem; font-size: 0.8rem; }
 }
 
 /* ===== shared section bits ===== */
-.section { position: relative; padding: 9rem 5vw; }
+.section { position: relative; padding: 7rem 5vw; }
+.hero + .section { padding-top: 3rem; }
 .section-eyebrow {
-  display: flex; align-items: center; gap: 0.8rem;
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase;
-  color: #5c5549; margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--beni); margin-bottom: 1rem;
 }
 .section-title {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: clamp(1.9rem,3.5vw,3.1rem); font-weight: 400;
-  line-height: 1.2; letter-spacing: -0.01em; max-width: 620px; margin: 0 0 1.5rem;
+  font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.9rem,3.5vw,2.7rem); font-weight: 700;
+  line-height: 1.12; letter-spacing: -0.02em; max-width: 620px; margin: 0 0 1.3rem;
 }
 .section-intro {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.22rem; font-weight: 400; color: #3a352e;
-  max-width: 600px; line-height: 1.7; margin: 0 0 3.5rem;
+  font-family: 'Inter', sans-serif; font-size: 1.08rem; font-weight: 400; color: var(--ink-soft);
+  max-width: 600px; line-height: 1.65; margin: 0 0 3rem;
 }
-.brush-stroke { display: block; margin: -0.6rem 0 1.6rem; overflow: visible; }
-.divider { display: flex; justify-content: center; padding: 0 5vw; }
 
 /* ===== RESEARCH ===== */
-.research-grid { display: grid; grid-template-columns: 1fr; gap: 3px; background: rgba(173,53,53,0.08); }
+.research-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
 @media (min-width: 700px) { .research-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1300px) { .research-grid { grid-template-columns: repeat(3, 1fr); } }
 .research-card {
-  padding: 1.8rem 1.8rem 2.2rem; background: #f6f1e7;
+  padding: 1.9rem 1.9rem 2.2rem; background: var(--surface); border-radius: 16px;
+  transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s;
 }
-.research-card:nth-child(even) { background: #ede8dc; }
-.card-number { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; color: var(--beni); margin-bottom: 0.85rem; letter-spacing: 0.15em; opacity: 0.7; }
-.card-figure {
-  height: 104px; margin-bottom: 1.2rem;
-  display: flex; align-items: center; justify-content: center;
-}
+.research-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(18,17,16,0.08); }
+.card-number { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--beni); margin-bottom: 0.7rem; letter-spacing: 0.05em; font-weight: 600; opacity: 0.85; }
+.card-figure { height: 104px; margin-bottom: 1.1rem; display: flex; align-items: center; justify-content: center; }
 .card-figure svg { width: 140px; height: 104px; }
-.card-title { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.35rem; font-weight: 600; margin: 0 0 0.6rem; line-height: 1.25; }
-.card-text { font-size: 0.92rem; color: #4a3535; line-height: 1.65; margin: 0 0 1rem; }
+.card-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.24rem; font-weight: 600; margin: 0 0 0.55rem; line-height: 1.25; letter-spacing: -0.01em; }
+.card-text { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; margin: 0 0 1rem; }
 .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tag {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase;
-  color: var(--beni); padding: 0.2rem 0.55rem; border: 1px solid rgba(173,53,53,0.28);
+  font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0;
+  color: var(--beni); padding: 0.3rem 0.65rem; background: rgba(173,53,53,0.08); border-radius: 100px;
 }
 .tag em { text-transform: none; }
 
 /* ===== METHODS ===== */
-.section--methods { background: #efe8d8; }
-.methods-header { display: flex; gap: 4rem; align-items: end; margin-bottom: 3.5rem; flex-wrap: wrap; }
+.section--methods { background: var(--surface); }
+.methods-header { display: flex; gap: 4rem; align-items: end; margin-bottom: 3rem; flex-wrap: wrap; }
 .methods-header-left { flex: 1; min-width: 280px; }
-.methods-header-left .section-eyebrow { margin-bottom: 1.5rem; }
+.methods-header-left .section-eyebrow { margin-bottom: 1rem; }
 .methods-header-left .section-title { margin: 0; }
 .methods-header-text {
-  flex: 1; min-width: 280px; font-family: 'Crimson Pro', Georgia, serif; font-size: 1.15rem; font-weight: 300;
-  color: #5c5549; max-width: 420px; line-height: 1.7; margin: 0;
+  flex: 1; min-width: 280px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400;
+  color: var(--ink-soft); max-width: 420px; line-height: 1.6; margin: 0;
 }
-.methods-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 1.1rem; }
+.methods-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 0.9rem; }
+@media (min-width: 1100px) { .methods-grid { grid-template-columns: repeat(6, 1fr); } }
 .method-card {
-  display: flex; flex-direction: column; gap: 0.7rem; padding: 1.6rem 1.5rem;
-  background: #f6f1e7; border: 1px solid rgba(26,23,20,0.08); border-radius: 3px;
-  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+  display: flex; flex-direction: column; gap: 0.7rem; padding: 1.3rem 1.1rem;
+  background: #fff; border: 1px solid rgba(23,25,27,0.08); border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(23,25,27,0.04);
+  transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s, border-color 0.25s;
 }
-.method-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(26,23,20,0.07); }
-.method-icon { line-height: 0; }
-.method-card h3 { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.25rem; font-weight: 600; margin: 0; color: #1a1714; }
-.method-card p { font-size: 0.95rem; color: #38322b; line-height: 1.6; margin: 0; }
+.method-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(18,17,16,0.1); border-color: rgba(173,53,53,0.3); }
+.method-icon { line-height: 0; display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 12px; background: rgba(173,53,53,0.07); }
+.method-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.02rem; font-weight: 600; margin: 0; color: var(--ink); letter-spacing: -0.01em; }
+.method-card p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.55; margin: 0; }
 
 /* ===== TEAM ===== */
-.section--team { padding: 7rem 5vw 6rem; background: #e8e0ce; }
+.section--team { padding: 6rem 5vw 6rem; background: #f2f4f4; }
 .role-heading {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--beni); margin: 3.5rem 0 2rem; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(26,23,20,0.08);
+  font-family: 'Inter', sans-serif; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--beni); font-weight: 600; margin: 3.2rem 0 1.8rem; padding-bottom: 0.7rem; border-bottom: 1px solid rgba(18,17,16,0.08);
 }
-.role-heading:first-of-type { margin-top: 2rem; }
+.role-heading:first-of-type { margin-top: 1.5rem; }
 
-.pi-row { display: flex; gap: 2.8rem; align-items: center; max-width: 700px; padding: 1.5rem 0 2.5rem; }
+.pi-row { display: flex; gap: 2.6rem; align-items: center; max-width: 700px; padding: 1.2rem 0 2.2rem; }
 .pi-photo {
-  width: 150px; aspect-ratio: 4/5; flex-shrink: 0; border-radius: 10px; overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(26,23,20,0.06), 0 8px 28px rgba(26,23,20,0.10);
+  width: 150px; aspect-ratio: 4/5; flex-shrink: 0; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 8px 28px rgba(18,17,16,0.10);
 }
-.pi-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(100%) contrast(110%) brightness(1.02); transition: filter 0.5s, transform 0.5s; }
-.pi-photo:hover img { filter: grayscale(0%) contrast(100%) brightness(1.06); transform: scale(1.05); }
-.pi-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.8rem; font-weight: 500; margin: 0 0 0.35rem; color: #1a1714; }
-.pi-role { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--beni); margin-bottom: 0.7rem; }
-.pi-dept { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.1rem; font-style: italic; color: #5c5549; line-height: 1.55; margin-bottom: 0.6rem; }
-.pi-email { display: block; font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.82rem; color: var(--beni); text-decoration: none; transition: opacity 0.3s; }
-.pi-email + .pi-email { margin-top: 0.4rem; }
+.pi-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; filter: grayscale(100%) contrast(108%) brightness(1.04) sepia(8%); transition: filter 0.5s, transform 0.5s; }
+.pi-photo:hover img { filter: grayscale(0%) contrast(102%) brightness(1.05) sepia(0%); transform: scale(1.05); }
+.pi-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.65rem; font-weight: 700; margin: 0 0 0.3rem; color: var(--ink); letter-spacing: -0.01em; }
+.pi-role { font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0; color: var(--beni); margin-bottom: 0.6rem; }
+.pi-dept { font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--ink-soft); line-height: 1.5; margin-bottom: 0.55rem; }
+.pi-email { display: block; font-family: 'Inter', sans-serif; font-size: 0.86rem; color: var(--beni); text-decoration: none; transition: opacity 0.3s; }
+.pi-email + .pi-email { margin-top: 0.35rem; }
 .pi-email:hover { opacity: 0.7; }
 
-.member-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(170px,200px)); gap: 2.8rem 2rem; justify-content: start; }
-.member { text-align: center; width: 100%; max-width: 200px; }
+.member-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(170px,200px)); gap: 2.4rem 1.6rem; justify-content: start; }
+.member { text-align: left; width: 100%; max-width: 200px; }
 .member-photo {
-  width: 120px; aspect-ratio: 4/5; margin: 0 auto 1.2rem; border-radius: 8px; overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(26,23,20,0.06), 0 4px 16px rgba(26,23,20,0.06);
+  width: 100%; aspect-ratio: 4/5; margin: 0 0 1rem; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 4px 18px rgba(18,17,16,0.08);
 }
-.member-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(100%) contrast(110%) brightness(1.02); transition: filter 0.5s, transform 0.5s; }
-.member-photo:hover img { filter: grayscale(0%) contrast(100%) brightness(1.06); transform: scale(1.05); }
+.member-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; filter: grayscale(100%) contrast(108%) brightness(1.04) sepia(8%); transition: filter 0.5s, transform 0.5s; }
+.member-photo:hover img { filter: grayscale(0%) contrast(102%) brightness(1.05) sepia(0%); transform: scale(1.05); }
 .member-photo--placeholder {
   display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(145deg, #e6dcc8, #ece3d2);
-  box-shadow: inset 0 0 0 1px rgba(26,23,20,0.05);
+  background: var(--surface);
 }
 .member-photo--placeholder .placeholder-initials {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 2.1rem; font-weight: 400; color: #a89c87; letter-spacing: 0.02em;
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; font-weight: 600; color: #b0aca4; letter-spacing: 0;
 }
-.member-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.32rem; font-weight: 600; line-height: 1.25; min-height: 2.5em; margin: 0 0 0.3rem; }
-.member-role { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--beni); margin-bottom: 0.45rem; }
-.member-bio { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.02rem; font-style: italic; color: #463f35; line-height: 1.55; }
-.member-edu { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.8rem; color: #6b6358; margin-top: 0.45rem; }
+.member-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.12rem; font-weight: 600; line-height: 1.3; min-height: 2.5em; margin: 0 0 0.25rem; letter-spacing: -0.01em; }
+.member-role { font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 600; letter-spacing: 0; color: var(--beni); margin-bottom: 0.4rem; }
+.member-bio { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+.member-edu { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
 
-.alumni { margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(26,23,20,0.07); }
-.alumni-toggle { font-size: 1.55rem; color: #2a2018; letter-spacing: 0; margin-bottom: 2rem; max-width: 680px; }
+.alumni { margin-top: 4.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(18,17,16,0.08); }
+.alumni-toggle { font-size: 1.3rem; color: var(--ink); letter-spacing: 0; margin-bottom: 1.6rem; max-width: 680px; }
 .alumni-toggle:hover { opacity: 0.75; }
-.alumni-heading { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.55rem; font-weight: 400; color: #2a2018; }
+.alumni-heading { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); }
 .alumni-toggle .archive-toggle-label { color: var(--beni); flex-shrink: 0; }
 .alumni-list { display: flex; flex-direction: column; max-width: 680px; }
 .alumni-list[hidden] { display: none; }
-.alumni-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.9rem 0; border-bottom: 1px solid rgba(26,23,20,0.08); gap: 1rem 1.5rem; flex-wrap: wrap; }
-.alumni-row strong { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.1rem; font-weight: 500; color: #2a2018; flex-shrink: 0; }
-.alumni-row span { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.82rem; color: #6b6358; text-align: right; }
+.alumni-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.85rem 0; border-bottom: 1px solid rgba(18,17,16,0.08); gap: 1rem 1.5rem; flex-wrap: wrap; }
+.alumni-row strong { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; color: var(--ink); flex-shrink: 0; }
+.alumni-row span { font-family: 'Inter', sans-serif; font-size: 0.84rem; color: var(--muted); text-align: right; }
 
 @media (max-width: 640px) {
   .alumni-row { flex-direction: column; align-items: flex-start; gap: 0.3rem; padding: 1rem 0; }
   .alumni-row span { text-align: left; }
-  .section { padding: 3rem 5vw; }
+  .section { padding: 3.5rem 5vw; }
 }
 
 /* ===== NEWS ===== */
-.section--news { background: #ede8dc; }
+.section--news { background: #f2f4f4; padding-bottom: 3rem; }
 .news-year-group { margin-bottom: 0.5rem; }
-.news-year-head { display: flex; align-items: baseline; gap: 1rem; padding: 2rem 0 0.5rem; }
+.news-year-head { display: flex; align-items: baseline; gap: 1rem; padding: 1.8rem 0 0.5rem; }
 .news-year-group:first-child .news-year-head { padding-top: 0; }
-.news-year { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.5rem; font-weight: 500; color: #1a1714; }
-.news-year-rule { flex: 1; height: 1px; background: rgba(26,23,20,0.12); }
+.news-year { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); }
+.news-year-rule { flex: 1; height: 1px; background: rgba(18,17,16,0.1); }
 .news-item {
-  display: grid; grid-template-columns: 110px 1fr; gap: 1.5rem; padding: 1.2rem 0;
-  border-top: 1px solid rgba(26,23,20,0.08);
+  display: grid; grid-template-columns: 110px 1fr; gap: 1.5rem; padding: 1.15rem 0;
+  border-top: 1px solid rgba(18,17,16,0.07);
 }
 .news-year-group .news-item:first-of-type { border-top: none; }
 .news-date {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--beni); padding-top: 0.2rem;
+  font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0;
+  color: var(--beni); padding-top: 0.2rem;
 }
-.news-body {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.08rem; font-weight: 400;
-  color: #2e2a24; line-height: 1.65; margin: 0 0 0.6rem;
-}
-.news-body em { color: #5c5549; }
-.news-body a { color: var(--beni); text-decoration: none; border-bottom: 1px solid rgba(179,62,62,0.3); }
+.news-body { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: var(--ink); line-height: 1.55; margin: 0 0 0.55rem; }
+.news-body em { color: var(--beni); }
+.news-body a { color: var(--beni); text-decoration: none; border-bottom: 1px solid rgba(173,53,53,0.3); }
 .news-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .news-tag {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.6rem; font-weight: 500;
-  letter-spacing: 0.09em; text-transform: uppercase; padding: 0.3rem 0.65rem; border-radius: 999px;
+  font-family: 'Inter', sans-serif; font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.03em; text-transform: uppercase; padding: 0.3rem 0.65rem; border-radius: 100px;
 }
 .news-tag--member     { color: #8a3030; background: rgba(173,53,53,0.13); }
-.news-tag--defense    { color: #1a1714; background: rgba(26,23,20,0.09); }
+.news-tag--defense    { color: #1a1714; background: rgba(18,17,16,0.09); }
 .news-tag--promotion  { color: #9c5a18; background: rgba(196,122,38,0.16); }
 .news-tag--award      { color: #8a6d1f; background: rgba(196,166,38,0.18); }
 .news-tag--publication{ color: #235066; background: rgba(45,90,107,0.14); }
@@ -351,9 +341,9 @@ em { font-style: italic; }
 .news-tag--rotation   { color: #8a5a3a; background: rgba(166,123,91,0.18); }
 .news-tag--candidacy  { color: #46586b; background: rgba(70,88,107,0.13); }
 .news-archive-toggle {
-  display: flex; align-items: center; gap: 0.8rem; background: none; border: none; cursor: pointer;
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; font-weight: 500;
-  letter-spacing: 0.12em; text-transform: uppercase; color: #5c5549; padding: 1.5rem 0 0.5rem;
+  display: flex; align-items: center; gap: 0.7rem; background: none; border: none; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 0.84rem; font-weight: 600;
+  letter-spacing: 0; color: var(--ink-soft); padding: 1.3rem 0 0.5rem;
 }
 .news-archive-toggle:hover { color: var(--beni); }
 @media (max-width: 560px) {
@@ -361,37 +351,36 @@ em { font-style: italic; }
 }
 
 /* ===== PUBLICATIONS ===== */
-.section--pubs { padding: 6rem 5vw 9rem; }
+.section--pubs { padding: 6rem 5vw 7rem; background: var(--surface); }
 .pub-category {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.25rem; font-weight: 400; color: var(--beni);
-  letter-spacing: 0.08em; margin: 3.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(26,23,20,0.06);
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--ink);
+  letter-spacing: -0.01em; margin: 3rem 0 1.2rem; padding: 0 0 0.7rem 0.9rem; border-bottom: 2px solid var(--beni); border-left: 4px solid var(--beni);
   display: flex; align-items: baseline; gap: 0.8rem;
 }
 .section--pubs > .pub-category:first-of-type { margin-top: 0; }
-.pub-category-note { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: #8a8278; }
+.pub-category-note { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--beni); }
 .pub-item {
-  padding: 1.2rem 0.8rem; margin-left: -0.8rem; border-bottom: 1px solid rgba(26,23,20,0.03);
-  border-radius: 3px; transition: background 0.3s;
+  padding: 1.15rem 1rem; margin-left: -1rem; border-bottom: 1px solid rgba(18,17,16,0.05);
+  border-radius: 12px; transition: background 0.25s;
 }
-.pub-item:hover { background: rgba(179,62,62,0.03); }
+.pub-item:hover { background: #fff; }
 .pub-title {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.22rem; font-weight: 500; line-height: 1.4; color: #1a1714;
-  text-decoration: none; display: inline; background-image: linear-gradient(var(--beni), var(--beni));
-  background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size 0.3s, color 0.3s;
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.08rem; font-weight: 600; line-height: 1.35; color: var(--ink);
+  text-decoration: none; letter-spacing: -0.005em; transition: color 0.2s;
 }
-.pub-title:hover { color: var(--beni); background-size: 100% 1px; }
-.pub-authors { font-size: 0.95rem; color: #6b6358; margin-top: 0.35rem; }
-.pub-authors--muted { color: #8a8278; }
-.pub-meta { margin-top: 0.7rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem; }
-.pub-journal { font-size: 0.82rem; font-weight: 600; color: #1a1714; background: #e6dcc8; border: 1px solid rgba(26,23,20,0.1); padding: 0.3rem 0.75rem; border-radius: 3px; }
-.pub-date, .pub-cite { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.85rem; color: #6b6358; }
-.pub-cite { color: #5c5549; }
-.pub-note { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.68rem; color: #8a8278; margin: 0.8rem 0 2.5rem; font-style: normal; }
+.pub-title:hover { color: var(--beni); }
+.pub-authors { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.35rem; }
+.pub-authors--muted { color: var(--muted); }
+.pub-meta { margin-top: 0.65rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem; }
+.pub-journal { font-size: 0.78rem; font-weight: 600; color: var(--beni); background: rgba(173,53,53,0.08); border: none; padding: 0.28rem 0.7rem; border-radius: 100px; }
+.pub-date, .pub-cite { font-family: 'Inter', sans-serif; font-size: 0.82rem; color: var(--muted); }
+.pub-cite { color: var(--muted); }
+.pub-note { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--muted); margin: 0.8rem 0 2.2rem; font-style: normal; }
 
-.pub-abstract { margin-top: 0.6rem; }
+.pub-abstract { margin-top: 0.55rem; }
 .pub-abstract summary {
-  display: inline-block; list-style: none; cursor: pointer; font-family: 'Inter', 'Helvetica Neue', sans-serif;
-  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8278;
+  display: inline-block; list-style: none; cursor: pointer; font-family: 'Inter', sans-serif;
+  font-size: 0.76rem; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--muted);
   transition: color 0.25s; -webkit-tap-highlight-color: transparent;
 }
 .pub-abstract summary::-webkit-details-marker { display: none; }
@@ -407,139 +396,123 @@ em { font-style: italic; }
 .pub-abstract-body > p { overflow: hidden; min-height: 0; }
 .pub-abstract[open] .pub-abstract-body { grid-template-rows: 1fr; opacity: 1; }
 .pub-abstract-body p {
-  margin: 0.7rem 0 0.2rem; padding-left: 0.9rem; border-left: 2px solid rgba(173,53,53,0.25);
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.86rem; font-weight: 300; line-height: 1.65;
-  color: #6b6358; letter-spacing: 0.005em;
+  margin: 0.65rem 0 0.2rem; padding-left: 0.9rem; border-left: 2px solid rgba(173,53,53,0.3);
+  font-family: 'Inter', sans-serif; font-size: 0.86rem; font-weight: 400; line-height: 1.6;
+  color: var(--ink-soft); letter-spacing: 0;
 }
 .pub-year {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.15rem; font-weight: 400; color: var(--beni);
-  letter-spacing: 0.08em; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(26,23,20,0.06);
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--beni);
+  letter-spacing: -0.005em; margin: 1.8rem 0 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(18,17,16,0.08);
 }
-.pub-footnote { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; color: #b5aea4; margin-top: 1.5rem; }
+.pub-footnote { font-family: 'Inter', sans-serif; font-size: 0.76rem; color: var(--muted); margin-top: 1.4rem; }
 .pub-footnote a { color: var(--beni); text-decoration: none; }
 
 .archive-toggle, .alumni-toggle {
   all: unset; cursor: pointer; box-sizing: border-box; width: 100%;
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.25rem; font-weight: 400; color: var(--beni);
-  letter-spacing: 0.08em; margin: 0; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(26,23,20,0.06);
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--ink);
+  letter-spacing: -0.005em; margin: 0; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(18,17,16,0.08);
   display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; transition: opacity 0.3s;
 }
-.archive-toggle:hover, .alumni-toggle:hover { opacity: 0.75; }
-.archive-toggle-label { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.74rem; color: var(--beni); }
+.archive-toggle:hover, .alumni-toggle:hover { opacity: 0.7; }
+.archive-toggle-label { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; color: var(--beni); }
 .archive-content p {
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.08rem; font-weight: 300; font-style: italic;
-  color: #5c5549; margin: 1rem 0 3rem;
+  font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: var(--ink-soft); margin: 1rem 0 2.6rem;
 }
 .archive-content .pub-abstract-body p {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.86rem; font-weight: 300; font-style: normal;
-  color: #6b6358; margin: 0.7rem 0 0.2rem;
+  font-family: 'Inter', sans-serif; font-size: 0.86rem; font-weight: 400; color: var(--ink-soft); margin: 0.65rem 0 0.2rem;
 }
 
 /* ===== OPENINGS ===== */
-.section--openings { padding: 6rem 5vw 9rem; background: #efe8d8; }
+.section--openings { padding: 3rem 5vw 3rem; background: #f2f4f4; }
 .recruiting-callout {
-  margin: 0 0 3rem; padding: 1.5rem 1.8rem; background: #f6f1e7; border-left: 3px solid var(--beni);
-  font-family: 'Crimson Pro', Georgia, serif; font-size: 1.1rem; font-weight: 300; color: #5c5549; line-height: 1.6;
-  max-width: 760px; border-radius: 0 3px 3px 0;
+  margin: 0 0 2.6rem; padding: 1.4rem 1.7rem; background: var(--surface); border-left: none; border-radius: 14px;
+  font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: var(--ink-soft); line-height: 1.6;
+  max-width: 760px;
 }
-.recruiting-callout strong { font-weight: 600; color: #1a1714; }
-.callout-tag { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.85rem; color: var(--beni); background: rgba(179,62,62,0.12); padding: 0.15rem 0.5rem; border-radius: 3px; }
-.openings-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); border: 1px solid rgba(26,23,20,0.07); }
-.opening-col { padding: 2.5rem 2rem; border-right: 1px solid rgba(26,23,20,0.07); transition: background 0.5s; }
-.opening-col:last-child { border-right: none; }
-.opening-col:hover { background: rgba(179,62,62,0.02); }
-.opening-col h3 { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.45rem; font-weight: 500; margin: 0 0 1rem; }
-.opening-col > p { font-size: 1.02rem; color: #5c5549; line-height: 1.7; margin: 0; }
-.opening-checklist { margin-top: 1.6rem; }
-.opening-checklist-label { display: block; font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: #8a8278; margin-bottom: 0.8rem; }
+.recruiting-callout strong { font-weight: 700; color: var(--ink); }
+.callout-tag { font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--beni); background: #fff; padding: 0.15rem 0.55rem; border-radius: 100px; }
+.openings-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1rem; }
+.opening-col { padding: 2rem 1.8rem; border: none; background: var(--surface); border-radius: 18px; transition: transform 0.25s, box-shadow 0.25s; }
+.opening-col:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(18,17,16,0.08); }
+.opening-col h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0 0 0.9rem; letter-spacing: -0.01em; }
+.opening-col > p { font-size: 0.96rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+.opening-checklist { margin-top: 1.4rem; }
+.opening-checklist-label { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--beni); margin-bottom: 0.7rem; }
 .opening-checklist ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-.opening-checklist li {
-  position: relative; padding-left: 1.1rem; font-size: 0.92rem; color: #5c5549; line-height: 1.5;
-}
+.opening-checklist li { position: relative; padding-left: 1.1rem; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.5; }
 .opening-checklist li::before {
   content: ""; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px;
-  background: var(--beni); border-radius: 50%; opacity: 0.6;
+  background: var(--beni); border-radius: 50%; opacity: 0.8;
+}
+@media (max-width: 640px) {
+  .openings-grid { grid-template-columns: 1fr; }
 }
 
-/* ===== CONTACT ===== */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
-.contact-block { margin-bottom: 2.5rem; }
-.contact-label { display: block; font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--beni); margin-bottom: 0.7rem; }
-.contact-block p { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.08rem; font-weight: 300; line-height: 1.7; color: #5c5549; margin: 0; }
+.section--contact { padding-top: 3rem; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
+.contact-block { margin-bottom: 2.2rem; }
+.contact-label { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--beni); margin-bottom: 0.6rem; }
+.contact-block p { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.6; color: var(--ink-soft); margin: 0; }
 .contact-block a { color: var(--beni); text-decoration: none; }
 
 .map-card {
-  position: relative; height: 100%; min-height: 360px; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 1.1rem; text-decoration: none;
-  border: 1px solid rgba(26,23,20,0.1); border-radius: 3px; overflow: hidden;
-  background: repeating-linear-gradient(45deg, #efe8d8, #efe8d8 15px, #e9e0cd 15px, #e9e0cd 30px);
-  transition: box-shadow 0.4s;
+  position: relative; height: 100%; min-height: 320px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem; text-decoration: none;
+  border: none; border-radius: 20px; overflow: hidden; background: var(--surface);
+  transition: box-shadow 0.3s;
 }
-.map-card:hover { box-shadow: 0 8px 28px rgba(26,23,20,0.08); }
+.map-card:hover { box-shadow: 0 10px 28px rgba(18,17,16,0.08); }
 .map-pin { overflow: visible; }
-.map-card-title { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.15rem; color: #1a1714; }
-.map-card-cta { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--beni); }
+.map-card-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.08rem; font-weight: 600; color: var(--ink); }
+.map-card-cta { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; color: var(--beni); }
 
 /* ===== FOOTER ===== */
-.footer { position: relative; background: #1a1714; color: #e6dcc8; padding: 5rem 5vw 3rem; overflow: hidden; }
-.footer-art { position: absolute; right: 4vw; bottom: 0; opacity: 0.5; pointer-events: none; }
-.footer-art-svg { overflow: visible; }
-.footer-grid { position: relative; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
-.footer-brand-row { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
-.footer-brand-row h2 { font-family: 'Crimson Pro', Georgia, serif; font-size: 1.9rem; font-weight: 300; color: #f6f1e7; margin: 0; }
-.footer-brand p { font-size: 1rem; color: #8a8278; line-height: 1.8; max-width: 400px; margin: 0; }
-.footer-col h4 { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: #8a8278; margin: 0 0 1.2rem; }
-.footer-col p { font-size: 1rem; color: #b5aea4; line-height: 1.85; margin: 0; }
+.footer { position: relative; background: #17191b; color: #d8dadb; padding: 4.5rem 5vw 2.6rem; }
+.footer-grid { position: relative; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3.5rem; margin-bottom: 3.5rem; }
+.footer-brand-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+.footer-brand-row h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #f2f4f4; margin: 0; letter-spacing: -0.01em; }
+.footer-brand p { font-size: 0.96rem; color: #a6acae; line-height: 1.7; max-width: 400px; margin: 0; }
+.footer-col h4 { font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #83888c; margin: 0 0 1rem; }
+.footer-col p { font-size: 0.96rem; color: #c4bfb7; line-height: 1.75; margin: 0; }
 .footer-links { display: flex; flex-direction: column; gap: 0.4rem; }
-.footer-links a { font-size: 1rem; color: #b5aea4; text-decoration: none; transition: color 0.3s; }
-.footer-links a:hover { color: #f6f1e7; }
+.footer-links a { font-size: 0.96rem; color: #c4bfb7; text-decoration: none; transition: color 0.25s; }
+.footer-links a:hover { color: #f2f4f4; }
 .footer-bottom {
-  position: relative; padding-top: 2rem; border-top: 1px solid rgba(246,241,231,0.06);
+  position: relative; padding-top: 1.8rem; border-top: 1px solid rgba(242,244,244,0.08);
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
 }
-.footer-copy { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 0.72rem; color: #8a8278; margin: 0; }
-.footer-quote { font-family: 'Crimson Pro', Georgia, serif; font-style: italic; font-size: 1rem; color: #8a8278; margin: 0; }
+.footer-copy { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: #85807a; margin: 0; }
+.footer-quote { font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.9rem; color: #85807a; margin: 0; }
 
 /* ===== responsive ===== */
-@media (max-width: 900px) {
-  .nav-links { gap: 1.4rem; }
+@media (max-width: 640px) {
+  .nav-links { gap: 1.3rem; }
   .pi-row { flex-direction: column; align-items: flex-start; text-align: left; }
   .contact-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2.2rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   [data-reveal] { transition: none !important; opacity: 1 !important; transform: none !important; }
 }
+.card-figure-placeholder {
+  width: 100%; height: 100%; border-radius: 10px;
+  background: repeating-linear-gradient(45deg, rgba(23,25,27,0.05), rgba(23,25,27,0.05) 10px, rgba(23,25,27,0.09) 10px, rgba(23,25,27,0.09) 20px);
+  display: flex; align-items: center; justify-content: center;
+}
+.card-figure-placeholder span { font-family: 'Inter', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.02em; }
+.pub-title em, .card-text em, .tag em { color: inherit; }
 </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <filter id="ink" x="-8%" y="-8%" width="116%" height="116%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="4" seed="3" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-    <filter id="inkSoft" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="3" seed="11" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
-      <feGaussianBlur stdDeviation="0.8"/>
-    </filter>
-    <filter id="mist"><feGaussianBlur stdDeviation="22"/></filter>
-  </defs>
-</svg>
-
 <div class="rgl">
 
-  <!-- paper grain overlay -->
-  <div class="grain" aria-hidden="true"></div>
-
   <!-- ===== NAV ===== -->
-  <nav id="rglNav" class="nav">
+  <nav id="rglNav" class="nav" data-comment-anchor="b1935eaf52-nav">
     <a href="#top" class="brand">
-      <svg width="28" height="28" viewBox="0 0 40 40" class="brand-mark"><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="var(--beni)" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/></svg>
+      <svg width="26" height="26" viewBox="0 0 40 40" class="brand-mark"><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="var(--beni)" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/></svg>
       Ragunathan Lab
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
@@ -551,185 +524,80 @@ em { font-style: italic; }
       <a href="#team" class="nav-link">People</a>
       <a href="#publications" class="nav-link">Publications</a>
       <a href="#news" class="nav-link">News</a>
-      <a href="#openings" class="nav-link nav-link--join">Join</a>
       <a href="#contact" class="nav-link">Contact</a>
+      <a href="#openings" class="nav-link nav-link--join">Join</a>
     </div>
   </nav>
 
   <!-- ===== HERO ===== -->
   <section id="top" class="hero">
-    <div class="hero-art" aria-hidden="true"></div>
-    <div class="hero-scrim" aria-hidden="true"></div>
-    <div class="hero-rule" aria-hidden="true"></div>
-
-    <div class="hero-content">
-      <p class="eyebrow" data-reveal><span class="eyebrow-rule"></span>Ragunathan Laboratory · Brandeis University</p>
-      <h1 class="hero-title" data-reveal>Chromatin · <em>Epigenetics</em> · Inheritance</h1>
-      <p class="hero-text" data-reveal>We study how patterns of histone modification are established, propagated through DNA replication, and inherited across cell divisions.</p>
-      <div class="hero-cta" data-reveal>
-        <a href="#research" class="hero-cta-link hero-cta-link--primary">Research</a>
-        <a href="#publications" class="hero-cta-link hero-cta-link--secondary">Publications</a>
+    <div class="hero-inner">
+      <div class="hero-art-frame" data-reveal>
+        <div class="hero-art" aria-hidden="true" data-comment-anchor="0e7f7c8f6f-div"></div>
+        <details class="hero-art-note">
+          <summary aria-label="About this illustration"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="3.3" r="1.5"/><rect x="5.6" y="6" width="2.8" height="6.2" rx="1.2"/></svg></summary>
+          <div class="hero-art-note-body">This image is an artistic impression of Lamarck's central thesis. Lamarck used the giraffe in 1809 to illustrate how experience shapes inheritance. The giraffe stretching its neck represents a heritable experience. The red marks are histone modifications. The birds are proteins that place them.</div>
+        </details>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow" data-reveal><span class="eyebrow-rule"></span>Ragunathan Laboratory · Brandeis University</p>
+        <h1 class="hero-title" data-reveal>Decoding the molecular logic of <em data-comment-anchor="c0375f4371-em">epigenetic inheritance</em></h1>
+        <p class="hero-text" data-reveal data-comment-anchor="962862b68e-p">We study how epigenetic information is established, maintained and remodeled on-demand during adaptation. We are interested in a broad spectrum of problems that encompass chromatin biology.</p>
       </div>
     </div>
-
-    <div class="hero-caption" data-reveal>Ink · Ragunathan Lab, 2026.</div>
   </section>
 
   <!-- ===== RESEARCH ===== -->
   <section id="research" class="section">
     <div class="section-eyebrow" data-reveal><span class="eyebrow-rule eyebrow-rule--dark"></span>Research</div>
     <h2 class="section-title" data-reveal>Questions that guide us</h2>
-    <svg data-reveal width="160" height="16" viewBox="0 0 160 16" class="brush-stroke"><path d="M4 9 C44 3, 116 13, 156 7" fill="none" stroke="var(--beni)" stroke-width="3" stroke-linecap="round" filter="url(#ink)" opacity="0.45"/></svg>
     <p class="section-intro" data-reveal>We use <em>Schizosaccharomyces pombe</em> as a primary model, integrating genetics, biochemistry, and single-molecule biophysics to resolve how chromatin states are established, maintained, and inherited — and we extend these questions into non-model fungi and mammalian cells.</p>
 
     <div class="research-grid">
       <article class="research-card" data-reveal>
-        <div class="card-number">01 — 一</div>
-        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
-          <path d="M 4 52 Q 10 46 14 52" stroke="#ad3535" stroke-width="1.1" fill="none" opacity=".32" stroke-dasharray="2 2"/>
-          <ellipse cx="28" cy="52" rx="13" ry="10" stroke="#ad3535" stroke-width="1.5" fill="#ad3535" fill-opacity=".07" opacity=".65"/>
-          <line x1="15" y1="52" x2="41" y2="52" stroke="#ad3535" stroke-width="1.3" opacity=".52"/>
-          <circle cx="28" cy="37" r="3.5" fill="#ad3535" opacity=".65"/>
-          <line x1="28" y1="41" x2="28" y2="42" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
-          <path d="M 20 27 Q 22 19 28 18 Q 35 19 36 25 Q 35 31 29 31 Q 23 30 20 27 Z" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".09" opacity=".5"/>
-          <line x1="28" y1="31" x2="28" y2="37" stroke="#ad3535" stroke-width="1" opacity=".3" stroke-dasharray="1.5 1.5"/>
-          <path d="M 41 52 Q 50 44 56 52" stroke="#ad3535" stroke-width="1.2" fill="none" opacity=".5"/>
-          <ellipse cx="70" cy="52" rx="13" ry="10" stroke="#ad3535" stroke-width="1.5" fill="#ad3535" fill-opacity=".08" opacity=".68"/>
-          <line x1="57" y1="52" x2="83" y2="52" stroke="#ad3535" stroke-width="1.3" opacity=".52"/>
-          <circle cx="70" cy="37" r="3.5" fill="#ad3535" opacity=".65"/>
-          <line x1="70" y1="41" x2="70" y2="42" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
-          <path d="M 76 34 Q 90 25 103 33" stroke="#ad3535" stroke-width="1" fill="none" opacity=".35" stroke-dasharray="2 2"/>
-          <path d="M 101 30 L 103 33 L 100 36" stroke="#ad3535" stroke-width="1" fill="none" opacity=".35"/>
-          <path d="M 83 52 Q 92 44 97 52" stroke="#ad3535" stroke-width="1.2" fill="none" opacity=".5"/>
-          <ellipse cx="112" cy="52" rx="13" ry="10" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".06" opacity=".52"/>
-          <line x1="99" y1="52" x2="125" y2="52" stroke="#ad3535" stroke-width="1.2" opacity=".42"/>
-          <circle cx="112" cy="37" r="3.5" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".35" opacity=".58"/>
-          <line x1="112" y1="41" x2="112" y2="42" stroke="#ad3535" stroke-width="1" opacity=".38"/>
-          <path d="M 125 52 Q 132 46 136 49" stroke="#ad3535" stroke-width="1.1" fill="none" opacity=".28" stroke-dasharray="2 2"/>
-        </svg></div>
+        <div class="card-number">01</div>
+        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
         <h3 class="card-title">Epigenetic Inheritance</h3>
         <p class="card-text">Using inducible systems in fission yeast, we separate the establishment of H3K9 methylation from its maintenance, defining the molecular requirements for heritable heterochromatin and how HP1 proteins switch between these two modes.</p>
         <div class="tag-row"><span class="tag"><em>S. pombe</em></span><span class="tag">H3K9me</span><span class="tag">Inducible silencing</span></div>
       </article>
       <article class="research-card" data-reveal>
-        <div class="card-number">02 — 二</div>
-        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
-          <ellipse cx="70" cy="52" rx="48" ry="30" stroke="#ad3535" stroke-width=".7" opacity=".12" fill="none" stroke-dasharray="3 5"/>
-          <ellipse cx="70" cy="52" rx="28" ry="18" stroke="#ad3535" stroke-width="1" opacity=".2" fill="none" stroke-dasharray="3 3"/>
-          <circle cx="70" cy="52" r="13" fill="#ad3535" opacity=".1"/>
-          <circle cx="70" cy="52" r="13" stroke="#ad3535" stroke-width="1.7" opacity=".52" fill="none"/>
-          <circle cx="70" cy="52" r="5.5" fill="#ad3535" opacity=".55"/>
-          <path d="M 94 39 L 101 34 L 105 31" stroke="#ad3535" stroke-width="1.5" opacity=".38" stroke-linecap="round" fill="none"/>
-          <path d="M 101 34 L 106 30" stroke="#ad3535" stroke-width=".7" opacity=".18" stroke-linecap="round"/>
-          <circle cx="94" cy="39" r="3.5" fill="#ad3535" opacity=".68"/>
-          <path d="M 46 65 L 39 70 L 35 73" stroke="#ad3535" stroke-width="1.3" opacity=".32" stroke-linecap="round" fill="none"/>
-          <circle cx="46" cy="65" r="3" fill="#ad3535" opacity=".58"/>
-          <path d="M 27 27 L 19 22 L 14 19" stroke="#ad3535" stroke-width="1.5" opacity=".28" stroke-linecap="round" fill="none"/>
-          <path d="M 19 22 L 13 19" stroke="#ad3535" stroke-width=".7" opacity=".12" stroke-linecap="round"/>
-          <circle cx="27" cy="27" r="4" fill="#ad3535" opacity=".42"/>
-          <path d="M 118 54 L 125 51 L 129 48" stroke="#ad3535" stroke-width="1.2" opacity=".22" stroke-linecap="round" fill="none"/>
-          <circle cx="118" cy="54" r="3" fill="#ad3535" opacity=".35"/>
-          <path d="M 111 79 L 117 83" stroke="#ad3535" stroke-width=".9" opacity=".14" stroke-linecap="round"/>
-          <circle cx="111" cy="79" r="2" fill="#ad3535" opacity=".22"/>
-        </svg></div>
+        <div class="card-number">02</div>
+        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
         <h3 class="card-title">Heterochromatin Dynamics</h3>
         <p class="card-text">We track Swi6/HP1, Clr4, and associated remodelers at single-molecule resolution in living cells, measuring the binding kinetics and transient interactions through which fleeting molecular events sustain stable, long-lived silencing.</p>
         <div class="tag-row"><span class="tag">Single-molecule</span><span class="tag">Swi6 / Clr4</span><span class="tag">Live-cell imaging</span></div>
       </article>
       <article class="research-card" data-reveal>
-        <div class="card-number">03 — 三</div>
-        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
-          <path d="M 8 28 C 26 28 34 74 52 74 C 66 74 70 14 88 74 C 106 74 114 28 132 28" stroke="#ad3535" stroke-width="1.8" fill="none" opacity=".48"/>
-          <path d="M 8 28 C 26 28 34 74 52 74 C 66 74 70 14 88 74 C 106 74 114 28 132 28 L 132 104 L 8 104 Z" fill="#ad3535" opacity=".04"/>
-          <circle cx="52" cy="71" r="6.5" fill="#ad3535" opacity=".55"/>
-          <path d="M 59 63 Q 70 30 81 61" stroke="#ad3535" stroke-width="1.4" fill="none" opacity=".45" stroke-dasharray="3 2"/>
-          <path d="M 78 58 L 81 61 L 78 64" stroke="#ad3535" stroke-width="1.2" fill="none" opacity=".45"/>
-          <circle cx="88" cy="71" r="6.5" stroke="#ad3535" stroke-width="2" fill="#ad3535" fill-opacity=".15" opacity=".72"/>
-          <path d="M 97 77 Q 116 92 124 77 Q 122 63 112 59" stroke="#ad3535" stroke-width="1" fill="none" opacity=".3" stroke-dasharray="2 2"/>
-          <path d="M 114 57 L 112 59 L 115 62" stroke="#ad3535" stroke-width="1" fill="none" opacity=".3"/>
-          <text x="52" y="98" text-anchor="middle" font-family="serif" font-size="8" fill="#ad3535" opacity=".38" font-style="italic">initial</text>
-          <text x="88" y="98" text-anchor="middle" font-family="serif" font-size="8" fill="#ad3535" opacity=".38" font-style="italic">adapted</text>
-        </svg></div>
+        <div class="card-number">03</div>
+        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
         <h3 class="card-title">Epigenetic Adaptation</h3>
         <p class="card-text">Cells can acquire heritable phenotypes by redistributing histone modifications without genetic change. We quantify the slow kinetics of this adaptation and trace the paths by which populations converge on stable epigenetic states.</p>
         <div class="tag-row"><span class="tag">Adaptation kinetics</span><span class="tag">Lineage tracing</span></div>
       </article>
       <article class="research-card" data-reveal>
-        <div class="card-number">04 — 四</div>
-        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
-          <rect x="47" y="5" width="46" height="18" rx="3" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".1" opacity=".72"/>
-          <text x="70" y="18" text-anchor="middle" font-family="serif" font-size="8.5" fill="#ad3535" opacity=".7" font-style="italic">H3K9me</text>
-          <rect x="47" y="38" width="46" height="17" rx="3" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".09" opacity=".7"/>
-          <text x="70" y="51" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#ad3535" opacity=".65">READ · HP1</text>
-          <rect x="6" y="77" width="48" height="16" rx="3" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".09" opacity=".68"/>
-          <text x="30" y="89" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#ad3535" opacity=".62">WRITE · Clr4</text>
-          <rect x="86" y="77" width="48" height="16" rx="3" stroke="#ad3535" stroke-width="1.1" fill="#ad3535" fill-opacity=".07" opacity=".6"/>
-          <text x="110" y="89" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#ad3535" opacity=".55">ERASE · Epe1</text>
-          <line x1="70" y1="23" x2="70" y2="38" stroke="#ad3535" stroke-width="1.2" opacity=".5"/>
-          <path d="M 67 36 L 70 38 L 73 36" stroke="#ad3535" stroke-width="1" fill="none" opacity=".5"/>
-          <path d="M 54 55 L 30 77" stroke="#ad3535" stroke-width="1.3" opacity=".58"/>
-          <path d="M 32 74 L 30 77 L 33 79" stroke="#ad3535" stroke-width="1" fill="none" opacity=".58"/>
-          <text x="36" y="65" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#ad3535" opacity=".45" font-weight="bold">+</text>
-          <path d="M 86 55 L 110 77" stroke="#ad3535" stroke-width="1" opacity=".36" stroke-dasharray="2.5 2"/>
-          <path d="M 108 74 L 110 77 L 113 75" stroke="#ad3535" stroke-width="1" fill="none" opacity=".36"/>
-          <path d="M 6 83 Q 1 46 47 14" stroke="#ad3535" stroke-width="1.3" opacity=".6"/>
-          <path d="M 44 16 L 47 14 L 49 17" stroke="#ad3535" stroke-width="1.1" fill="none" opacity=".6"/>
-          <text x="11" y="50" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#ad3535" opacity=".45" font-weight="bold">+</text>
-          <path d="M 134 83 Q 139 46 93 14" stroke="#ad3535" stroke-width="1.2" opacity=".42" stroke-dasharray="3 2"/>
-          <line x1="89" y1="13" x2="97" y2="13" stroke="#ad3535" stroke-width="2" opacity=".42"/>
-          <text x="129" y="50" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ad3535" opacity=".38">−</text>
-        </svg></div>
+        <div class="card-number">04</div>
+        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
         <h3 class="card-title">Synthetic Epigenetic Circuits</h3>
         <p class="card-text">By reconstituting minimal chromatin circuits, we test the design principles of epigenetic memory — mapping the conditions under which feedback yields bistability, oscillation, or stable inheritance.</p>
         <div class="tag-row"><span class="tag">Synthetic biology</span><span class="tag">Feedback &amp; bistability</span></div>
       </article>
       <article class="research-card" data-reveal>
-        <div class="card-number">05 — 五</div>
-        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
-          <ellipse cx="63" cy="57" rx="20" ry="18" stroke="#ad3535" stroke-width="1.5" fill="#ad3535" fill-opacity=".08" opacity=".7"/>
-          <circle cx="63" cy="57" r="5" fill="#ad3535" opacity=".18"/>
-          <line x1="75" y1="45" x2="85" y2="34" stroke="#ad3535" stroke-width="2.5" stroke-linecap="round" opacity=".42"/>
-          <ellipse cx="93" cy="27" rx="14" ry="12" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".07" opacity=".62" transform="rotate(18 93 27)"/>
-          <circle cx="93" cy="27" r="3.5" fill="#ad3535" opacity=".14"/>
-          <line x1="83" y1="57" x2="98" y2="57" stroke="#ad3535" stroke-width="2.5" stroke-linecap="round" opacity=".38"/>
-          <ellipse cx="109" cy="57" rx="12" ry="10" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".06" opacity=".55"/>
-          <line x1="58" y1="75" x2="52" y2="87" stroke="#ad3535" stroke-width="2.2" stroke-linecap="round" opacity=".34"/>
-          <ellipse cx="48" cy="95" rx="11" ry="9" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".06" opacity=".5"/>
-          <line x1="50" y1="44" x2="38" y2="33" stroke="#ad3535" stroke-width="1.8" stroke-linecap="round" opacity=".28"/>
-          <ellipse cx="31" cy="27" rx="9" ry="8" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".05" opacity=".44" transform="rotate(-12 31 27)"/>
-          <line x1="102" y1="20" x2="110" y2="12" stroke="#ad3535" stroke-width="1.3" stroke-linecap="round" opacity=".22"/>
-          <ellipse cx="115" cy="8" rx="7" ry="6" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".04" opacity=".35"/>
-        </svg></div>
+        <div class="card-number">05</div>
+        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
         <h3 class="card-title">Chromatin in Non-Model Fungi</h3>
         <p class="card-text">We move beyond classic models to polyextremotolerant fungi such as <em>Aureobasidium pullulans</em>, asking how chromatin-based memory lets cells adapt to environmental stress and switch heritably between cellular states.</p>
         <div class="tag-row"><span class="tag"><em>A. pullulans</em></span><span class="tag">Stress adaptation</span><span class="tag">Phenotypic switching</span></div>
       </article>
       <article class="research-card" data-reveal>
-        <div class="card-number">06 — 六</div>
-        <div class="card-figure"><svg width="140" height="104" viewBox="0 0 140 104" fill="none">
-          <path d="M 70 6 C 104 6 124 22 126 50 C 128 78 108 98 76 98 C 44 98 18 82 16 56 C 14 30 30 10 54 7 C 60 6 65 6 70 6 Z" stroke="#ad3535" stroke-width="1.4" fill="#ad3535" fill-opacity=".05" opacity=".5"/>
-          <ellipse cx="70" cy="50" rx="30" ry="25" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".07" opacity=".65" stroke-dasharray="3 2.5"/>
-          <circle cx="60" cy="44" r="9" stroke="#ad3535" stroke-width="1.1" fill="#ad3535" fill-opacity=".12" opacity=".58"/>
-          <circle cx="54" cy="35" r="2.2" fill="#ad3535" opacity=".62"/>
-          <circle cx="62" cy="32" r="2.2" fill="#ad3535" opacity=".62"/>
-          <circle cx="70" cy="35" r="2.2" fill="#ad3535" opacity=".62"/>
-          <ellipse cx="82" cy="47" rx="9" ry="7" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".08" opacity=".6"/>
-          <line x1="73" y1="47" x2="91" y2="47" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
-          <circle cx="82" cy="38" r="3" fill="#ad3535" opacity=".65"/>
-          <line x1="82" y1="41" x2="82" y2="40" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
-          <ellipse cx="82" cy="60" rx="8" ry="6" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".06" opacity=".48"/>
-          <line x1="74" y1="60" x2="90" y2="60" stroke="#ad3535" stroke-width="1" opacity=".38"/>
-          <circle cx="82" cy="52" r="2.5" stroke="#ad3535" stroke-width="1" fill="none" opacity=".4"/>
-        </svg></div>
+        <div class="card-number">06</div>
+        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
         <h3 class="card-title">Self vs. Non-Self in Mammalian Cells</h3>
         <p class="card-text">In mammalian cells, we ask how the genome distinguishes self from non-self DNA — how chromatin silencing recognizes and suppresses foreign, repetitive, and transposable elements while leaving native genes intact.</p>
         <div class="tag-row"><span class="tag">Mammalian cells</span><span class="tag">Self / non-self</span><span class="tag">Repeat silencing</span></div>
       </article>
     </div>
   </section>
-
-  <!-- brush divider -->
-  <div class="divider" data-reveal><svg width="240" height="26" viewBox="0 0 240 26" class="brush-stroke"><path d="M8 14 C64 5, 176 21, 232 12" fill="none" stroke="var(--beni)" stroke-width="3.4" stroke-linecap="round" filter="url(#ink)" opacity="0.5"/></svg></div>
 
   <!-- ===== METHODS ===== -->
   <section id="methods" class="section section--methods">
@@ -740,34 +608,34 @@ em { font-style: italic; }
       </div>
       <p class="methods-header-text">A quick tour of the techniques we combine across projects.</p>
     </div>
-    <div class="methods-grid" data-reveal>
+    <div class="methods-grid" data-reveal data-comment-anchor="48db232469-div">
       <div class="method-card" data-reveal>
-        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#1a1714" stroke-width="1.6" stroke-linecap="round"><path d="M11 5 C20 11 20 21 11 27"/><path d="M21 5 C12 11 12 21 21 27"/><path d="M13.2 9.5 H18.8 M12.2 16 H19.8 M13.2 22.5 H18.8" stroke-width="1.1"/></svg></span>
+        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#121110" stroke-width="1.6" stroke-linecap="round"><path d="M11 5 C20 11 20 21 11 27"/><path d="M21 5 C12 11 12 21 21 27"/><path d="M13.2 9.5 H18.8 M12.2 16 H19.8 M13.2 22.5 H18.8" stroke-width="1.1"/></svg></span>
         <h3>Genetics</h3>
         <p>Forward and reverse genetic screens in fission yeast to identify and order the factors that build heterochromatin.</p>
       </div>
       <div class="method-card" data-reveal>
-        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#1a1714" stroke-width="1.6" stroke-linecap="round"><circle cx="16" cy="16" r="11" opacity="0.28"/><circle cx="16" cy="16" r="6.5" opacity="0.6"/><circle cx="16" cy="16" r="2.3" fill="#b33e3e" stroke="none"/></svg></span>
+        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#121110" stroke-width="1.6" stroke-linecap="round"><circle cx="16" cy="16" r="11" opacity="0.28"/><circle cx="16" cy="16" r="6.5" opacity="0.6"/><circle cx="16" cy="16" r="2.3" fill="#ad3535" stroke="none"/></svg></span>
         <h3>Single-Molecule Imaging</h3>
         <p>Tracking individual silencing factors in living cells to measure binding kinetics and transient interactions.</p>
       </div>
       <div class="method-card" data-reveal>
-        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#1a1714" stroke-width="1.6" stroke-linecap="round"><ellipse cx="16" cy="16" rx="7" ry="8.5"/><path d="M6 11 C12 13 20 13 26 11 M6 16 C12 18 20 18 26 16 M6 21 C12 23 20 23 26 21" stroke-width="1.1" opacity="0.7"/></svg></span>
+        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#121110" stroke-width="1.6" stroke-linecap="round"><ellipse cx="16" cy="16" rx="7" ry="8.5"/><path d="M6 11 C12 13 20 13 26 11 M6 16 C12 18 20 18 26 16 M6 21 C12 23 20 23 26 21" stroke-width="1.1" opacity="0.7"/></svg></span>
         <h3>Biochemical Reconstitution</h3>
         <p>Rebuilding chromatin-modifying complexes and nucleosome arrays in vitro to dissect enzymatic mechanisms.</p>
       </div>
       <div class="method-card" data-reveal>
-        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#1a1714" stroke-width="1.6" stroke-linecap="round"><path d="M6 26 V18 M10 26 V13 M14 26 V20 M18 26 V9 M22 26 V15 M26 26 V21"/><path d="M5 26 H27" stroke-width="1.1" opacity="0.5"/></svg></span>
+        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#121110" stroke-width="1.6" stroke-linecap="round"><path d="M6 26 V18 M10 26 V13 M14 26 V20 M18 26 V9 M22 26 V15 M26 26 V21"/><path d="M5 26 H27" stroke-width="1.1" opacity="0.5"/></svg></span>
         <h3>ChIP-seq &amp; RNA-seq</h3>
         <p>Genome-wide maps of histone modifications and transcription, followed over time during inheritance and adaptation.</p>
       </div>
       <div class="method-card" data-reveal>
-        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#1a1714" stroke-width="1.6" stroke-linecap="round"><path d="M25 16 A9 9 0 1 1 21.5 9"/><path d="M21.8 4.5 L22.2 9.4 L17.4 9"/></svg></span>
+        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#121110" stroke-width="1.6" stroke-linecap="round"><path d="M25 16 A9 9 0 1 1 21.5 9"/><path d="M21.8 4.5 L22.2 9.4 L17.4 9"/></svg></span>
         <h3>Synthetic Biology</h3>
         <p>Minimal chromatin circuits built from defined parts to test the design principles of epigenetic memory.</p>
       </div>
       <div class="method-card" data-reveal>
-        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#1a1714" stroke-width="1.6" stroke-linecap="round"><path d="M7 6 V25 H26" stroke-width="1.1" opacity="0.5"/><path d="M8 23 C14 23 13 9 24 9" stroke="#b33e3e" stroke-width="1.8"/></svg></span>
+        <span class="method-icon"><svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#121110" stroke-width="1.6" stroke-linecap="round"><path d="M7 6 V25 H26" stroke-width="1.1" opacity="0.5"/><path d="M8 23 C14 23 13 9 24 9" stroke="#ad3535" stroke-width="1.8"/></svg></span>
         <h3>Mathematical Modeling</h3>
         <p>Quantitative models of epigenetic feedback and single-cell lineages linking molecules to populations.</p>
       </div>
@@ -775,7 +643,7 @@ em { font-style: italic; }
   </section>
 
   <!-- ===== TEAM ===== -->
-  <section id="team" class="section section--team">
+  <section id="team" class="section section--team" data-comment-anchor="0457903bb3-section">
     <div class="section-eyebrow" data-reveal><span class="eyebrow-rule eyebrow-rule--dark"></span>People</div>
     <h2 class="section-title" data-reveal>The lab</h2>
 
@@ -919,11 +787,11 @@ em { font-style: italic; }
   </section>
 
   <!-- ===== PUBLICATIONS ===== -->
-  <section id="publications" class="section section--pubs">
+  <section id="publications" class="section section--pubs" data-comment-anchor="efe4047c2b-section">
     <div class="section-eyebrow" data-reveal><span class="eyebrow-rule eyebrow-rule--dark"></span>Publications</div>
     <h2 class="section-title" data-reveal>The Paper Trail</h2>
 
-    <div class="pub-category" data-reveal>Pre-prints <span class="pub-category-note">Under review</span></div>
+    <div class="pub-category" data-reveal data-comment-anchor="5126643d1d-div">Pre-prints <span class="pub-category-note">Under review</span></div>
     <div class="pub-item" data-reveal>
       <a href="https://doi.org/10.64898/2026.05.03.722496" target="_blank" rel="noopener" class="pub-title">Nucleosome remodeling by a CHD enzyme promotes H3K9 methylation establishment and spreading via remodeler-writer feedback</a>
       <div class="pub-authors">Seman M, Latuda A, Mazumder A, Wolfstädter LM, Huang F, Abdulla AZ, Braun S*, Ragunathan K*</div>
@@ -1028,13 +896,13 @@ em { font-style: italic; }
     <div class="pub-item" data-reveal>
       <a href="https://pubmed.ncbi.nlm.nih.gov/39142658/" target="_blank" rel="noopener" class="pub-title">Tracking live-cell single-molecule dynamics enables measurements of heterochromatin-associated protein–protein interactions</a>
       <div class="pub-authors pub-authors--muted">Chen Z, Seman M, Fyodorova Y, Farhat A, Ames A, Levashkevich A, Biswas S, Huang F, Freddolino L*, Biteen JS*, Ragunathan K*</div>
-      <div class="pub-meta"><span class="pub-journal">Nucleic Acids Research</span><span class="pub-cite">52(18):10731–10746. doi: 10.1093/nar/gkae692. PMID: 39142658</span></div>
+      <div class="pub-meta"><span class="pub-journal" data-comment-anchor="c8902dfcb3-span">Nucleic Acids Research</span><span class="pub-cite">52(18):10731–10746. doi: 10.1093/nar/gkae692. PMID: 39142658</span></div>
       <details class="pub-abstract">
         <summary><span class="abs-label-closed">Abstract +</span><span class="abs-label-open">Abstract &minus;</span></summary>
         <div class="pub-abstract-body"><p>Visualizing and measuring molecular-scale interactions in living cells represents a major challenge, but recent advances in single-molecule super-resolution microscopy are bringing us closer to achieving this goal. Single-molecule super-resolution microscopy enables high-resolution and sensitive imaging of the positions and movement of molecules in living cells. HP1 proteins are important regulators of gene expression because they selectively bind and recognize H3K9 methylated (H3K9me) histones to form heterochromatin-associated protein complexes that silence gene expression, but several important mechanistic details of this process remain unexplored. Here, we extended live-cell single-molecule tracking studies in fission yeast to determine how HP1 proteins interact with their binding partners in the nucleus. We measured how genetic perturbations that affect H3K9me alter the diffusive properties of HP1 proteins and their binding partners, and we inferred their most likely interaction sites. Our results demonstrate that H3K9 methylation spatially restricts HP1 proteins and their interactors, thereby promoting ternary complex formation on chromatin while simultaneously suppressing off-chromatin binding. As opposed to being an inert platform to direct HP1 binding, our studies propose a novel function for H3K9me in promoting ternary complex formation by enhancing the specificity and stimulating the assembly of HP1-protein complexes in living cells.</p></div>
       </details>
       </div>
-    <div class="pub-item" data-reveal>
+    <div class="pub-item" data-reveal data-comment-anchor="5ce4da4246-div">
       <a href="https://pubmed.ncbi.nlm.nih.gov/39094565/" target="_blank" rel="noopener" class="pub-title">Mapping the dynamics of epigenetic adaptation in <em>S. pombe</em> during heterochromatin misregulation</a>
       <div class="pub-authors pub-authors--muted">Larkin A, Kunze C, Seman M, Levashkevich A, Curran J, Morris-Evans D, Lemieux S, Khalil AS*, Ragunathan K*</div>
       <div class="pub-meta"><span class="pub-journal">Developmental Cell</span><span class="pub-cite">59(16):2222–2238.e4. doi: 10.1016/j.devcel.2024.07.006. PMID: 39094565</span></div>
@@ -1213,7 +1081,7 @@ em { font-style: italic; }
   </section>
 
   <!-- ===== NEWS ===== -->
-  <section id="news" class="section section--news">
+  <section id="news" class="section section--news" data-comment-anchor="e7568aeaee-section">
     <div class="section-eyebrow" data-reveal><span class="eyebrow-rule eyebrow-rule--dark"></span>News</div>
     <h2 class="section-title" data-reveal>What's happening in the lab</h2>
 
@@ -1399,7 +1267,7 @@ em { font-style: italic; }
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section id="contact" class="section section--contact">
+  <section id="contact" class="section section--contact" data-comment-anchor="7b2686a149-section">
     <div class="section-eyebrow" data-reveal><span class="eyebrow-rule eyebrow-rule--dark"></span>Contact &amp; Location</div>
     <h2 class="section-title" data-reveal>Find us</h2>
     <div class="contact-grid">
@@ -1418,7 +1286,7 @@ em { font-style: italic; }
         </div>
       </div>
       <a data-reveal href="https://www.google.com/maps/place/Rosenstiel+Basic+Medical+Sciences+Research+Center,+415+South+St,+Waltham,+MA+02453" target="_blank" rel="noopener" class="map-card">
-        <svg width="42" height="50" viewBox="0 0 40 48" class="map-pin"><path d="M20 2 C10 2 3 9 3 19 C3 31 20 46 20 46 C20 46 37 31 37 19 C37 9 30 2 20 2 Z" fill="#f6f1e7" stroke="var(--beni)" stroke-width="2.4"/><circle cx="20" cy="18.5" r="6" fill="var(--beni)"/></svg>
+        <svg width="42" height="50" viewBox="0 0 40 48" class="map-pin"><path d="M20 2 C10 2 3 9 3 19 C3 31 20 46 20 46 C20 46 37 31 37 19 C37 9 30 2 20 2 Z" fill="#f2f4f4" stroke="var(--beni)" stroke-width="2.4"/><circle cx="20" cy="18.5" r="6" fill="var(--beni)"/></svg>
         <div class="map-card-title">Rosenstiel Center · Waltham, MA</div>
         <div class="map-card-cta">Open in Google Maps →</div>
       </a>
@@ -1427,10 +1295,9 @@ em { font-style: italic; }
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="footer-art" aria-hidden="true"><svg width="420" height="260" viewBox="0 0 420 260" class="footer-art-svg"><g stroke="#e6dcc8" fill="none" stroke-linecap="round"><path d="M150 260 C146 170 144 110 148 56" stroke-width="6" filter="url(#inkSoft)" opacity="0.18"/><path d="M148 110 C176 92 206 86 230 84" stroke-width="3" filter="url(#inkSoft)" opacity="0.16"/><path d="M148 150 C120 134 96 130 76 130" stroke-width="2.6" filter="url(#inkSoft)" opacity="0.14"/><path d="M250 260 C246 190 244 130 248 92" stroke-width="4.5" filter="url(#inkSoft)" opacity="0.14"/></g><ellipse cx="222" cy="82" rx="64" ry="40" fill="#e6dcc8" opacity="0.05" filter="url(#mist)"/></svg></div>
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-brand-row"><svg width="26" height="26" viewBox="0 0 40 40" class="brand-mark"><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="var(--beni)" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/></svg><h2>Ragunathan Lab</h2></div>
+        <div class="footer-brand-row"><svg width="24" height="24" viewBox="0 0 40 40" class="brand-mark"><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="var(--beni)" stroke-width="3.2" stroke-linecap="round" opacity="0.9"/></svg><h2>Ragunathan Lab</h2></div>
         <p>Understanding the molecular mechanisms of epigenetic inheritance through genetics, biochemistry, single-molecule imaging, and synthetic biology.</p>
       </div>
       <div class="footer-col">
@@ -1454,5 +1321,12 @@ em { font-style: italic; }
 </div>
 
 <script src="script.js?v=11"></script>
+<script>
+document.addEventListener('click', function(e) {
+  document.querySelectorAll('.hero-art-note[open]').forEach(function(d) {
+    if (!d.contains(e.target)) d.removeAttribute('open');
+  });
+});
+</script>
 </body>
 </html>
