@@ -490,7 +490,7 @@ em { font-style: normal; color: var(--beni); }
 }
 .map-embed iframe {
   width: 100%; height: 100%; border: 0; display: block;
-  filter: grayscale(1) contrast(1.06) brightness(0.97);
+  filter: saturate(0.15) contrast(1.06) brightness(0.97);
 }
 .map-open-link {
   position: absolute; bottom: 14px; right: 14px;
@@ -501,6 +501,9 @@ em { font-style: normal; color: var(--beni); }
   color: var(--beni); text-decoration: none; transition: background 0.2s;
 }
 .map-open-link:hover { background: rgba(255,255,255,1); }
+.map-col { display: flex; flex-direction: column; gap: 0.75rem; }
+.map-embed { flex: 1; min-height: 340px; }
+.map-location-note { font-family: 'Inter', sans-serif; font-size: 0.82rem; color: var(--ink-soft); text-align: center; margin: 0; }
 
 /* ===== FOOTER ===== */
 .footer { position: relative; background: #17191b; color: #d8dadb; padding: 4.5rem 5vw 2.6rem; }
@@ -1332,15 +1335,18 @@ em { font-style: normal; color: var(--beni); }
           <p>Office: Rosenstiel 4th Floor · Phone: (781) 736-2407<br><a href="mailto:kaushikr@brandeis.edu">kaushikr@brandeis.edu</a></p>
         </div>
       </div>
-      <div class="map-embed" data-reveal>
-        <iframe
-          src="https://maps.google.com/maps?q=Rosenstiel+Basic+Medical+Sciences+Research+Center+415+South+Street+Waltham+MA+02453&t=&z=15&ie=UTF8&iwloc=&output=embed"
-          title="Ragunathan Lab — Rosenstiel Center, Brandeis University"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        <a href="https://www.google.com/maps/place/Rosenstiel+Basic+Medical+Sciences+Research+Center,+415+South+St,+Waltham,+MA+02453" target="_blank" rel="noopener" class="map-open-link">Open in Google Maps →</a>
+      <div class="map-col" data-reveal>
+        <div class="map-embed">
+          <iframe
+            src="https://maps.google.com/maps?q=Rosenstiel+Basic+Medical+Sciences+Research+Center+415+South+Street+Waltham+MA+02453&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            title="Ragunathan Lab — Rosenstiel Center, Brandeis University"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <a href="https://www.google.com/maps/place/Rosenstiel+Basic+Medical+Sciences+Research+Center,+415+South+St,+Waltham,+MA+02453" target="_blank" rel="noopener" class="map-open-link">Open in Google Maps →</a>
+        </div>
+        <p class="map-location-note">15 miles west of Boston &middot; Near I-95 (Exit 27A) and I-90 &middot; Waltham, MA</p>
       </div>
     </div>
   </section>
