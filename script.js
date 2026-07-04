@@ -1,5 +1,5 @@
 (() => {
-  const reduceMotionScroll = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
@@ -18,7 +18,7 @@
 
   const heroArt = document.querySelector('.hero-art');
   const heroSection = document.querySelector('.hero');
-  if (heroArt && heroSection && !reduceMotionScroll) {
+  if (heroArt && heroSection && !reduceMotion) {
     const isMobileHero = () => window.matchMedia('(max-width: 900px)').matches;
     const onHeroZoom = () => {
       if (!isMobileHero()) {
@@ -33,7 +33,7 @@
     onHeroZoom();
   }
 
-  const navEl = document.getElementById('rglNav');
+  const nav = document.getElementById('rglNav');
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     const id = a.getAttribute('href').slice(1);
     if (!id) return;
@@ -41,9 +41,9 @@
     if (!target) return;
     a.addEventListener('click', (e) => {
       e.preventDefault();
-      const navHeight = navEl ? navEl.offsetHeight : 0;
+      const navHeight = nav ? nav.offsetHeight : 0;
       const targetY = target.getBoundingClientRect().top + window.scrollY - navHeight - 8;
-      if (reduceMotionScroll) {
+      if (reduceMotion) {
         window.scrollTo(0, targetY);
       } else {
         smoothScrollTo(targetY, 1100);
@@ -63,7 +63,6 @@
     onProgScroll();
   }
 
-  const nav = document.getElementById('rglNav');
   const onScroll = () => {
     if (!nav) return;
     nav.classList.toggle('is-scrolled', window.scrollY > 60);
@@ -71,7 +70,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
 
   if (!reduceMotion && 'IntersectionObserver' in window) {
