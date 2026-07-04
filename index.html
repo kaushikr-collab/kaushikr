@@ -113,12 +113,16 @@ em { font-style: normal; color: var(--beni); }
   display: flex; align-items: center; gap: 3.5vw;
 }
 
+.hero-art-wrapper {
+  flex: 1 1 58%; min-width: 0; box-sizing: border-box; order: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
 .hero-art-frame {
-  position: relative; z-index: 1; flex: 1 1 58%; min-width: 0; box-sizing: border-box;
-  aspect-ratio: 1536 / 1024; isolation: isolate; order: 2;
+  position: relative; z-index: 1; width: 100%;
+  aspect-ratio: 1536 / 1024; isolation: isolate;
 }
 .hero-art {
-  width: 100%; height: 100%;
+  position: absolute; inset: 0; width: 100%; height: 100%;
   background-image: url('assets/hero-asset-resized.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -127,20 +131,35 @@ em { font-style: normal; color: var(--beni); }
   filter: contrast(1.05) brightness(1.09) saturate(0.85);
   -webkit-mask-image: radial-gradient(ellipse 78% 78% at center, #000 40%, transparent 100%);
   mask-image: radial-gradient(ellipse 78% 78% at center, #000 40%, transparent 100%);
+  transition: opacity 0.6s ease-in-out;
 }
-.hero-art-note { position: absolute; right: 8%; bottom: 12%; z-index: 3; }
+.hero-art--wc {
+  background-image: url('assets/watercolor-chromosomes.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+}
+.hero-slide-dots { display: flex; gap: 12px; align-items: center; }
+.hero-slide-dot {
+  width: 13px; height: 13px; border-radius: 50%; padding: 0; cursor: pointer;
+  border: 2px solid rgba(45,43,39,0.65); background: transparent;
+  transition: background 0.3s;
+}
+.hero-slide-dot.is-active { background: rgba(45,43,39,0.7); }
+.hero-art-note { position: absolute; right: 12px; bottom: 12px; z-index: 3; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+.hero-art-note.is-visible { opacity: 1; pointer-events: auto; }
 .hero-art-note summary {
-  list-style: none; cursor: pointer; width: 32px; height: 32px; border-radius: 50%;
+  list-style: none; cursor: pointer; width: 28px; height: 28px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  background: #17191b; border: none;
+  background: #4a4845; border: none;
   transition: background 0.25s, transform 0.25s; -webkit-tap-highlight-color: transparent;
 }
-.hero-art-note summary svg { display: block; }
 .hero-art-note summary svg circle, .hero-art-note summary svg rect { fill: #f2f4f4; }
+.hero-art-note summary svg { display: block; }
 .hero-art-note summary::-webkit-details-marker { display: none; }
 .hero-art-note summary::marker { content: ""; }
 .hero-art-note summary:hover { transform: scale(1.08); }
-.hero-art-note[open] summary { background: var(--beni); }
+.hero-art-note[open] summary { background: rgba(255,255,255,0.85); }
 .hero-art-note-body {
   position: absolute; right: 0; bottom: 42px; width: 280px;
   background: #fff; border: 1px solid rgba(18,17,16,0.08); border-radius: 12px;
@@ -182,7 +201,7 @@ em { font-style: normal; color: var(--beni); }
 @media (max-width: 900px) {
   .hero { padding: 7rem 6vw 3rem; }
   .hero-inner { flex-direction: column; gap: 2.5rem; }
-  .hero-art-frame { flex-basis: auto; width: 100%; order: 1; }
+  .hero-art-wrapper { flex-basis: auto; width: 100%; order: 1; }
   .hero-content { flex-basis: auto; width: 100%; text-align: center; order: 2; }
   .eyebrow { justify-content: center; }
   .hero-cta { justify-content: center; }
@@ -215,19 +234,20 @@ em { font-style: normal; color: var(--beni); }
 }
 
 /* ===== RESEARCH ===== */
-.research-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+.research-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
 @media (min-width: 700px) { .research-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1300px) { .research-grid { grid-template-columns: repeat(3, 1fr); } }
 .research-card {
-  padding: 1.9rem 1.9rem 2.2rem; background: var(--surface); border-radius: 16px;
+  padding: 1.5rem 1.5rem 1.7rem; background: var(--surface); border-radius: 16px;
   transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s;
 }
 .research-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(18,17,16,0.08); }
-.card-number { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--beni); margin-bottom: 0.7rem; letter-spacing: 0.05em; font-weight: 600; opacity: 0.85; }
-.card-figure { height: 104px; margin-bottom: 1.1rem; display: flex; align-items: center; justify-content: center; }
-.card-figure svg { width: 140px; height: 104px; }
-.card-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.24rem; font-weight: 600; margin: 0 0 0.55rem; line-height: 1.25; letter-spacing: -0.01em; }
-.card-text { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; margin: 0 0 1rem; }
+.card-number { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--beni); margin-bottom: 0.5rem; letter-spacing: 0.05em; font-weight: 600; opacity: 0.85; }
+.card-figure { aspect-ratio: 420 / 312; width: 100%; margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: center; }
+.card-figure svg { width: 100%; height: 100%; }
+.card-figure-img { width: 100%; height: 100%; object-fit: cover; }
+.card-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.24rem; font-weight: 600; margin: 0 0 0.4rem; line-height: 1.25; letter-spacing: -0.01em; }
+.card-text { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.55; margin: 0 0 0.75rem; }
 .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tag {
   font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0;
@@ -541,12 +561,23 @@ em { font-style: normal; color: var(--beni); }
   <!-- ===== HERO ===== -->
   <section id="top" class="hero">
     <div class="hero-inner">
-      <div class="hero-art-frame" data-reveal>
-        <div class="hero-art" aria-hidden="true" data-comment-anchor="0e7f7c8f6f-div"></div>
-        <details class="hero-art-note">
-          <summary aria-label="About this illustration"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="3.3" r="1.5"/><rect x="5.6" y="6" width="2.8" height="6.2" rx="1.2"/></svg></summary>
-          <div class="hero-art-note-body">This image is an artistic impression of Lamarck's central thesis. Lamarck used the giraffe in 1809 to illustrate how experience shapes inheritance. The giraffe stretching its neck represents a heritable experience. The red marks are histone modifications. The birds are proteins that place them.</div>
-        </details>
+      <div class="hero-art-wrapper" data-reveal>
+        <div class="hero-art-frame">
+          <div class="hero-art" aria-hidden="true" data-comment-anchor="0e7f7c8f6f-div"></div>
+          <div class="hero-art hero-art--wc" aria-hidden="true"></div>
+          <details class="hero-art-note hero-art-note--giraffe is-visible">
+            <summary aria-label="About this illustration"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="3.3" r="1.5"/><rect x="5.6" y="6" width="2.8" height="6.2" rx="1.2"/></svg></summary>
+            <div class="hero-art-note-body">This image is an artistic impression of Lamarck's central thesis. Lamarck used the giraffe in 1809 to illustrate how experience shapes inheritance. The giraffe stretching its neck represents a heritable experience. The red marks are histone modifications. The birds are proteins that place them.</div>
+          </details>
+          <details class="hero-art-note hero-art-note--wc">
+            <summary aria-label="About this illustration"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="3.3" r="1.5"/><rect x="5.6" y="6" width="2.8" height="6.2" rx="1.2"/></svg></summary>
+            <div class="hero-art-note-body">Chromatin in watercolors. DNA is packaged by DNA packaging proteins called histones that can be modified to carry epigenetic information. Courtesy: Venks Pai</div>
+          </details>
+        </div>
+        <div class="hero-slide-dots" role="group" aria-label="Illustration selector">
+          <button class="hero-slide-dot is-active" aria-label="Giraffe illustration" aria-pressed="true"></button>
+          <button class="hero-slide-dot" aria-label="Watercolor illustration" aria-pressed="false"></button>
+        </div>
       </div>
       <div class="hero-content">
         <p class="eyebrow" data-reveal><span class="eyebrow-rule"></span>Ragunathan Laboratory · Brandeis University</p>
@@ -565,43 +596,43 @@ em { font-style: normal; color: var(--beni); }
     <div class="research-grid">
       <article class="research-card" data-reveal>
         <div class="card-number">01</div>
-        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
+        <div class="card-figure"><img class="card-figure-img" src="assets/motifs/epigenetic-inheritance.png" alt="" aria-hidden="true"></div>
         <h3 class="card-title">Epigenetic Inheritance</h3>
         <p class="card-text">Using inducible systems in fission yeast, we separate the establishment of H3K9 methylation from its maintenance, defining the molecular requirements for heritable heterochromatin and how HP1 proteins switch between these two modes.</p>
         <div class="tag-row"><span class="tag"><em>S. pombe</em></span><span class="tag">H3K9me</span><span class="tag">Inducible silencing</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">02</div>
-        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
+        <div class="card-figure"><img class="card-figure-img" src="assets/motifs/heterochromatin%20dynamics.png" alt="" aria-hidden="true"></div>
         <h3 class="card-title">Heterochromatin Dynamics</h3>
         <p class="card-text">We track Swi6/HP1, Clr4, and associated remodelers at single-molecule resolution in living cells, measuring the binding kinetics and transient interactions through which fleeting molecular events sustain stable, long-lived silencing.</p>
         <div class="tag-row"><span class="tag">Single-molecule</span><span class="tag">Swi6 / Clr4</span><span class="tag">Live-cell imaging</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">03</div>
-        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
+        <div class="card-figure"><img class="card-figure-img" src="assets/motifs/adaptation.png" alt="" aria-hidden="true"></div>
         <h3 class="card-title">Epigenetic Adaptation</h3>
         <p class="card-text">Cells can acquire heritable phenotypes by redistributing histone modifications without genetic change. We quantify the slow kinetics of this adaptation and trace the paths by which populations converge on stable epigenetic states.</p>
         <div class="tag-row"><span class="tag">Adaptation kinetics</span><span class="tag">Lineage tracing</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">04</div>
-        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
+        <div class="card-figure"><img class="card-figure-img" src="assets/motifs/epigenetic%20circuits.png" alt="" aria-hidden="true"></div>
         <h3 class="card-title">Synthetic Epigenetic Circuits</h3>
         <p class="card-text">By reconstituting minimal chromatin circuits, we test the design principles of epigenetic memory — mapping the conditions under which feedback yields bistability, oscillation, or stable inheritance.</p>
         <div class="tag-row"><span class="tag">Synthetic biology</span><span class="tag">Feedback &amp; bistability</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">05</div>
-        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
+        <div class="card-figure"><img class="card-figure-img" src="assets/motifs/non-model-fungus.png" alt="" aria-hidden="true"></div>
         <h3 class="card-title">Chromatin in Non-Model Fungi</h3>
         <p class="card-text">We move beyond classic models to polyextremotolerant fungi such as <em>Aureobasidium pullulans</em>, asking how chromatin-based memory lets cells adapt to environmental stress and switch heritably between cellular states.</p>
         <div class="tag-row"><span class="tag"><em>A. pullulans</em></span><span class="tag">Stress adaptation</span><span class="tag">Phenotypic switching</span></div>
       </article>
       <article class="research-card" data-reveal>
         <div class="card-number">06</div>
-        <div class="card-figure"><div class="card-figure-placeholder" aria-hidden="true"><span>image placeholder</span></div></div>
-        <h3 class="card-title">Self vs. Non-Self in Mammalian Cells</h3>
+        <div class="card-figure"><img class="card-figure-img" src="assets/motifs/mammalian.png" alt="" aria-hidden="true"></div>
+        <h3 class="card-title">Genome Defense in Mammals</h3>
         <p class="card-text">In mammalian cells, we ask how the genome distinguishes self from non-self DNA — how chromatin silencing recognizes and suppresses foreign, repetitive, and transposable elements while leaving native genes intact.</p>
         <div class="tag-row"><span class="tag">Mammalian cells</span><span class="tag">Self / non-self</span><span class="tag">Repeat silencing</span></div>
       </article>
@@ -733,17 +764,17 @@ em { font-style: normal; color: var(--beni); }
     <div class="role-heading" data-reveal>Research Staff</div>
     <div class="member-grid">
       <div class="member" data-reveal>
+        <div class="member-photo member-photo--placeholder"><span class="placeholder-initials">JG</span></div>
+        <h3 class="member-name">Jason Garcia</h3>
+        <div class="member-role">Research Staff</div>
+        <div class="member-bio">Details to come</div>
+      </div>
+      <div class="member" data-reveal>
         <div class="member-photo"><img src="assets/team-dobby.webp" alt="Dobby" loading="lazy"></div>
         <h3 class="member-name">Dobby</h3>
         <div class="member-role">Research Assistant</div>
         <div class="member-bio">Being a good boy, fetch, attending lab meetings</div>
         <div class="member-edu">BS, Stanfurred</div>
-      </div>
-      <div class="member" data-reveal>
-        <div class="member-photo member-photo--placeholder"><span class="placeholder-initials">JG</span></div>
-        <h3 class="member-name">Jason Garcia</h3>
-        <div class="member-role">Research Staff</div>
-        <div class="member-bio">Details to come</div>
       </div>
     </div>
 
@@ -1336,6 +1367,28 @@ document.addEventListener('click', function(e) {
     if (!d.contains(e.target)) d.removeAttribute('open');
   });
 });
+
+(function() {
+  var dots = document.querySelectorAll('.hero-slide-dot');
+  var giraffe = document.querySelector('.hero-art:not(.hero-art--wc)');
+  var wc = document.querySelector('.hero-art--wc');
+  var giraffeInfo = document.querySelector('.hero-art-note--giraffe');
+  var wcInfo = document.querySelector('.hero-art-note--wc');
+  if (!dots.length) return;
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() {
+      var isFirst = i === 0;
+      giraffe.style.opacity = isFirst ? '1' : '0';
+      wc.style.opacity = isFirst ? '0' : '1';
+      if (giraffeInfo) giraffeInfo.classList.toggle('is-visible', isFirst);
+      if (wcInfo) wcInfo.classList.toggle('is-visible', !isFirst);
+      dots.forEach(function(d, j) {
+        d.classList.toggle('is-active', j === i);
+        d.setAttribute('aria-pressed', j === i ? 'true' : 'false');
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>
