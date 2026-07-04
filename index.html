@@ -478,22 +478,29 @@ em { font-style: normal; color: var(--beni); }
 }
 
 .section--contact { padding-top: 3rem; }
-.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: stretch; }
 .contact-block { margin-bottom: 2.2rem; }
 .contact-label { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--beni); margin-bottom: 0.6rem; }
 .contact-block p { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.6; color: var(--ink-soft); margin: 0; }
 .contact-block a { color: var(--beni); text-decoration: none; }
 
-.map-card {
-  position: relative; height: 100%; min-height: 320px; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 1rem; text-decoration: none;
-  border: none; border-radius: 20px; overflow: hidden; background: var(--surface);
-  transition: box-shadow 0.3s;
+.map-embed {
+  position: relative; border-radius: 18px; overflow: hidden;
+  height: 100%; min-height: 340px; box-shadow: 0 4px 20px rgba(18,17,16,0.08);
 }
-.map-card:hover { box-shadow: 0 10px 28px rgba(18,17,16,0.08); }
-.map-pin { overflow: visible; }
-.map-card-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.08rem; font-weight: 600; color: var(--ink); }
-.map-card-cta { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; color: var(--beni); }
+.map-embed iframe {
+  width: 100%; height: 100%; border: 0; display: block;
+  filter: grayscale(1) contrast(1.06) brightness(0.97);
+}
+.map-open-link {
+  position: absolute; bottom: 14px; right: 14px;
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
+  border: 1px solid rgba(18,17,16,0.08); border-radius: 8px;
+  padding: 0.42rem 0.85rem;
+  font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 600;
+  color: var(--beni); text-decoration: none; transition: background 0.2s;
+}
+.map-open-link:hover { background: rgba(255,255,255,1); }
 
 /* ===== FOOTER ===== */
 .footer { position: relative; background: #17191b; color: #d8dadb; padding: 4.5rem 5vw 2.6rem; }
@@ -1325,11 +1332,16 @@ em { font-style: normal; color: var(--beni); }
           <p>Office: Rosenstiel 4th Floor · Phone: (781) 736-2407<br><a href="mailto:kaushikr@brandeis.edu">kaushikr@brandeis.edu</a></p>
         </div>
       </div>
-      <a data-reveal href="https://www.google.com/maps/place/Rosenstiel+Basic+Medical+Sciences+Research+Center,+415+South+St,+Waltham,+MA+02453" target="_blank" rel="noopener" class="map-card">
-        <svg width="42" height="50" viewBox="0 0 40 48" class="map-pin"><path d="M20 2 C10 2 3 9 3 19 C3 31 20 46 20 46 C20 46 37 31 37 19 C37 9 30 2 20 2 Z" fill="#f2f4f4" stroke="var(--beni)" stroke-width="2.4"/><circle cx="20" cy="18.5" r="6" fill="var(--beni)"/></svg>
-        <div class="map-card-title">Rosenstiel Center · Waltham, MA</div>
-        <div class="map-card-cta">Open in Google Maps →</div>
-      </a>
+      <div class="map-embed" data-reveal>
+        <iframe
+          src="https://maps.google.com/maps?q=Rosenstiel+Basic+Medical+Sciences+Research+Center+415+South+Street+Waltham+MA+02453&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          title="Ragunathan Lab — Rosenstiel Center, Brandeis University"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <a href="https://www.google.com/maps/place/Rosenstiel+Basic+Medical+Sciences+Research+Center,+415+South+St,+Waltham,+MA+02453" target="_blank" rel="noopener" class="map-open-link">Open in Google Maps →</a>
+      </div>
     </div>
   </section>
 
