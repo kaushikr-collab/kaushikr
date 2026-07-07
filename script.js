@@ -46,7 +46,7 @@
       if (reduceMotion) {
         window.scrollTo(0, targetY);
       } else {
-        smoothScrollTo(targetY, 1100);
+        smoothScrollTo(targetY, 750);
       }
       history.pushState(null, '', '#' + id);
     });
@@ -96,11 +96,11 @@
           ? Array.from(parent.querySelectorAll(':scope > [data-reveal].pre-reveal'))
           : [];
         const idx = siblings.indexOf(el);
-        const delay = Math.min(Math.max(idx, 0) * 40, 160);
+        const delay = Math.min(Math.max(idx, 0) * 55, 220);
         setTimeout(() => revealNow(el), delay);
         observer.unobserve(el);
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
 
     toObserve.forEach((el) => observer.observe(el));
   }
