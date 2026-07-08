@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #0d0d0d; }
+    .dv-turn { padding: 48px 44px 40px; border-bottom: 1px solid rgba(255,255,255,.06); scroll-margin-top: 16px; }
+    .dv-thd { display: flex; align-items: baseline; gap: 10px; margin: 0 0 24px; }
+    .dv-tid { font: 600 10px ui-monospace,Menlo,monospace; padding: 3px 7px; background: #fff; color: #111; border-radius: 4px; text-decoration: none; }
+    .dv-tname { font: 400 13px/1.2 system-ui,sans-serif; color: rgba(255,255,255,.5); }
+    .dv-opts { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+    .dv-opt { flex: none; display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 16px; }
+    .dv-oid { font: 600 10.5px ui-monospace,Menlo,monospace; padding: 3px 7px; background: rgba(255,255,255,.1); color: rgba(255,255,255,.8); border-radius: 5px; text-decoration: none; }
+    .dv-olabel { display: flex; align-items: baseline; gap: 8px; font: 400 11px/1.3 system-ui,sans-serif; color: rgba(255,255,255,.35); }
+    .dv-card { border-radius: 8px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,.5); }
+    .dv-opt:target .dv-oid { background: #2a78d6; color: #fff; }
+    .dv-next { margin: 32px 0 0; font: 12px/1.6 system-ui,sans-serif; color: rgba(255,255,255,.28); max-width: 700px; }
+    .dv-next a { color: rgba(255,255,255,.5); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.2); }
+  </style>
+</helmet>
+
+<section class="dv-turn" id="t2">
+  <div class="dv-thd">
+    <a class="dv-tid" href="#t2">2</a>
+    <span class="dv-tname">Refined <a class="dv-oid" href="#1a">1a</a> — with new hero artwork</span>
+  </div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="2a">
+      <div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a> Full page — image hero, 1a color system</div>
+      <div class="dv-card" style="width:960px">
+
+        <!-- Nav -->
+        <nav style="background:#f6f1e7;border-bottom:1px solid rgba(173,53,53,.15);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:58px;position:relative;z-index:2;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <svg width="28" height="28" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="8" fill="#f6f1e7"></rect><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="#ad3535" stroke-width="3.6" stroke-linecap="round" opacity="0.9"></path></svg>
+            <span style="font-family:'Crimson Pro',serif;font-size:18px;font-weight:600;letter-spacing:.01em;color:#1a0d0d;">Ragunathan Lab</span>
+          </div>
+          <div style="display:flex;gap:28px;align-items:center;">
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#2a1a1a;">Research</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#2a1a1a;">People</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#2a1a1a;">Publications</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#2a1a1a;">News</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#2a1a1a;">Learn</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#ad3535;border:1px solid #ad3535;padding:6px 14px;">Join</span>
+          </div>
+        </nav>
+
+        <!-- Hero: full-bleed artwork -->
+        <div style="position:relative;height:480px;overflow:hidden;background:#ede8dc;">
+          <!-- The artwork as background -->
+          <div style="position:absolute;inset:0;background-image:url('uploads/ChatGPT%20Image%20Jun%2029%2C%202026%20at%2011_37_44%20PM.png');background-size:cover;background-position:55% center;"></div>
+          <!-- Gradient overlay: parchment fades in from left, protecting text legibility -->
+          <div style="position:absolute;inset:0;background:linear-gradient(to right, #f6f1e7 22%, rgba(246,241,231,.88) 38%, rgba(246,241,231,.45) 58%, rgba(246,241,231,.1) 75%, transparent 100%);"></div>
+          <!-- subtle top rule -->
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ad3535 0%,rgba(173,53,53,.3) 40%,transparent 70%);"></div>
+
+          <!-- Text content — left side, sits in the clean sky zone -->
+          <div style="position:relative;z-index:1;padding:56px 48px;max-width:480px;display:flex;flex-direction:column;justify-content:center;height:100%;box-sizing:border-box;">
+            <p style="font-family:Inter,sans-serif;font-size:10.5px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#ad3535;margin:0 0 24px;">Brandeis University · Department of Biology</p>
+            <h1 style="font-family:'Crimson Pro',serif;font-size:56px;font-weight:300;line-height:1.15;color:#1a0d0d;margin:0 0 22px;">How chromatin<br>encodes <em style="font-style:italic;font-weight:400;">heritable</em><br>memory</h1>
+            <p style="font-family:Inter,sans-serif;font-size:14px;font-weight:300;line-height:1.78;color:#3a2a2a;margin:0 0 36px;max-width:380px;">We study how patterns of histone modification are established, propagated through DNA replication, and inherited across cell divisions — in <em>S. pombe</em> and beyond.</p>
+            <div style="display:flex;gap:12px;">
+              <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:#f6f1e7;background:#ad3535;padding:12px 26px;">Research</span>
+              <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#ad3535;border:1px solid rgba(173,53,53,.45);padding:12px 26px;background:rgba(246,241,231,.6);">Publications</span>
+            </div>
+          </div>
+
+          <!-- Bottom attribution, far right -->
+          <p style="position:absolute;bottom:16px;right:20px;font-family:'Crimson Pro',serif;font-size:11px;font-style:italic;color:rgba(42,26,26,.35);margin:0;z-index:1;">Ink on parchment · Ragunathan Lab, 2026</p>
+        </div>
+
+        <!-- Research section -->
+        <div style="background:#f2ece0;padding:64px 48px 72px;border-top:1px solid rgba(173,53,53,.1);">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;">
+            <div>
+              <p style="font-family:Inter,sans-serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#ad3535;margin:0 0 6px;">Research</p>
+              <h2 style="font-family:'Crimson Pro',serif;font-size:42px;font-weight:400;color:#1a0d0d;margin:0;line-height:1.15;">Questions that guide us</h2>
+            </div>
+            <p style="font-family:'Crimson Pro',serif;font-size:14px;font-style:italic;color:rgba(42,26,26,.4);margin:0 0 4px;">S. pombe · mammalian cells · non-model fungi</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;">
+
+            <!-- Card 1 -->
+            <div style="background:#f6f1e7;padding:28px 28px 32px;">
+              <div style="height:128px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+                  <!-- DNA entry (left) -->
+                  <path d="M 4 52 Q 10 46 14 52" stroke="#ad3535" stroke-width="1.1" fill="none" opacity=".32" stroke-dasharray="2 2"/>
+                  <!-- Nucleosome disc 1 -->
+                  <ellipse cx="28" cy="52" rx="13" ry="10" stroke="#ad3535" stroke-width="1.5" fill="#ad3535" fill-opacity=".07" opacity=".65"/>
+                  <line x1="15" y1="52" x2="41" y2="52" stroke="#ad3535" stroke-width="1.3" opacity=".52"/>
+                  <!-- H3K9me mark on disc 1 -->
+                  <circle cx="28" cy="37" r="3.5" fill="#ad3535" opacity=".65"/>
+                  <line x1="28" y1="41" x2="28" y2="42" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
+                  <!-- Reader protein on disc 1 -->
+                  <path d="M 20 27 Q 22 19 28 18 Q 35 19 36 25 Q 35 31 29 31 Q 23 30 20 27 Z" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".09" opacity=".5"/>
+                  <line x1="28" y1="31" x2="28" y2="37" stroke="#ad3535" stroke-width="1" opacity=".3" stroke-dasharray="1.5 1.5"/>
+                  <!-- DNA between disc 1–2 -->
+                  <path d="M 41 52 Q 50 44 56 52" stroke="#ad3535" stroke-width="1.2" fill="none" opacity=".5"/>
+                  <!-- Nucleosome disc 2 -->
+                  <ellipse cx="70" cy="52" rx="13" ry="10" stroke="#ad3535" stroke-width="1.5" fill="#ad3535" fill-opacity=".08" opacity=".68"/>
+                  <line x1="57" y1="52" x2="83" y2="52" stroke="#ad3535" stroke-width="1.3" opacity=".52"/>
+                  <!-- H3K9me mark on disc 2 -->
+                  <circle cx="70" cy="37" r="3.5" fill="#ad3535" opacity=".65"/>
+                  <line x1="70" y1="41" x2="70" y2="42" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
+                  <!-- Propagation arrow (replication inheritance) -->
+                  <path d="M 76 34 Q 90 25 103 33" stroke="#ad3535" stroke-width="1" fill="none" opacity=".35" stroke-dasharray="2 2"/>
+                  <path d="M 101 30 L 103 33 L 100 36" stroke="#ad3535" stroke-width="1" fill="none" opacity=".35"/>
+                  <!-- DNA between disc 2–3 -->
+                  <path d="M 83 52 Q 92 44 97 52" stroke="#ad3535" stroke-width="1.2" fill="none" opacity=".5"/>
+                  <!-- Nucleosome disc 3 (daughter — lighter) -->
+                  <ellipse cx="112" cy="52" rx="13" ry="10" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".06" opacity=".52"/>
+                  <line x1="99" y1="52" x2="125" y2="52" stroke="#ad3535" stroke-width="1.2" opacity=".42"/>
+                  <!-- Inherited mark on disc 3 (partly filled = being propagated) -->
+                  <circle cx="112" cy="37" r="3.5" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".35" opacity=".58"/>
+                  <line x1="112" y1="41" x2="112" y2="42" stroke="#ad3535" stroke-width="1" opacity=".38"/>
+                  <!-- DNA exit (right) -->
+                  <path d="M 125 52 Q 132 46 136 49" stroke="#ad3535" stroke-width="1.1" fill="none" opacity=".28" stroke-dasharray="2 2"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ad3535;opacity:.58;">01 — 一</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:600;color:#1a0d0d;margin:6px 0 9px;line-height:1.2;">Epigenetic Inheritance</h3>
+              <p style="font-family:Inter,sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#4a3535;margin:0 0 16px;">Separating establishment from maintenance of H3K9me, defining molecular requirements for heritable heterochromatin.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;font-style:italic;">S. pombe</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">H3K9me</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Inducible silencing</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="background:#ede8dc;padding:28px 28px 32px;">
+              <div style="height:128px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+                  <!-- Outer orbital path: freely diffusing molecules -->
+                  <ellipse cx="70" cy="52" rx="48" ry="30" stroke="#ad3535" stroke-width=".7" opacity=".12" fill="none" stroke-dasharray="3 5"/>
+                  <!-- Inner orbital path: transiently bound -->
+                  <ellipse cx="70" cy="52" rx="28" ry="18" stroke="#ad3535" stroke-width="1" opacity=".2" fill="none" stroke-dasharray="3 3"/>
+                  <!-- Central heterochromatin locus (sun) -->
+                  <circle cx="70" cy="52" r="13" fill="#ad3535" opacity=".1"/>
+                  <circle cx="70" cy="52" r="13" stroke="#ad3535" stroke-width="1.7" opacity=".52" fill="none"/>
+                  <circle cx="70" cy="52" r="5.5" fill="#ad3535" opacity=".55"/>
+                  <!-- Shooting star 1: inner orbit, upper-right -->
+                  <path d="M 94 39 L 101 34 L 105 31" stroke="#ad3535" stroke-width="1.5" opacity=".38" stroke-linecap="round" fill="none"/>
+                  <path d="M 101 34 L 106 30" stroke="#ad3535" stroke-width=".7" opacity=".18" stroke-linecap="round"/>
+                  <circle cx="94" cy="39" r="3.5" fill="#ad3535" opacity=".68"/>
+                  <!-- Shooting star 2: inner orbit, lower-left -->
+                  <path d="M 46 65 L 39 70 L 35 73" stroke="#ad3535" stroke-width="1.3" opacity=".32" stroke-linecap="round" fill="none"/>
+                  <circle cx="46" cy="65" r="3" fill="#ad3535" opacity=".58"/>
+                  <!-- Shooting star 3: outer orbit, upper-left (long trail) -->
+                  <path d="M 27 27 L 19 22 L 14 19" stroke="#ad3535" stroke-width="1.5" opacity=".28" stroke-linecap="round" fill="none"/>
+                  <path d="M 19 22 L 13 19" stroke="#ad3535" stroke-width=".7" opacity=".12" stroke-linecap="round"/>
+                  <circle cx="27" cy="27" r="4" fill="#ad3535" opacity=".42"/>
+                  <!-- Shooting star 4: outer orbit, right -->
+                  <path d="M 118 54 L 125 51 L 129 48" stroke="#ad3535" stroke-width="1.2" opacity=".22" stroke-linecap="round" fill="none"/>
+                  <circle cx="118" cy="54" r="3" fill="#ad3535" opacity=".35"/>
+                  <!-- Tiny faint star: lower right -->
+                  <path d="M 111 79 L 117 83" stroke="#ad3535" stroke-width=".9" opacity=".14" stroke-linecap="round"/>
+                  <circle cx="111" cy="79" r="2" fill="#ad3535" opacity=".22"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ad3535;opacity:.58;">02 — 二</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:600;color:#1a0d0d;margin:6px 0 9px;line-height:1.2;">Heterochromatin Dynamics</h3>
+              <p style="font-family:Inter,sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#4a3535;margin:0 0 16px;">Single-molecule tracking of Swi6/HP1 and Clr4, measuring kinetics of fleeting interactions that sustain stable silencing.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Single-molecule</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Swi6 / Clr4</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="background:#f6f1e7;padding:28px 28px 32px;">
+              <div style="height:128px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+                  <!-- Epigenetic landscape: W-curve with two stable valleys -->
+                  <path d="M 8 28 C 26 28 34 74 52 74 C 66 74 70 14 88 74 C 106 74 114 28 132 28" stroke="#ad3535" stroke-width="1.8" fill="none" opacity=".48"/>
+                  <path d="M 8 28 C 26 28 34 74 52 74 C 66 74 70 14 88 74 C 106 74 114 28 132 28 L 132 104 L 8 104 Z" fill="#ad3535" opacity=".04"/>
+                  <!-- Ball in left valley: initial epigenetic state -->
+                  <circle cx="52" cy="71" r="6.5" fill="#ad3535" opacity=".55"/>
+                  <!-- Stress arrow: ball is pushed over the hill to new state -->
+                  <path d="M 59 63 Q 70 30 81 61" stroke="#ad3535" stroke-width="1.4" fill="none" opacity=".45" stroke-dasharray="3 2"/>
+                  <path d="M 78 58 L 81 61 L 78 64" stroke="#ad3535" stroke-width="1.2" fill="none" opacity=".45"/>
+                  <!-- Ball in right valley: new adapted state (open = heritable) -->
+                  <circle cx="88" cy="71" r="6.5" stroke="#ad3535" stroke-width="2" fill="#ad3535" fill-opacity=".15" opacity=".72"/>
+                  <!-- Memory loop: shows new state is heritable -->
+                  <path d="M 97 77 Q 116 92 124 77 Q 122 63 112 59" stroke="#ad3535" stroke-width="1" fill="none" opacity=".3" stroke-dasharray="2 2"/>
+                  <path d="M 114 57 L 112 59 L 115 62" stroke="#ad3535" stroke-width="1" fill="none" opacity=".3"/>
+                  <!-- State labels -->
+                  <text x="52" y="98" text-anchor="middle" font-family="serif" font-size="8" fill="#ad3535" opacity=".38" font-style="italic">initial</text>
+                  <text x="88" y="98" text-anchor="middle" font-family="serif" font-size="8" fill="#ad3535" opacity=".38" font-style="italic">adapted</text>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ad3535;opacity:.58;">03 — 三</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:600;color:#1a0d0d;margin:6px 0 9px;line-height:1.2;">Epigenetic Adaptation</h3>
+              <p style="font-family:Inter,sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#4a3535;margin:0 0 16px;">Quantifying slow kinetics of heritable phenotype acquisition and tracing convergence on stable epigenetic states.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Adaptation kinetics</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Lineage tracing</span>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div style="background:#ede8dc;padding:28px 28px 32px;">
+              <div style="height:128px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+                  <!-- H3K9me substrate (top) -->
+                  <rect x="47" y="5" width="46" height="18" rx="3" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".1" opacity=".72"/>
+                  <text x="70" y="18" text-anchor="middle" font-family="serif" font-size="8.5" fill="#ad3535" opacity=".7" font-style="italic">H3K9me</text>
+                  <!-- READ module: center -->
+                  <rect x="47" y="38" width="46" height="17" rx="3" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".09" opacity=".7"/>
+                  <text x="70" y="51" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#ad3535" opacity=".65">READ · HP1</text>
+                  <!-- WRITE module: bottom-left -->
+                  <rect x="6" y="77" width="48" height="16" rx="3" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".09" opacity=".68"/>
+                  <text x="30" y="89" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#ad3535" opacity=".62">WRITE · Clr4</text>
+                  <!-- ERASE module: bottom-right -->
+                  <rect x="86" y="77" width="48" height="16" rx="3" stroke="#ad3535" stroke-width="1.1" fill="#ad3535" fill-opacity=".07" opacity=".6"/>
+                  <text x="110" y="89" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#ad3535" opacity=".55">ERASE · Epe1</text>
+                  <!-- H3K9me → READ: recognition arrow -->
+                  <line x1="70" y1="23" x2="70" y2="38" stroke="#ad3535" stroke-width="1.2" opacity=".5"/>
+                  <path d="M 67 36 L 70 38 L 73 36" stroke="#ad3535" stroke-width="1" fill="none" opacity=".5"/>
+                  <!-- READ → WRITE: reader activates writer (+) -->
+                  <path d="M 54 55 L 30 77" stroke="#ad3535" stroke-width="1.3" opacity=".58"/>
+                  <path d="M 32 74 L 30 77 L 33 79" stroke="#ad3535" stroke-width="1" fill="none" opacity=".58"/>
+                  <text x="36" y="65" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#ad3535" opacity=".45" font-weight="bold">+</text>
+                  <!-- READ → ERASE: reader also activates eraser -->
+                  <path d="M 86 55 L 110 77" stroke="#ad3535" stroke-width="1" opacity=".36" stroke-dasharray="2.5 2"/>
+                  <path d="M 108 74 L 110 77 L 113 75" stroke="#ad3535" stroke-width="1" fill="none" opacity=".36"/>
+                  <!-- WRITE → H3K9me: positive feedback (left arc) -->
+                  <path d="M 6 83 Q 1 46 47 14" stroke="#ad3535" stroke-width="1.3" opacity=".6"/>
+                  <path d="M 44 16 L 47 14 L 49 17" stroke="#ad3535" stroke-width="1.1" fill="none" opacity=".6"/>
+                  <text x="11" y="50" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#ad3535" opacity=".45" font-weight="bold">+</text>
+                  <!-- ERASE → H3K9me: inhibition (right arc, dashed, blunt end) -->
+                  <path d="M 134 83 Q 139 46 93 14" stroke="#ad3535" stroke-width="1.2" opacity=".42" stroke-dasharray="3 2"/>
+                  <line x1="89" y1="13" x2="97" y2="13" stroke="#ad3535" stroke-width="2" opacity=".42"/>
+                  <text x="129" y="50" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#ad3535" opacity=".38">−</text>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ad3535;opacity:.58;">04 — 四</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:600;color:#1a0d0d;margin:6px 0 9px;line-height:1.2;">Synthetic Epigenetic Circuits</h3>
+              <p style="font-family:Inter,sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#4a3535;margin:0 0 16px;">Reconstituting minimal chromatin circuits to test design principles of epigenetic memory and feedback-driven bistability.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Synthetic biology</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Feedback</span>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div style="background:#f6f1e7;padding:28px 28px 32px;">
+              <div style="height:128px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+                  <!-- Mother cell: central, large -->
+                  <ellipse cx="63" cy="57" rx="20" ry="18" stroke="#ad3535" stroke-width="1.5" fill="#ad3535" fill-opacity=".08" opacity=".7"/>
+                  <circle cx="63" cy="57" r="5" fill="#ad3535" opacity=".18"/>
+                  <!-- Bud 1: upper-right, large (older bud) -->
+                  <line x1="75" y1="45" x2="85" y2="34" stroke="#ad3535" stroke-width="2.5" stroke-linecap="round" opacity=".42"/>
+                  <ellipse cx="93" cy="27" rx="14" ry="12" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".07" opacity=".62" transform="rotate(18 93 27)"/>
+                  <circle cx="93" cy="27" r="3.5" fill="#ad3535" opacity=".14"/>
+                  <!-- Bud 2: right, medium -->
+                  <line x1="83" y1="57" x2="98" y2="57" stroke="#ad3535" stroke-width="2.5" stroke-linecap="round" opacity=".38"/>
+                  <ellipse cx="109" cy="57" rx="12" ry="10" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".06" opacity=".55"/>
+                  <!-- Bud 3: bottom-left, medium -->
+                  <line x1="58" y1="75" x2="52" y2="87" stroke="#ad3535" stroke-width="2.2" stroke-linecap="round" opacity=".34"/>
+                  <ellipse cx="48" cy="95" rx="11" ry="9" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".06" opacity=".5"/>
+                  <!-- Bud 4: top-left, small (younger) -->
+                  <line x1="50" y1="44" x2="38" y2="33" stroke="#ad3535" stroke-width="1.8" stroke-linecap="round" opacity=".28"/>
+                  <ellipse cx="31" cy="27" rx="9" ry="8" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".05" opacity=".44" transform="rotate(-12 31 27)"/>
+                  <!-- Second-gen bud on Bud 1 (smallest — newest) -->
+                  <line x1="102" y1="20" x2="110" y2="12" stroke="#ad3535" stroke-width="1.3" stroke-linecap="round" opacity=".22"/>
+                  <ellipse cx="115" cy="8" rx="7" ry="6" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".04" opacity=".35"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ad3535;opacity:.58;">05 — 五</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:600;color:#1a0d0d;margin:6px 0 9px;line-height:1.2;">Chromatin in Non-Model Fungi</h3>
+              <p style="font-family:Inter,sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#4a3535;margin:0 0 16px;">How chromatin-based memory drives multipolar budding, heritable phenotypic switching, and stress adaptation in the polyextremotolerant fungus <em>A. pullulans</em>.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;font-style:italic;">A. pullulans</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Phenotypic switching</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Stress adaptation</span>
+              </div>
+            </div>
+
+            <!-- Card 6: Mammalian Gene Regulation (merged) -->
+            <div style="background:#ede8dc;padding:28px 28px 32px;">
+              <div style="height:128px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+                  <!-- Mammalian cell: large organic oval boundary -->
+                  <path d="M 70 6 C 104 6 124 22 126 50 C 128 78 108 98 76 98 C 44 98 18 82 16 56 C 14 30 30 10 54 7 C 60 6 65 6 70 6 Z" stroke="#ad3535" stroke-width="1.4" fill="#ad3535" fill-opacity=".05" opacity=".5"/>
+                  <!-- Nucleus: inner ellipse, dashed membrane -->
+                  <ellipse cx="70" cy="50" rx="30" ry="25" stroke="#ad3535" stroke-width="1.3" fill="#ad3535" fill-opacity=".07" opacity=".65" stroke-dasharray="3 2.5"/>
+                  <!-- Nucleolus: distinct inner circle -->
+                  <circle cx="60" cy="44" r="9" stroke="#ad3535" stroke-width="1.1" fill="#ad3535" fill-opacity=".12" opacity=".58"/>
+                  <!-- rDNA marks around nucleolus (3 filled dots = regulated rDNA) -->
+                  <circle cx="54" cy="35" r="2.2" fill="#ad3535" opacity=".62"/>
+                  <circle cx="62" cy="32" r="2.2" fill="#ad3535" opacity=".62"/>
+                  <circle cx="70" cy="35" r="2.2" fill="#ad3535" opacity=".62"/>
+                  <!-- Gene regulation: mini nucleosome disc with mark -->
+                  <ellipse cx="82" cy="47" rx="9" ry="7" stroke="#ad3535" stroke-width="1.2" fill="#ad3535" fill-opacity=".08" opacity=".6"/>
+                  <line x1="73" y1="47" x2="91" y2="47" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
+                  <!-- H3K9me mark (silencing) -->
+                  <circle cx="82" cy="38" r="3" fill="#ad3535" opacity=".65"/>
+                  <line x1="82" y1="41" x2="82" y2="40" stroke="#ad3535" stroke-width="1.1" opacity=".48"/>
+                  <!-- Second disc: active gene (open mark = expressed) -->
+                  <ellipse cx="82" cy="60" rx="8" ry="6" stroke="#ad3535" stroke-width="1" fill="#ad3535" fill-opacity=".06" opacity=".48"/>
+                  <line x1="74" y1="60" x2="90" y2="60" stroke="#ad3535" stroke-width="1" opacity=".38"/>
+                  <circle cx="82" cy="52" r="2.5" stroke="#ad3535" stroke-width="1" fill="none" opacity=".4"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ad3535;opacity:.58;">06 — 六</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:600;color:#1a0d0d;margin:6px 0 9px;line-height:1.2;">Mammalian Gene Regulation</h3>
+              <p style="font-family:Inter,sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#4a3535;margin:0 0 16px;">In mammalian cells, we investigate how chromatin governs rDNA expression at the nucleolus and silences exogenous DNA — two distinct H3K9 methylation-dependent projects for maintaining genome integrity.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Mammalian cells</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">rDNA · Nucleolus</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.03em;color:#ad3535;border:1px solid rgba(173,53,53,.28);padding:2px 7px;">Exogenous silencing</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Footer strip -->
+        <div style="background:#1a0d0d;padding:28px 48px;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-family:'Crimson Pro',serif;font-size:14px;font-style:italic;color:rgba(246,241,231,.4);">Nothing about development makes sense except in the light of epigenetics.</span>
+          <span style="font-family:Inter,sans-serif;font-size:10.5px;letter-spacing:.08em;color:rgba(246,241,231,.25);">© 2026 Ragunathan Lab · Brandeis University</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <p class="dv-next">Try next: "show the People section in this style" · "show the Publications section" · "make the hero taller / more dramatic" · "show me the mobile nav"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+  <div class="dv-thd">
+    <a class="dv-tid" href="#t1">1</a>
+    <span class="dv-tname">Three design directions — hero + research section</span>
+  </div>
+  <div class="dv-opts">
+
+    <!-- ═══════════════════════════════════════════════
+         1a · ARCHIVAL REFINED
+         Polish the existing DNA — same warmth, sharper execution
+    ════════════════════════════════════════════════════ -->
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a> Archival Refined — same DNA, sharper execution</div>
+      <div class="dv-card" style="width:960px">
+
+        <!-- Nav -->
+        <nav style="background:#f6f1e7;border-bottom:1px solid rgba(173,53,53,.15);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:58px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <svg width="28" height="28" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="8" fill="#f6f1e7"></rect><path d="M29 9 C13 3 4 19 8 29 C12 39 31 38 33 25 C34.5 17 29 12 21 12" fill="none" stroke="#ad3535" stroke-width="3.6" stroke-linecap="round" opacity="0.9"></path></svg>
+            <span style="font-family:'Crimson Pro',serif;font-size:18px;font-weight:600;letter-spacing:.01em;color:#1a0d0d;">Ragunathan Lab</span>
+          </div>
+          <div style="display:flex;gap:28px;align-items:center;">
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#2a1a1a;">Research</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#2a1a1a;">People</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#2a1a1a;">Publications</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#2a1a1a;">News</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#ad3535;border:1px solid #ad3535;padding:6px 14px;">Join</span>
+          </div>
+        </nav>
+
+        <!-- Hero -->
+        <div style="background:#f6f1e7;padding:80px 48px 72px;text-align:center;position:relative;overflow:hidden;">
+          <!-- subtle ink wash at top -->
+          <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent 0%,#ad3535 30%,#8b1a1a 50%,#ad3535 70%,transparent 100%);opacity:.5;"></div>
+          <!-- large faint brush stroke behind text -->
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:200px;background:radial-gradient(ellipse,rgba(173,53,53,.06) 0%,transparent 70%);pointer-events:none;"></div>
+          <p style="font-family:Inter,sans-serif;font-size:10.5px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#ad3535;margin:0 0 28px;position:relative;">Brandeis University · Department of Biology</p>
+          <h1 style="font-family:'Crimson Pro',serif;font-size:62px;font-weight:300;line-height:1.18;color:#1a0d0d;margin:0 auto 28px;max-width:660px;position:relative;">How chromatin encodes<br><em style="font-style:italic;font-weight:400;">heritable</em> memory</h1>
+          <p style="font-family:Inter,sans-serif;font-size:15px;font-weight:300;line-height:1.75;color:#4a3535;max-width:500px;margin:0 auto 44px;position:relative;">We study how patterns of histone modification are established, propagated through DNA replication, and inherited across cell divisions — in <em>S. pombe</em> and beyond.</p>
+          <div style="display:flex;gap:14px;justify-content:center;position:relative;">
+            <span style="font-family:Inter,sans-serif;font-size:11.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:#f6f1e7;background:#ad3535;padding:13px 30px;">Our Research</span>
+            <span style="font-family:Inter,sans-serif;font-size:11.5px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#ad3535;border:1px solid rgba(173,53,53,.5);padding:13px 30px;">Publications</span>
+          </div>
+          <p style="font-family:'Crimson Pro',serif;font-size:12px;font-style:italic;color:rgba(42,26,26,.3);margin:52px 0 0;position:relative;">After Hasegawa Tōhaku, Pine Trees (松林図屏風, c. 1595)</p>
+        </div>
+
+        <!-- Research section -->
+        <div style="background:#f2ece0;padding:64px 48px;border-top:1px solid rgba(173,53,53,.1);">
+          <p style="font-family:Inter,sans-serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#ad3535;margin:0 0 6px;">Research</p>
+          <h2 style="font-family:'Crimson Pro',serif;font-size:42px;font-weight:400;color:#1a0d0d;margin:0 0 48px;line-height:1.15;">Questions that guide us</h2>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;">
+
+            <!-- Card 1 -->
+            <div style="background:#f6f1e7;padding:28px 28px 32px;">
+              <div style="height:132px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="108" viewBox="0 0 140 108" fill="none">
+                  <circle cx="70" cy="52" r="24" stroke="#ad3535" stroke-width="1.5" stroke-dasharray="4 3" opacity=".4"/>
+                  <circle cx="70" cy="52" r="15" fill="#ad3535" opacity=".1"/>
+                  <circle cx="70" cy="52" r="15" stroke="#ad3535" stroke-width="1.5" opacity=".55"/>
+                  <path d="M46 52 Q52 36 70 32 Q88 28 94 46" stroke="#ad3535" stroke-width="1.5" fill="none" opacity=".45"/>
+                  <path d="M94 58 Q88 74 70 78 Q52 82 46 66" stroke="#ad3535" stroke-width="1.5" fill="none" opacity=".45"/>
+                  <circle cx="70" cy="32" r="3" fill="#ad3535" opacity=".7"/>
+                  <circle cx="94" cy="52" r="3" fill="#ad3535" opacity=".7"/>
+                  <circle cx="70" cy="78" r="3" fill="#ad3535" opacity=".7"/>
+                  <line x1="70" y1="82" x2="70" y2="96" stroke="#ad3535" stroke-width="1" opacity=".25"/>
+                  <circle cx="70" cy="98" r="3" fill="#ad3535" opacity=".25"/>
+                  <line x1="46" y1="52" x2="30" y2="52" stroke="#ad3535" stroke-width="1" opacity=".25"/>
+                  <circle cx="27" cy="52" r="3" fill="#ad3535" opacity=".25"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ad3535;opacity:.6;">01 — 一</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:600;color:#1a0d0d;margin:6px 0 10px;line-height:1.2;">Epigenetic Inheritance</h3>
+              <p style="font-family:Inter,sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#4a3535;margin:0 0 16px;">Separating establishment from maintenance of H3K9me, defining requirements for heritable heterochromatin.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.04em;color:#ad3535;border:1px solid rgba(173,53,53,.3);padding:2px 7px;font-style:italic;">S. pombe</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.04em;color:#ad3535;border:1px solid rgba(173,53,53,.3);padding:2px 7px;">H3K9me</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="background:#ede8dc;padding:28px 28px 32px;">
+              <div style="height:132px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="108" viewBox="0 0 140 108" fill="none">
+                  <circle cx="70" cy="54" r="9" fill="#ad3535" opacity=".5"/>
+                  <circle cx="70" cy="54" r="18" stroke="#ad3535" stroke-width="1" opacity=".2" stroke-dasharray="2 3"/>
+                  <circle cx="70" cy="54" r="30" stroke="#ad3535" stroke-width=".8" opacity=".1" stroke-dasharray="2 5"/>
+                  <circle cx="104" cy="32" r="4" fill="#ad3535" opacity=".4"/>
+                  <circle cx="38" cy="30" r="3" fill="#ad3535" opacity=".3"/>
+                  <circle cx="116" cy="70" r="2.5" fill="#ad3535" opacity=".25"/>
+                  <circle cx="26" cy="72" r="3" fill="#ad3535" opacity=".28"/>
+                  <circle cx="108" cy="86" r="2" fill="#ad3535" opacity=".2"/>
+                  <circle cx="44" cy="90" r="2.5" fill="#ad3535" opacity=".2"/>
+                  <circle cx="88" cy="16" r="2" fill="#ad3535" opacity=".15"/>
+                  <path d="M104 32 Q92 42 79 48" stroke="#ad3535" stroke-width=".8" opacity=".2" fill="none"/>
+                  <path d="M38 30 Q52 42 61 50" stroke="#ad3535" stroke-width=".8" opacity=".2" fill="none"/>
+                  <path d="M26 72 Q40 64 61 58" stroke="#ad3535" stroke-width=".8" opacity=".15" fill="none"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ad3535;opacity:.6;">02 — 二</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:600;color:#1a0d0d;margin:6px 0 10px;line-height:1.2;">Heterochromatin Dynamics</h3>
+              <p style="font-family:Inter,sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#4a3535;margin:0 0 16px;">Single-molecule tracking of Swi6/HP1 and Clr4, measuring kinetics of transient interactions that sustain stable silencing.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.04em;color:#ad3535;border:1px solid rgba(173,53,53,.3);padding:2px 7px;">Single-molecule</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.04em;color:#ad3535;border:1px solid rgba(173,53,53,.3);padding:2px 7px;">Swi6 / Clr4</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="background:#f6f1e7;padding:28px 28px 32px;">
+              <div style="height:132px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="108" viewBox="0 0 140 108" fill="none">
+                  <line x1="70" y1="8" x2="70" y2="34" stroke="#ad3535" stroke-width="1.5" opacity=".55"/>
+                  <line x1="70" y1="34" x2="42" y2="62" stroke="#ad3535" stroke-width="1.2" opacity=".35"/>
+                  <line x1="70" y1="34" x2="70" y2="62" stroke="#ad3535" stroke-width="1.2" opacity=".35"/>
+                  <line x1="70" y1="34" x2="98" y2="62" stroke="#ad3535" stroke-width="1.2" opacity=".35"/>
+                  <line x1="42" y1="62" x2="70" y2="92" stroke="#ad3535" stroke-width="1" opacity=".5"/>
+                  <line x1="70" y1="62" x2="70" y2="92" stroke="#ad3535" stroke-width="1" opacity=".5"/>
+                  <line x1="98" y1="62" x2="70" y2="92" stroke="#ad3535" stroke-width="1" opacity=".5"/>
+                  <circle cx="70" cy="8" r="4" fill="#ad3535" opacity=".8"/>
+                  <circle cx="70" cy="34" r="3" fill="#ad3535" opacity=".55"/>
+                  <circle cx="42" cy="62" r="3" fill="#ad3535" opacity=".35"/>
+                  <circle cx="70" cy="62" r="3" fill="#ad3535" opacity=".35"/>
+                  <circle cx="98" cy="62" r="3" fill="#ad3535" opacity=".35"/>
+                  <circle cx="70" cy="92" r="6" fill="#ad3535" opacity=".65"/>
+                  <circle cx="70" cy="92" r="12" stroke="#ad3535" stroke-width="1" opacity=".2" stroke-dasharray="3 2"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ad3535;opacity:.6;">03 — 三</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:600;color:#1a0d0d;margin:6px 0 10px;line-height:1.2;">Epigenetic Adaptation</h3>
+              <p style="font-family:Inter,sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#4a3535;margin:0 0 16px;">Quantifying the slow kinetics of heritable phenotype acquisition and tracing convergence on stable epigenetic states.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.04em;color:#ad3535;border:1px solid rgba(173,53,53,.3);padding:2px 7px;">Adaptation kinetics</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.04em;color:#ad3535;border:1px solid rgba(173,53,53,.3);padding:2px 7px;">Lineage tracing</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         1b · SCIENTIFIC EDITORIAL
+         White, precise, journal-quality — like Nature meets a Brandeis faculty page
+    ════════════════════════════════════════════════════ -->
+    <div class="dv-opt" id="1b">
+      <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a> Scientific Editorial — white, precise, journal-quality</div>
+      <div class="dv-card" style="width:960px">
+
+        <!-- Nav -->
+        <nav style="background:#fff;border-bottom:1px solid #e8e8e8;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:58px;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:.01em;color:#0d1b2a;">Ragunathan</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;">Laboratory · Brandeis</span>
+          </div>
+          <div style="display:flex;gap:28px;align-items:center;">
+            <span style="font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:400;color:#374151;">Research</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:400;color:#374151;">People</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:400;color:#374151;">Publications</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:400;color:#374151;">News</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;color:#1d3461;border:1.5px solid #1d3461;padding:6px 16px;">Join</span>
+          </div>
+        </nav>
+
+        <!-- Hero: left-aligned editorial layout -->
+        <div style="background:#fff;display:grid;grid-template-columns:1fr 1fr;min-height:380px;">
+          <!-- Left: text -->
+          <div style="padding:72px 48px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #f0f0f0;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px;">
+              <div style="width:32px;height:1.5px;background:#1d3461;"></div>
+              <span style="font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:#1d3461;">Brandeis University</span>
+            </div>
+            <h1 style="font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:400;line-height:1.15;color:#0d1b2a;margin:0 0 24px;">How chromatin<br>encodes <em style="font-style:italic;color:#1d3461;">heritable</em><br>memory</h1>
+            <p style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;line-height:1.75;color:#4b5563;margin:0 0 36px;max-width:380px;">We study how patterns of histone modification are established, propagated through DNA replication, and inherited across cell divisions.</p>
+            <div style="display:flex;gap:12px;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:#fff;background:#1d3461;padding:11px 24px;">Research →</span>
+              <span style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;color:#1d3461;padding:11px 24px;border:1px solid #c5cfe0;">Publications</span>
+            </div>
+          </div>
+          <!-- Right: stat / science context panel -->
+          <div style="background:#f7f9fc;padding:72px 48px;display:flex;flex-direction:column;justify-content:center;gap:32px;">
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:400;color:#1d3461;line-height:1;">19</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:#6b7280;margin-top:4px;">Published papers</div>
+            </div>
+            <div style="width:40px;height:1px;background:#d1d9e6;"></div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:400;color:#1d3461;line-height:1;">6</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:#6b7280;margin-top:4px;">Research directions</div>
+            </div>
+            <div style="width:40px;height:1px;background:#d1d9e6;"></div>
+            <div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;line-height:1.65;color:#374151;font-style:italic;">"Nothing about development makes sense except in the light of epigenetics."</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research section -->
+        <div style="background:#fff;padding:64px 48px;border-top:1px solid #f0f0f0;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:48px;">
+            <div>
+              <p style="font-family:'DM Sans',sans-serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#1d3461;margin:0 0 8px;">Research</p>
+              <h2 style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:400;color:#0d1b2a;margin:0;line-height:1.15;">Questions that guide us</h2>
+            </div>
+            <span style="font-family:'DM Sans',sans-serif;font-size:12px;color:#1d3461;border-bottom:1px solid #1d3461;padding-bottom:1px;">View all →</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+            <!-- Card 1 -->
+            <div style="border:1px solid #e8ecf2;padding:28px;">
+              <div style="height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:#f0f4fa;border-radius:4px;">
+                <svg width="130" height="96" viewBox="0 0 130 96" fill="none">
+                  <circle cx="65" cy="46" r="22" stroke="#1d3461" stroke-width="1.5" stroke-dasharray="4 3" opacity=".35"/>
+                  <circle cx="65" cy="46" r="14" fill="#1d3461" opacity=".08"/>
+                  <circle cx="65" cy="46" r="14" stroke="#1d3461" stroke-width="1.5" opacity=".5"/>
+                  <path d="M43 46 Q49 31 65 27 Q81 23 87 39" stroke="#1d3461" stroke-width="1.5" fill="none" opacity=".4"/>
+                  <path d="M87 53 Q81 68 65 72 Q49 76 43 62" stroke="#1d3461" stroke-width="1.5" fill="none" opacity=".4"/>
+                  <circle cx="65" cy="27" r="3" fill="#1d3461" opacity=".6"/>
+                  <circle cx="87" cy="46" r="3" fill="#1d3461" opacity=".6"/>
+                  <circle cx="65" cy="72" r="3" fill="#1d3461" opacity=".6"/>
+                  <line x1="65" y1="76" x2="65" y2="88" stroke="#1d3461" stroke-width="1" opacity=".2"/>
+                  <circle cx="65" cy="90" r="2.5" fill="#1d3461" opacity=".2"/>
+                </svg>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#1d3461;background:#e8ecf2;padding:2px 8px;">01</span>
+              </div>
+              <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#0d1b2a;margin:0 0 8px;line-height:1.25;">Epigenetic Inheritance</h3>
+              <p style="font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:300;line-height:1.7;color:#4b5563;margin:0 0 16px;">Separating establishment from maintenance of H3K9me, defining molecular requirements for heritable heterochromatin.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#1d3461;background:#e8ecf2;padding:2px 7px;font-style:italic;">S. pombe</span>
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#1d3461;background:#e8ecf2;padding:2px 7px;">H3K9me</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="border:1px solid #e8ecf2;padding:28px;">
+              <div style="height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:#f0f4fa;border-radius:4px;">
+                <svg width="130" height="96" viewBox="0 0 130 96" fill="none">
+                  <circle cx="65" cy="48" r="8" fill="#1d3461" opacity=".45"/>
+                  <circle cx="65" cy="48" r="17" stroke="#1d3461" stroke-width="1" opacity=".18" stroke-dasharray="2 3"/>
+                  <circle cx="65" cy="48" r="28" stroke="#1d3461" stroke-width=".8" opacity=".1" stroke-dasharray="2 5"/>
+                  <circle cx="96" cy="28" r="3.5" fill="#1d3461" opacity=".4"/>
+                  <circle cx="34" cy="26" r="3" fill="#1d3461" opacity=".3"/>
+                  <circle cx="106" cy="64" r="2.5" fill="#1d3461" opacity=".22"/>
+                  <circle cx="24" cy="66" r="3" fill="#1d3461" opacity=".25"/>
+                  <circle cx="100" cy="78" r="2" fill="#1d3461" opacity=".18"/>
+                  <circle cx="40" cy="82" r="2" fill="#1d3461" opacity=".18"/>
+                  <path d="M96 28 Q84 38 74 44" stroke="#1d3461" stroke-width=".8" opacity=".18" fill="none"/>
+                  <path d="M34 26 Q48 38 57 44" stroke="#1d3461" stroke-width=".8" opacity=".18" fill="none"/>
+                </svg>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#1d3461;background:#e8ecf2;padding:2px 8px;">02</span>
+              </div>
+              <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#0d1b2a;margin:0 0 8px;line-height:1.25;">Heterochromatin Dynamics</h3>
+              <p style="font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:300;line-height:1.7;color:#4b5563;margin:0 0 16px;">Tracking Swi6/HP1 and Clr4 at single-molecule resolution to measure binding kinetics of fleeting molecular events.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#1d3461;background:#e8ecf2;padding:2px 7px;">Single-molecule</span>
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#1d3461;background:#e8ecf2;padding:2px 7px;">Live-cell imaging</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="border:1px solid #e8ecf2;padding:28px;">
+              <div style="height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:#f0f4fa;border-radius:4px;">
+                <svg width="130" height="96" viewBox="0 0 130 96" fill="none">
+                  <line x1="65" y1="6" x2="65" y2="30" stroke="#1d3461" stroke-width="1.5" opacity=".5"/>
+                  <line x1="65" y1="30" x2="38" y2="56" stroke="#1d3461" stroke-width="1.2" opacity=".32"/>
+                  <line x1="65" y1="30" x2="65" y2="56" stroke="#1d3461" stroke-width="1.2" opacity=".32"/>
+                  <line x1="65" y1="30" x2="92" y2="56" stroke="#1d3461" stroke-width="1.2" opacity=".32"/>
+                  <line x1="38" y1="56" x2="65" y2="84" stroke="#1d3461" stroke-width="1" opacity=".45"/>
+                  <line x1="65" y1="56" x2="65" y2="84" stroke="#1d3461" stroke-width="1" opacity=".45"/>
+                  <line x1="92" y1="56" x2="65" y2="84" stroke="#1d3461" stroke-width="1" opacity=".45"/>
+                  <circle cx="65" cy="6" r="3.5" fill="#1d3461" opacity=".7"/>
+                  <circle cx="65" cy="30" r="3" fill="#1d3461" opacity=".5"/>
+                  <circle cx="38" cy="56" r="2.5" fill="#1d3461" opacity=".32"/>
+                  <circle cx="65" cy="56" r="2.5" fill="#1d3461" opacity=".32"/>
+                  <circle cx="92" cy="56" r="2.5" fill="#1d3461" opacity=".32"/>
+                  <circle cx="65" cy="84" r="6" fill="#1d3461" opacity=".55"/>
+                  <circle cx="65" cy="84" r="12" stroke="#1d3461" stroke-width="1" opacity=".18" stroke-dasharray="3 2"/>
+                </svg>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#1d3461;background:#e8ecf2;padding:2px 8px;">03</span>
+              </div>
+              <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#0d1b2a;margin:0 0 8px;line-height:1.25;">Epigenetic Adaptation</h3>
+              <p style="font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:300;line-height:1.7;color:#4b5563;margin:0 0 16px;">Quantifying slow kinetics of heritable phenotype acquisition, tracing paths toward stable epigenetic solutions.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#1d3461;background:#e8ecf2;padding:2px 7px;">Adaptation kinetics</span>
+                <span style="font-family:'DM Sans',sans-serif;font-size:10px;color:#1d3461;background:#e8ecf2;padding:2px 7px;">Lineage tracing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         1c · DEEP TIME
+         Dark, atmospheric — serious science, unmistakable presence
+    ════════════════════════════════════════════════════ -->
+    <div class="dv-opt" id="1c">
+      <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a> Deep Time — dark, atmospheric, unmistakable</div>
+      <div class="dv-card" style="width:960px">
+
+        <!-- Nav -->
+        <nav style="background:#0e1117;border-bottom:1px solid rgba(255,255,255,.08);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:58px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="#c94040" stroke-width="2"/><path d="M12 20 Q20 8 28 20 Q20 32 12 20Z" fill="#c94040" opacity=".5"/></svg>
+            <span style="font-family:'Crimson Pro',serif;font-size:17px;font-weight:400;letter-spacing:.04em;color:#e8e0cc;">Ragunathan Lab</span>
+          </div>
+          <div style="display:flex;gap:28px;align-items:center;">
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,224,204,.55);">Research</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,224,204,.55);">People</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,224,204,.55);">Publications</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,224,204,.55);">News</span>
+            <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#c94040;border:1px solid rgba(201,64,64,.45);padding:6px 14px;">Join</span>
+          </div>
+        </nav>
+
+        <!-- Hero -->
+        <div style="background:#0e1117;padding:88px 48px 80px;position:relative;overflow:hidden;">
+          <!-- subtle grid pattern -->
+          <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;"></div>
+          <!-- red glow -->
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(201,64,64,.12) 0%,transparent 70%);pointer-events:none;"></div>
+          <div style="position:relative;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;">
+            <div>
+              <div style="display:flex;align-items:center;gap:16px;margin-bottom:36px;">
+                <div style="width:1px;height:40px;background:linear-gradient(to bottom,transparent,#c94040);"></div>
+                <span style="font-family:Inter,sans-serif;font-size:10.5px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,64,64,.8);">Brandeis University · Biology</span>
+              </div>
+              <h1 style="font-family:'Crimson Pro',serif;font-size:66px;font-weight:300;line-height:1.12;color:#e8e0cc;margin:0 0 28px;max-width:560px;">How chromatin<br>encodes <em style="font-style:italic;color:#c94040;font-weight:300;">heritable</em><br>memory</h1>
+              <p style="font-family:Inter,sans-serif;font-size:14.5px;font-weight:300;line-height:1.75;color:rgba(232,224,204,.55);max-width:480px;margin:0 0 40px;">Patterns of histone modification, established and propagated through DNA replication — resolved at the molecular level in <em style="font-style:italic;color:rgba(232,224,204,.75);">S. pombe</em> and beyond.</p>
+              <div style="display:flex;gap:14px;">
+                <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:#0e1117;background:#c94040;padding:13px 28px;">Research</span>
+                <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:300;letter-spacing:.08em;text-transform:uppercase;color:rgba(232,224,204,.65);border:1px solid rgba(232,224,204,.2);padding:13px 28px;">Publications</span>
+              </div>
+            </div>
+            <!-- right side quote mark -->
+            <div style="opacity:.06;font-family:'Crimson Pro',serif;font-size:180px;color:#e8e0cc;line-height:1;user-select:none;">"</div>
+          </div>
+        </div>
+
+        <!-- Research section -->
+        <div style="background:#111419;padding:64px 48px;border-top:1px solid rgba(255,255,255,.06);">
+          <p style="font-family:Inter,sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,64,64,.7);margin:0 0 8px;">Research</p>
+          <h2 style="font-family:'Crimson Pro',serif;font-size:42px;font-weight:300;color:#e8e0cc;margin:0 0 48px;line-height:1.15;">Questions that guide us</h2>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+
+            <!-- Card 1 -->
+            <div style="background:#161b24;padding:28px 28px 32px;border-top:2px solid #c94040;">
+              <div style="height:130px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="108" viewBox="0 0 140 108" fill="none">
+                  <circle cx="70" cy="52" r="24" stroke="#c94040" stroke-width="1.5" stroke-dasharray="4 3" opacity=".35"/>
+                  <circle cx="70" cy="52" r="15" fill="#c94040" opacity=".08"/>
+                  <circle cx="70" cy="52" r="15" stroke="#c94040" stroke-width="1.5" opacity=".5"/>
+                  <path d="M46 52 Q52 36 70 32 Q88 28 94 46" stroke="#c94040" stroke-width="1.5" fill="none" opacity=".4"/>
+                  <path d="M94 58 Q88 74 70 78 Q52 82 46 66" stroke="#c94040" stroke-width="1.5" fill="none" opacity=".4"/>
+                  <circle cx="70" cy="32" r="3" fill="#c94040" opacity=".7"/>
+                  <circle cx="94" cy="52" r="3" fill="#c94040" opacity=".7"/>
+                  <circle cx="70" cy="78" r="3" fill="#c94040" opacity=".7"/>
+                  <line x1="70" y1="82" x2="70" y2="96" stroke="#c94040" stroke-width="1" opacity=".2"/>
+                  <circle cx="70" cy="98" r="3" fill="#c94040" opacity=".2"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#c94040;opacity:.6;">01</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:400;color:#e8e0cc;margin:8px 0 10px;line-height:1.2;">Epigenetic Inheritance</h3>
+              <p style="font-family:Inter,sans-serif;font-size:12.5px;font-weight:300;line-height:1.7;color:rgba(232,224,204,.5);margin:0 0 16px;">Separating establishment from maintenance of H3K9 methylation to define heritable heterochromatin.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;color:rgba(201,64,64,.7);border:1px solid rgba(201,64,64,.25);padding:2px 7px;font-style:italic;">S. pombe</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;color:rgba(201,64,64,.7);border:1px solid rgba(201,64,64,.25);padding:2px 7px;">H3K9me</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="background:#1a1f2a;padding:28px 28px 32px;border-top:2px solid rgba(201,64,64,.35);">
+              <div style="height:130px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="108" viewBox="0 0 140 108" fill="none">
+                  <circle cx="70" cy="52" r="9" fill="#c94040" opacity=".4"/>
+                  <circle cx="70" cy="52" r="18" stroke="#c94040" stroke-width="1" opacity=".18" stroke-dasharray="2 3"/>
+                  <circle cx="70" cy="52" r="30" stroke="#c94040" stroke-width=".8" opacity=".09" stroke-dasharray="2 5"/>
+                  <circle cx="104" cy="30" r="4" fill="#c94040" opacity=".35"/>
+                  <circle cx="36" cy="28" r="3" fill="#c94040" opacity=".28"/>
+                  <circle cx="114" cy="68" r="2.5" fill="#c94040" opacity=".2"/>
+                  <circle cx="26" cy="70" r="3" fill="#c94040" opacity=".22"/>
+                  <circle cx="106" cy="84" r="2" fill="#c94040" opacity=".18"/>
+                  <circle cx="42" cy="88" r="2" fill="#c94040" opacity=".18"/>
+                  <path d="M104 30 Q90 42 79 48" stroke="#c94040" stroke-width=".8" opacity=".15" fill="none"/>
+                  <path d="M36 28 Q50 40 61 48" stroke="#c94040" stroke-width=".8" opacity=".15" fill="none"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#c94040;opacity:.6;">02</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:400;color:#e8e0cc;margin:8px 0 10px;line-height:1.2;">Heterochromatin Dynamics</h3>
+              <p style="font-family:Inter,sans-serif;font-size:12.5px;font-weight:300;line-height:1.7;color:rgba(232,224,204,.5);margin:0 0 16px;">Single-molecule tracking of Swi6/HP1 and Clr4, measuring kinetics that sustain stable silencing.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;color:rgba(201,64,64,.7);border:1px solid rgba(201,64,64,.25);padding:2px 7px;">Single-molecule</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;color:rgba(201,64,64,.7);border:1px solid rgba(201,64,64,.25);padding:2px 7px;">Swi6 / Clr4</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="background:#161b24;padding:28px 28px 32px;border-top:2px solid rgba(201,64,64,.35);">
+              <div style="height:130px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="140" height="108" viewBox="0 0 140 108" fill="none">
+                  <line x1="70" y1="8" x2="70" y2="32" stroke="#c94040" stroke-width="1.5" opacity=".5"/>
+                  <line x1="70" y1="32" x2="42" y2="58" stroke="#c94040" stroke-width="1.2" opacity=".3"/>
+                  <line x1="70" y1="32" x2="70" y2="58" stroke="#c94040" stroke-width="1.2" opacity=".3"/>
+                  <line x1="70" y1="32" x2="98" y2="58" stroke="#c94040" stroke-width="1.2" opacity=".3"/>
+                  <line x1="42" y1="58" x2="70" y2="88" stroke="#c94040" stroke-width="1" opacity=".45"/>
+                  <line x1="70" y1="58" x2="70" y2="88" stroke="#c94040" stroke-width="1" opacity=".45"/>
+                  <line x1="98" y1="58" x2="70" y2="88" stroke="#c94040" stroke-width="1" opacity=".45"/>
+                  <circle cx="70" cy="8" r="4" fill="#c94040" opacity=".75"/>
+                  <circle cx="70" cy="32" r="3" fill="#c94040" opacity=".5"/>
+                  <circle cx="42" cy="58" r="3" fill="#c94040" opacity=".3"/>
+                  <circle cx="70" cy="58" r="3" fill="#c94040" opacity=".3"/>
+                  <circle cx="98" cy="58" r="3" fill="#c94040" opacity=".3"/>
+                  <circle cx="70" cy="88" r="6" fill="#c94040" opacity=".6"/>
+                  <circle cx="70" cy="88" r="12" stroke="#c94040" stroke-width="1" opacity=".18" stroke-dasharray="3 2"/>
+                </svg>
+              </div>
+              <span style="font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#c94040;opacity:.6;">03</span>
+              <h3 style="font-family:'Crimson Pro',serif;font-size:21px;font-weight:400;color:#e8e0cc;margin:8px 0 10px;line-height:1.2;">Epigenetic Adaptation</h3>
+              <p style="font-family:Inter,sans-serif;font-size:12.5px;font-weight:300;line-height:1.7;color:rgba(232,224,204,.5);margin:0 0 16px;">Slow kinetics of heritable phenotype acquisition — tracing convergence on stable adaptive solutions.</p>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                <span style="font-family:Inter,sans-serif;font-size:10px;color:rgba(201,64,64,.7);border:1px solid rgba(201,64,64,.25);padding:2px 7px;">Adaptation kinetics</span>
+                <span style="font-family:Inter,sans-serif;font-size:10px;color:rgba(201,64,64,.7);border:1px solid rgba(201,64,64,.25);padding:2px 7px;">Lineage tracing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "go deeper on <a href="#1a">1a</a> — show people section and nav" · "mix <a href="#1b">1b</a> layout with <a href="#1a">1a</a> warmth" · "build out <a href="#1c">1c</a> as a full page" · "show me the publications section in <a href="#1b">1b</a>"</p>
+</section>
+</x-dc>
+</body>
+</html>
